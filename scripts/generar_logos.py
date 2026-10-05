@@ -47,7 +47,9 @@ def palabra(texto: str, tam: float, x0: float, base: float) -> str:
     x = 0.0
     for c in texto:
         nombre = cmap[ord(c)]
-        glifos[nombre].draw(TransformPen(pen, (escala, 0, 0, -escala, x0 + x * escala, base)))
+        glifos[nombre].draw(
+            TransformPen(pen, (escala, 0, 0, -escala, x0 + x * escala, base))
+        )
         x += fuente["hmtx"][nombre][0]
     return pen.getCommands(), x0 + x * escala
 
@@ -85,12 +87,24 @@ def main() -> None:
     trazo, fin = palabra("Palante", 40, 76, 45)
     nombres = {"a": "Sello", "b": "Dovelas", "c": "Trazo"}
     for v, nombre in nombres.items():
-        (DESTINO / f"palante-{v}-icono.svg").write_text(svg(64, icono(v, False), "Palante"), "utf8")
+        (DESTINO / f"palante-{v}-icono.svg").write_text(
+            svg(64, icono(v, False), "Palante"), "utf8"
+        )
         (DESTINO / f"palante-{v}.svg").write_text(
-            svg(fin + 4, icono(v, False) + f'<path d="{trazo}" fill="{HIERRO}"/>', "Palante"), "utf8"
+            svg(
+                fin + 4,
+                icono(v, False) + f'<path d="{trazo}" fill="{HIERRO}"/>',
+                "Palante",
+            ),
+            "utf8",
         )
         (DESTINO / f"palante-{v}-mono.svg").write_text(
-            svg(fin + 4, icono(v, True) + f'<path d="{trazo}" fill="currentColor"/>', "Palante"), "utf8"
+            svg(
+                fin + 4,
+                icono(v, True) + f'<path d="{trazo}" fill="currentColor"/>',
+                "Palante",
+            ),
+            "utf8",
         )
         print(f"Variante {v.upper()} ({nombre}) generada")
 

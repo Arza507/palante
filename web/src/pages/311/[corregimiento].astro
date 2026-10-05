@@ -1,0 +1,98 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Compartir from '../../components/Compartir.astro';
+import BarrasCategorias from '../../components/BarrasCategorias.astro';
+import Icono from '../../components/Icono.astro';
+import { datos311 } from '../../modulos/m311/datos';
+import { agregar, detalle, ESTILO_CATEGORIA, SIN_FILTRO, textoCompartir, totalDistrito, usaTasa } from '../../lib/m311';
+import { numero, porcentaje } from '../../lib/formato';
+import '../../styles/m311.css';
+
+export const getStaticPaths = (() => {
+  const d = datos311();
+  if (!d) return [];
+  return d.resumen.corregimientos.map((c) => ({ params: { corregimiento: c.slug } }));
+}) satisfies GetStaticPaths;
+
+const d = datos311()!;
+const { corregimiento } = Astro.params;
+const filas = agregar(d.resumen, SIN_FILTRO);
+const fila = filas.find((f) => f.slug === corregimiento)!;
+const det = detalle(d.resumen, fila);
+const distrito = totalDistrito(filas);
+const detDistrito = detalle(d.resumen, distrito);
+const tasa = usaTasa(d.resumen);
+const dias = d.resumen.dias_cierre[fila.slug];
+const diasDistrito = d.resumen.dias_cierre_distrito;
+const minimo = d.resumen.minimo_casos_mediana;
+const parteDistrito = distrito.total ? fila.total / distrito.total : 0;
+const categorias = d.resumen.categorias
+  .map((c, i) => ({ id: c.id, nombre: c.nombre, n: fila.porCategoria[i] }))
+  .filter((c) => c.n > 0)
+  .sort((a, b) => b.n - a.n);
+const url = new URL(`/311/${fila.slug}`, Astro.site).href;
+const descripcion = det.total
+  ? `${fila.nombre}: ${numero(det.total)} reportes al 311 ${d.periodo}. Problemas principales, porcentaje resuelto y comparación con el distrito de Panamá.`
+  : `${fila.nombre}: sin reportes al 311 ${d.periodo}.`;
+---
+<Base titulo={`${fila.nombre}: reportes al 311`} descripcion={descripcion} fechaDatos={d.meta.fecha_datos_texto} fachadas>
+  <div class="contenedor">
+    <p><a href="/311">Volver al mapa del 311</a></p>
+    <h1>{fila.nombre}</h1>
+    <p class="intro">Reportes al 311 en este corregimiento del distrito de Panamá, casos creados {d.periodo}.</p>
+    {det.total === 0 ? (
+      <div class="banda-azulejo"><p>No hubo reportes al 311 en {fila.nombre} {d.periodo}.</p></div>
+    ) : (
+      <>
+        <ul class="cifras">
+          <li class="cifra">
+            <p class="valor num">{numero(det.total)}</p>
+            <p class="rotulo">{det.total === 1 ? 'reporte' : 'reportes'}{tasa && fila.poblacion ? `, ${numero(fila.valor, 1)} por cada 10.000 habitantes` : ''}</p>
+          </li>
+          <li class="cifra">
+            <p class="valor num">{porcentaje(det.porcentajeResuelto ?? 0)}</p>
+            <p class="rotulo">resueltos. En el distrito: {porcentaje(detDistrito.porcentajeResuelto ?? 0)}.</p>
+          </li>
+          <li class="cifra">
+            {dias?.mediana != null ? (
+              <>
+                <p class="valor num">{numero(dias.mediana, 1)} días</p>
+                <p class="rotulo">mediana hasta el cierre, con {numero(dias.n)} casos resueltos.{diasDistrito.mediana != null && ` En el distrito: ${numero(diasDistrito.mediana, 1)} días.`}</p>
+              </>
+            ) : (
+              <>
+                <p class="valor">Sin dato</p>
+                <p class="rotulo">Hay menos de {minimo} casos resueltos para calcular la mediana de días hasta el cierre.</p>
+              </>
+            )}
+          </li>
+          <li class="cifra">
+            <p class="valor num">{porcentaje(parteDistrito, 1)}</p>
+            <p class="rotulo">de los {numero(distrito.total)} reportes del distrito.</p>
+          </li>
+        </ul>
+
+        <h2>Tres problemas principales</h2>
+        <ol class="principales">
+          {det.principales.map((p) => (
+            <li>
+              <span class="chip" style={`background:${(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).color}`}>
+                <Icono nombre={(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).icono} />{p.nombre}
+              </span>{' '}
+              {numero(p.n)} {p.n === 1 ? 'reporte' : 'reportes'} ({porcentaje(p.n / det.total)})
+            </li>
+          ))}
+        </ol>
+
+        <h2>Reportes por categoría</h2>
+        <BarrasCategorias items={categorias} titulo={`Reportes por categoría en ${fila.nombre}`} />
+
+        <p>
+          <Compartir texto={textoCompartir(fila.nombre, det, d.inicio, d.fin)} url={url} titulo={`${fila.nombre} en Palante`} />
+        </p>
+      </>
+    )}
+    <p>Fuente: <a href={d.meta.url}>Alcaldía de Panamá, datos abiertos</a> (CC0). <a href="/311/metodologia">Cómo lo calculamos</a>.</p>
+  </div>
+</Base>

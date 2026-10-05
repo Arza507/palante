@@ -12,8 +12,11 @@ import importlib
 import sys
 
 # Cada módulo expone main(args). Se cargan solo si existen, para poder correr hitos parciales.
-MODULOS = {"311": "palante_pipeline.m311.cli", "empleo": "palante_pipeline.empleo.cli",
-           "rutas": "palante_pipeline.rutas.cli"}
+MODULOS = {
+    "311": "palante_pipeline.m311.cli",
+    "empleo": "palante_pipeline.empleo.cli",
+    "rutas": "palante_pipeline.rutas.cli",
+}
 
 
 def cargar(nombre: str):

@@ -1,0 +1,76 @@
+---
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import Base from '../../layouts/Base.astro';
+import Baranda from '../../components/Baranda.astro';
+import { datos311 } from '../../modulos/m311/datos';
+import { numero, fecha } from '../../lib/formato';
+
+const d = datos311();
+const csv = (nombre: string) =>
+  readFileSync(resolve(process.cwd(), '../pipeline/config', nombre), 'utf8').trim().split('\n').slice(1)
+    .map((l) => l.split(','));
+const categorias = csv('categorias_311.csv');
+const porCategoria = new Map<string, string[]>();
+for (const [servicio, categoria] of categorias) porCategoria.set(categoria, [...(porCategoria.get(categoria) ?? []), servicio]);
+const estados = csv('estados_311.csv');
+const genericos = csv('servicios_genericos.csv').map((f) => f[0]);
+---
+<Base titulo="Metodología del mapa del 311" descripcion="De dónde salen los datos del mapa del 311, cómo agrupamos las categorías y qué límites tienen.">
+  <div class="contenedor">
+    <p><a href="/311">Volver al mapa del 311</a></p>
+    <h1>Cómo hacemos el mapa del 311</h1>
+    <p class="intro">Explicamos de dónde salen los datos, qué hacemos con ellos y qué no dicen.</p>
+
+    <h2>Fuente y licencia</h2>
+    {d ? (
+      <>
+        <p>Usamos el conjunto <a href={d.meta.url}>{d.meta.fuente}</a>, que publica la Alcaldía de Panamá en el Portal de Datos Abiertos con licencia {d.meta.licencia}.</p>
+        <p>Estos datos cubren los casos creados {d.periodo}. Los procesamos el {fecha(d.meta.fecha_proceso)}.</p>
+        <p>Leímos {numero(d.meta.filas_leidas)} filas y usamos {numero(d.meta.filas_validas)}.</p>
+        {d.meta.filas_descartadas.length > 0 && (
+          <ul>
+            {d.meta.filas_descartadas.map((x) => (
+              <li>Dejamos fuera {numero(x.filas)} {x.filas === 1 ? 'caso' : 'casos'}: {x.motivo}{x.detalle.length ? ` (${x.detalle.join(', ')})` : ''}.</li>
+            ))}
+          </ul>
+        )}
+      </>
+    ) : <p>Próximamente.</p>}
+    <p>Los límites de los corregimientos salen de OpenStreetMap, © colaboradores de OpenStreetMap, con licencia ODbL.</p>
+
+    <h2>Privacidad</h2>
+    <p>Los archivos de la Alcaldía traen el nombre de quien reporta y la descripción que escribió. Borramos ambas columnas apenas leemos el archivo. No se guardan ni se publican en ninguna parte de Palante.</p>
+
+    <h2>Más reportes no siempre significa más problemas</h2>
+    <p>El 311 mide cuánta gente reporta, no cuántos problemas hay. Los barrios que conocen el 311, o que tienen más tiempo y conexión para usarlo, reportan más. Un corregimiento con pocos reportes puede tener muchos problemas que nadie reportó.</p>
+    {d && !d.meta.poblacion_disponible && <p>{d.meta.poblacion_nota} Por eso los corregimientos con más gente tienden a tener más reportes.</p>}
+
+    <h2>Categorías</h2>
+    <p>La Alcaldía clasifica cada caso en uno o varios servicios. Los agrupamos en ocho categorías. Si un caso tiene varios servicios, usamos el primero que describe el problema. No cuentan como problema: {genericos.join(' ni ')}.</p>
+    <p>No hay reportes de agua ni de alumbrado porque esos servicios los atienden otras instituciones, no la Alcaldía.</p>
+    <dl>
+      {[...porCategoria.entries()].map(([cat, servicios]) => (
+        <>
+          <dt><strong>{cat}</strong></dt>
+          <dd>{servicios.join('; ')}.</dd>
+        </>
+      ))}
+    </dl>
+
+    <h2>Estados</h2>
+    <p>Contamos como resueltos los casos con estado {estados.filter((e) => e[2] === 'si').map((e) => `«${e[0]}»`).join(' o ')}.</p>
+    <ul>
+      {estados.map(([original, estado]) => <li>{original}: {estado}</li>)}
+    </ul>
+
+    <h2>Días hasta el cierre</h2>
+    <p>El archivo no trae la fecha de cierre. Para los casos resueltos usamos la fecha de su último cambio. La cifra es la mediana: la mitad de los casos se cerró en menos días y la otra mitad en más.</p>
+    {d && <p>Solo la mostramos cuando hay al menos {d.resumen.minimo_casos_mediana} casos resueltos.</p>}
+
+    <h2>Colores del mapa</h2>
+    <p>El mapa usa cinco tonos, de claro a oscuro. Cada tono agrupa a una quinta parte de los corregimientos con reportes, más o menos. La leyenda muestra los valores de cada tono y la lista tiene los números exactos.</p>
+    <Baranda />
+    <p><a href="/datos">Descarga los datos limpios</a> · <a href="/fuentes">Todas las fuentes</a></p>
+  </div>
+</Base>

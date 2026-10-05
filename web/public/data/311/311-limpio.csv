@@ -1,0 +1,529 @@
+caso,fecha_creacion,ultimo_cambio,trimestre,estado_original,estado,canal,servicios,categoria,corregimiento,dias_hasta_cierre
+2026-26219,2026-04-01 10:17:01,2026-04-01 14:07:47,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,San Francisco,0.2
+2026-26233,2026-04-01 10:45:09,2026-04-01 14:35:51,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Chilibre,
+2026-26305,2026-04-01 14:20:43,2026-04-01 15:09:03,2026-T2,En Proceso,En proceso,Llamada al 311,Ruido excesivo - MUPA,ruido,Pacora,
+2026-26309,2026-04-01 14:24:02,2026-04-01 15:17:00,2026-T2,En Proceso,En proceso,Email,Anuncio Publicitario Ilegal - MUPA,otros,Bella Vista,
+2026-26315,2026-04-01 14:30:14,2026-04-01 15:22:09,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-26409,2026-04-01 21:14:54,2026-04-06 09:09:18,2026-T2,En Proceso,En proceso,Llamada al 311,Parques - MUPA,arboles,Pueblo Nuevo,
+2026-26437,2026-04-02 07:50:32,2026-04-06 09:41:45,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,San Francisco,
+2026-26606,2026-04-02 17:06:18,2026-04-07 15:03:09,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Gato - MUPA,otros,Pacora,4.9
+2026-26631,2026-04-02 19:21:40,2026-04-07 15:03:09,2026-T2,Finalizado,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,4.8
+2026-26642,2026-04-02 20:03:10,2026-04-07 14:22:51,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-26654,2026-04-02 20:30:35,2026-04-07 14:29:16,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Ernesto Córdoba Campos,
+2026-26658,2026-04-02 20:45:57,2026-04-07 14:36:10,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-26804,2026-04-04 12:22:14,2026-04-07 14:46:50,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,San Felipe,
+2026-27011,2026-04-06 09:17:37,2026-04-07 14:55:47,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Río Abajo,
+2026-27130,2026-04-06 13:04:50,2026-04-07 15:02:52,2026-T2,En Proceso,En proceso,App,Mala disposición de la basura - MUPA,basura,Bella Vista,
+2026-27171,2026-04-06 15:10:55,2026-04-07 15:16:29,2026-T2,En Proceso,En proceso,Llamada al 311,Lote sucio - MUPA,basura,Pedregal,
+2026-27334,2026-04-07 09:05:50,2026-04-07 15:26:38,2026-T2,En Proceso,En proceso,Web,Indigentes - MUPA,otros,Bethania,
+2026-27504,2026-04-07 15:55:26,2026-04-08 09:11:08,2026-T2,En Proceso,En proceso,Llamada al 311,Mala disposición de la basura - MUPA,basura,Río Abajo,
+2026-27556,2026-04-07 18:48:23,2026-04-08 09:28:25,2026-T2,En Proceso,En proceso,Email,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-27560,2026-04-07 18:51:18,2026-04-08 09:52:12,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-27821,2026-04-08 14:16:34,2026-04-10 15:45:29,2026-T2,En Proceso,En proceso,Web,Ruido excesivo - MUPA,ruido,24 de Diciembre,
+2026-27842,2026-04-08 14:45:12,2026-04-09 09:02:23,2026-T2,En Proceso,En proceso,AI chatbot,Atención al Cliente,otros,Las Garzas,
+2026-27911,2026-04-08 18:37:42,2026-04-10 18:42:18,2026-T2,Finalizado,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,2.0
+2026-27937,2026-04-08 20:15:42,2026-04-09 09:10:03,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por construcción - MUPA,calles,Bella Vista,
+2026-28087,2026-04-09 10:34:34,2026-04-10 15:19:21,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Calidonia,
+2026-28607,2026-04-10 20:15:56,2026-04-13 15:30:08,2026-T2,En Proceso,En proceso,Email,Buhonería - MUPA,ruido,Bella Vista,
+2026-28612,2026-04-10 20:26:17,2026-04-13 15:56:43,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-28628,2026-04-10 21:28:36,2026-04-14 14:09:24,2026-T2,Finalizado,Resuelto,Email,Aceras por reparar - MUPA,calles,Bella Vista,3.7
+2026-28917,2026-04-11 21:25:37,2026-04-14 09:16:30,2026-T2,En Proceso,En proceso,Llamada al 311,Indigentes - MUPA,otros,Ancón,
+2026-29356,2026-04-13 20:52:39,2026-04-14 09:30:02,2026-T2,En Proceso,En proceso,Email,Buhonería - MUPA,ruido,Bella Vista,
+2026-29361,2026-04-13 21:07:04,2026-04-14 09:36:48,2026-T2,En Proceso,En proceso,Email,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-29362,2026-04-13 21:14:19,2026-04-14 09:47:26,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-29365,2026-04-13 21:21:29,2026-04-14 09:55:12,2026-T2,En Proceso,En proceso,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-29367,2026-04-13 21:24:02,2026-04-14 09:59:20,2026-T2,En Proceso,En proceso,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-29371,2026-04-13 21:40:05,2026-04-14 10:19:05,2026-T2,En Proceso,En proceso,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-29684,2026-04-14 18:39:02,2026-04-15 09:41:48,2026-T2,En Proceso,En proceso,Email,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-29689,2026-04-14 18:51:32,2026-04-15 09:53:24,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-29695,2026-04-14 19:12:31,2026-04-24 15:00:26,2026-T2,En Proceso,En proceso,Email,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-29698,2026-04-14 19:19:26,2026-04-15 14:21:12,2026-T2,Finalizado,Resuelto,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,0.8
+2026-29699,2026-04-14 19:21:45,2026-04-17 08:37:58,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-29703,2026-04-14 19:32:04,2026-04-15 10:27:01,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-29705,2026-04-14 19:35:36,2026-04-15 10:37:54,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-29706,2026-04-14 19:38:59,2026-04-15 10:48:58,2026-T2,En Proceso,En proceso,Email,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-29707,2026-04-14 19:43:00,2026-04-15 11:06:26,2026-T2,En Proceso,En proceso,Email,Buhonería - MUPA,ruido,Bella Vista,
+2026-29711,2026-04-14 19:51:04,2026-04-17 09:38:24,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Bethania,
+2026-29723,2026-04-14 20:14:07,2026-04-15 11:27:33,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-29729,2026-04-14 20:28:46,2026-04-15 11:35:00,2026-T2,En Proceso,En proceso,Email,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-29745,2026-04-14 21:03:30,2026-04-24 08:49:27,2026-T2,En Proceso,En proceso,Email,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-30062,2026-04-15 18:13:36,2026-04-17 08:48:09,2026-T2,En Proceso,En proceso,Email,Autos abandonados - MUPA,calles,Río Abajo,
+2026-30074,2026-04-15 18:37:27,2026-04-17 08:58:32,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-30077,2026-04-15 18:44:35,2026-04-17 09:25:06,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-30083,2026-04-15 19:03:31,2026-04-24 08:57:34,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-30085,2026-04-15 19:07:14,2026-04-17 09:31:24,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-30095,2026-04-15 19:25:40,2026-04-17 10:25:22,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-30107,2026-04-15 19:46:34,2026-04-17 13:33:27,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,1.7
+2026-30126,2026-04-15 20:44:14,2026-04-17 13:33:27,2026-T2,Finalizado,Resuelto,Email,Atención al Cliente,otros,Bella Vista,1.7
+2026-30147,2026-04-15 21:32:53,2026-04-17 13:33:27,2026-T2,Finalizado,Resuelto,Email,Ruido excesivo - MUPA,ruido,Bella Vista,1.7
+2026-30150,2026-04-15 21:36:50,2026-04-17 10:59:38,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-30415,2026-04-16 18:37:15,2026-04-17 11:09:00,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-30416,2026-04-16 18:43:35,2026-04-17 11:38:16,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Río Abajo,
+2026-30428,2026-04-16 19:04:54,2026-04-17 13:33:28,2026-T2,Finalizado,Resuelto,App,Mala disposición de la basura - MUPA,basura,Pueblo Nuevo,0.8
+2026-30438,2026-04-16 19:35:03,2026-04-17 11:54:26,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-30449,2026-04-16 20:01:10,2026-04-17 14:15:38,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-30653,2026-04-17 14:27:12,2026-04-17 15:55:01,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Juan Díaz,
+2026-30753,2026-04-17 18:29:49,2026-04-20 10:48:25,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-30759,2026-04-17 18:38:18,2026-04-20 10:55:30,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Bethania,
+2026-30888,2026-04-18 13:14:55,2026-04-24 09:05:00,2026-T2,En Proceso,En proceso,Web,Autos abandonados - MUPA,calles,Parque Lefevre,
+2026-31038,2026-04-19 10:19:54,2026-04-24 09:11:16,2026-T2,En Proceso,En proceso,App,Construcción operando fuera del horario - MUPA,ruido,Juan Díaz,
+2026-31169,2026-04-20 12:45:17,2026-04-24 09:21:59,2026-T2,En Proceso,En proceso,Web,Maltrato Animal - Gato - MUPA,otros,Pueblo Nuevo,
+2026-31318,2026-04-20 19:34:10,2026-04-24 09:29:03,2026-T2,En Proceso,En proceso,Email,"Buhonería - MUPA, Ruido excesivo - MUPA",ruido,Bella Vista,
+2026-31320,2026-04-20 19:38:13,2026-04-24 09:39:42,2026-T2,En Proceso,En proceso,Email,"Buhonería - MUPA, Sin carnet de salud para manejo de alimentos - MINSA",ruido,Bella Vista,
+2026-31324,2026-04-20 19:45:28,2026-04-24 09:46:50,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-31330,2026-04-20 19:56:37,2026-04-24 10:08:47,2026-T2,En Proceso,En proceso,Web,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,
+2026-31338,2026-04-20 20:21:12,2026-04-24 10:17:42,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-31346,2026-04-20 20:52:42,2026-04-20 20:53:02,2026-T2,Remitido,Remitido a otra entidad,Email,Aceras por reparar - MUPA,calles,Bella Vista,
+2026-31355,2026-04-20 21:18:36,2026-04-24 10:50:20,2026-T2,En Proceso,En proceso,App,Atención al Cliente,otros,Ancón,
+2026-31439,2026-04-21 10:11:36,2026-04-24 11:54:19,2026-T2,En Proceso,En proceso,Web,Construcción operando fuera del horario - MUPA,ruido,Parque Lefevre,
+2026-31489,2026-04-21 13:34:19,2026-04-24 12:00:55,2026-T2,En Proceso,En proceso,Llamada al 311,Daño de servidumbre - MUPA,calles,Parque Lefevre,
+2026-31523,2026-04-21 14:51:11,2026-04-24 15:10:57,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Pueblo Nuevo,
+2026-31534,2026-04-21 15:02:33,2026-04-24 15:18:11,2026-T2,En Proceso,En proceso,Llamada al 311,Buhonería - MUPA,ruido,Pueblo Nuevo,
+2026-31617,2026-04-21 19:13:56,2026-04-24 15:24:55,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-31643,2026-04-21 20:22:41,2026-04-24 15:39:42,2026-T2,En Proceso,En proceso,Email,Lote sucio - MUPA,basura,Bella Vista,
+2026-31699,2026-04-22 06:52:33,2026-04-24 15:46:31,2026-T2,En Proceso,En proceso,Llamada al 311,Locales sin permiso nocturno - MUPA,ruido,Bella Vista,
+2026-31862,2026-04-22 14:26:24,2026-04-24 15:54:01,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Río Abajo,
+2026-31889,2026-04-22 15:00:47,2026-04-27 08:33:54,2026-T2,En Proceso,En proceso,Llamada al 311,"Obstrucción de acera por comerciantes o particulares - MUPA, Control de Vectores - MINSA",calles,Río Abajo,
+2026-31998,2026-04-22 19:18:47,2026-05-04 10:28:33,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,11.6
+2026-32063,2026-04-23 06:47:09,2026-04-27 08:45:55,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Ancón,
+2026-32082,2026-04-23 08:44:43,2026-04-27 08:54:52,2026-T2,En Proceso,En proceso,Web,Indigentes - MUPA,otros,Calidonia,
+2026-32316,2026-04-23 19:40:16,2026-04-27 09:44:55,2026-T2,En Proceso,En proceso,Llamada al 311,Buhonería - MUPA,ruido,Ancón,
+2026-32413,2026-04-24 09:47:12,2026-04-27 10:01:27,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Santa Ana,
+2026-32467,2026-04-24 12:54:42,2026-04-27 10:07:25,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Juan Díaz,
+2026-32572,2026-04-24 17:20:26,2026-04-27 10:18:29,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bella Vista,
+2026-32607,2026-04-24 19:09:29,2026-04-27 14:42:34,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Ernesto Córdoba Campos,
+2026-32611,2026-04-24 19:20:27,2026-04-27 14:50:45,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-32635,2026-04-24 20:24:44,2026-05-04 10:01:46,2026-T2,En Proceso,En proceso,Email,Lote sucio - MUPA,basura,Bella Vista,
+2026-32637,2026-04-24 20:29:49,2026-04-27 15:43:49,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-32640,2026-04-24 20:45:47,2026-04-27 15:53:04,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-32644,2026-04-24 21:08:26,2026-04-28 08:52:20,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-32894,2026-04-25 19:27:38,2026-04-28 09:22:48,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-33005,2026-04-27 07:07:54,2026-05-04 10:28:57,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Pacora,7.1
+2026-33013,2026-04-27 07:34:56,2026-04-28 10:14:17,2026-T2,En Proceso,En proceso,App,Mala disposición de la basura - MUPA,basura,Bella Vista,
+2026-33094,2026-04-27 12:20:25,2026-04-28 10:36:47,2026-T2,En Proceso,En proceso,App,Obstrucción de acera por comerciantes o particulares - MUPA,calles,24 de Diciembre,
+2026-33238,2026-04-27 18:39:08,2026-04-28 10:43:37,2026-T2,En Proceso,En proceso,App,Autos abandonados - MUPA,calles,Calidonia,
+2026-33270,2026-04-27 19:49:39,2026-04-28 10:47:59,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bethania,
+2026-33277,2026-04-27 19:58:44,2026-04-27 19:59:36,2026-T2,Remitido,Remitido a otra entidad,Email,Atención al Cliente,otros,Bella Vista,
+2026-33459,2026-04-28 14:27:12,2026-04-28 15:58:03,2026-T2,En Proceso,En proceso,Llamada al 311,Indigentes - MUPA,otros,San Francisco,
+2026-33530,2026-04-28 17:06:43,2026-04-30 09:00:49,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bethania,
+2026-33590,2026-04-28 19:31:40,2026-04-30 09:09:51,2026-T2,En Proceso,En proceso,Email,Indigentes - MUPA,otros,Bella Vista,
+2026-33763,2026-04-29 15:20:05,2026-04-30 09:15:53,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Bella Vista,
+2026-33769,2026-04-29 15:39:30,2026-04-30 09:21:49,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bethania,
+2026-33780,2026-04-29 15:53:25,2026-05-04 10:20:40,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-33785,2026-04-29 16:00:03,2026-04-30 09:30:47,2026-T2,En Proceso,En proceso,Email,Atención al Cliente,otros,Bella Vista,
+2026-33815,2026-04-29 17:27:23,2026-04-30 09:42:56,2026-T2,En Proceso,En proceso,Llamada al 311,"Indigentes - MUPA, Obstrucción de acera por comerciantes o particulares - MUPA",otros,Parque Lefevre,
+2026-34078,2026-05-01 02:38:42,2026-06-01 11:21:57,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-34209,2026-05-01 09:45:09,2026-05-27 14:46:40,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Ancón,26.2
+2026-34245,2026-05-01 10:29:33,2026-05-27 14:45:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Alcalde Díaz,26.2
+2026-34268,2026-05-01 10:55:09,2026-06-03 17:36:38,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,33.3
+2026-34480,2026-05-01 16:03:25,2026-06-03 09:00:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Río Abajo,32.7
+2026-34580,2026-05-01 18:57:30,2026-06-05 13:48:11,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,24 de Diciembre,34.8
+2026-34795,2026-05-02 09:05:05,2026-05-04 15:04:56,2026-T2,Vencido,Vencido,Llamada al 311,"Acciones de hecho contra propiedad privada - MUPA, Construcción sin permisos - MUPA",otros,Caimitillo,
+2026-35414,2026-05-02 22:40:09,2026-05-27 09:25:24,2026-T2,Finalizado,Resuelto,AI chatbot,Ruido excesivo - MUPA,ruido,Las Mañanitas,24.4
+2026-35660,2026-05-03 13:50:20,2026-05-27 09:23:35,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Ancón,23.8
+2026-35701,2026-05-03 15:14:57,2026-05-27 17:03:37,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Juan Díaz,24.1
+2026-36020,2026-05-04 07:58:32,2026-05-20 20:46:04,2026-T2,Vencido,Vencido,Llamada al 311,Maltrato Animal - Gato - MUPA,otros,San Francisco,
+2026-36035,2026-05-04 08:06:42,2026-06-01 14:48:21,2026-T2,Vencido,Vencido,Llamada al 311,Autos abandonados - MUPA,calles,Ernesto Córdoba Campos,
+2026-36105,2026-05-04 08:36:09,2026-05-27 16:16:41,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Tocumen,23.3
+2026-36479,2026-05-04 11:00:20,2026-05-28 17:10:00,2026-T2,Finalizado,Resuelto,App,Ruido excesivo - MUPA,ruido,Santa Ana,24.3
+2026-36622,2026-05-04 12:08:33,2026-05-22 20:52:09,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,18.4
+2026-37034,2026-05-04 15:52:31,2026-06-22 09:03:31,2026-T2,Finalizado,Resuelto,Email,"Malos olores - MUPA, Solicitud de inspección a local - MINSA",otros,Bella Vista,48.7
+2026-37073,2026-05-04 16:18:08,2026-06-22 08:58:30,2026-T2,Finalizado,Resuelto,Email,Ruido excesivo - MUPA,ruido,Bella Vista,48.7
+2026-37153,2026-05-04 17:17:59,2026-06-22 08:56:53,2026-T2,Finalizado,Resuelto,Email,Atención al Cliente,otros,Bella Vista,48.7
+2026-37191,2026-05-04 17:52:21,2026-05-05 11:38:20,2026-T2,Vencido,Vencido,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-37219,2026-05-04 18:27:47,2026-06-22 08:55:34,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,48.6
+2026-37232,2026-05-04 18:43:00,2026-06-17 15:48:20,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,43.9
+2026-37257,2026-05-04 19:05:43,2026-05-20 20:46:42,2026-T2,Vencido,Vencido,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,
+2026-37342,2026-05-04 21:24:32,2026-06-17 15:38:24,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Bella Vista,43.8
+2026-37440,2026-05-05 07:32:50,2026-06-17 15:35:44,2026-T2,Finalizado,Resuelto,Llamada al 311,"Ideas y Sugerencias, Parques - MUPA",arboles,Ancón,43.3
+2026-37491,2026-05-05 08:08:50,2026-05-28 17:04:08,2026-T2,Finalizado,Resuelto,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Calidonia,23.4
+2026-37829,2026-05-05 10:27:06,2026-06-17 15:24:52,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,San Francisco,43.2
+2026-38139,2026-05-05 12:51:57,2026-05-22 17:49:12,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Bethania,17.2
+2026-38145,2026-05-05 12:56:11,2026-06-17 15:21:28,2026-T2,Finalizado,Resuelto,App,Indigentes - MUPA,otros,Bella Vista,43.1
+2026-38586,2026-05-05 17:40:00,2026-05-06 11:16:52,2026-T2,Vencido,Vencido,Llamada al 311,Alteración del orden público - MUPA,ruido,Tocumen,
+2026-38605,2026-05-05 18:02:05,2026-05-06 11:36:15,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Calidonia,
+2026-38662,2026-05-05 19:21:55,2026-05-27 09:51:53,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,21.6
+2026-38677,2026-05-05 19:49:02,2026-06-22 13:10:25,2026-T2,Finalizado,Resuelto,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Bella Vista,47.7
+2026-38694,2026-05-05 20:38:57,2026-05-27 09:41:13,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,21.5
+2026-38796,2026-05-06 06:53:28,2026-06-17 14:00:06,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,42.3
+2026-38873,2026-05-06 08:02:55,2026-06-01 14:01:10,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Alcalde Díaz,26.2
+2026-38882,2026-05-06 08:11:02,2026-06-22 13:05:13,2026-T2,Finalizado,Resuelto,App,Autos abandonados - MUPA,calles,Río Abajo,47.2
+2026-39109,2026-05-06 10:01:35,2026-06-17 13:56:57,2026-T2,Finalizado,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Río Abajo,42.2
+2026-39287,2026-05-06 11:08:49,2026-06-17 13:54:19,2026-T2,Finalizado,Resuelto,Llamada al 311,"Evaluaciones técnicas (árboles y estructurales) - Sinaproc, Caída de árbol - MUPA",arboles,Pedregal,42.1
+2026-39579,2026-05-06 13:27:09,2026-05-12 09:30:00,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Tocumen,
+2026-39683,2026-05-06 14:14:20,2026-05-27 17:12:42,2026-T2,Finalizado,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Parque Lefevre,21.1
+2026-39871,2026-05-06 16:21:34,2026-05-27 12:39:48,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Chilibre,20.8
+2026-39907,2026-05-06 16:53:11,2026-06-17 13:43:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Calidonia,41.9
+2026-40078,2026-05-06 20:40:50,2026-05-22 14:51:22,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Tocumen,15.8
+2026-40148,2026-05-07 04:46:26,2026-06-17 13:38:56,2026-T2,Finalizado,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,41.4
+2026-40155,2026-05-07 06:09:49,2026-05-30 16:59:38,2026-T2,Finalizado,Resuelto,Llamada al 311,Casa en ruina - MUPA,otros,Bella Vista,23.5
+2026-40207,2026-05-07 07:31:33,2026-05-08 09:51:02,2026-T2,Vencido,Vencido,Llamada al 311,"Construcción sin permisos - MUPA, Daño de servidumbre - MUPA",otros,Tocumen,
+2026-41286,2026-05-07 18:10:20,2026-05-28 11:29:02,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,20.7
+2026-41358,2026-05-07 20:01:40,2026-05-28 11:22:31,2026-T2,Finalizado,Resuelto,Email,Aceras por reparar - MUPA,calles,Bella Vista,20.6
+2026-41383,2026-05-07 20:47:07,2026-05-27 16:15:45,2026-T2,Finalizado,Resuelto,Email,Daño de servidumbre - MUPA,calles,Bella Vista,19.8
+2026-41458,2026-05-08 00:42:06,2026-06-22 12:51:53,2026-T2,Finalizado,Resuelto,Web,Ruido excesivo - MUPA,ruido,Bethania,45.5
+2026-41524,2026-05-08 07:21:54,2026-06-22 12:46:27,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Chilibre,45.2
+2026-41895,2026-05-08 10:54:56,2026-05-27 13:41:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Anuncio Publicitario Ilegal - MUPA,otros,Bella Vista,19.1
+2026-42416,2026-05-08 16:22:18,2026-06-17 13:02:06,2026-T2,Finalizado,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,39.9
+2026-42419,2026-05-08 16:26:35,2026-05-11 14:55:42,2026-T2,Vencido,Vencido,Email,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-42427,2026-05-08 16:38:05,2026-05-30 17:24:40,2026-T2,Finalizado,Resuelto,Email,"Daño de servidumbre - MUPA, Obstrucción de acera por construcción - MUPA",calles,Bella Vista,22.0
+2026-42443,2026-05-08 16:48:37,2026-05-11 15:09:15,2026-T2,Vencido,Vencido,Email,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-42482,2026-05-08 17:18:55,2026-06-22 12:35:45,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,44.8
+2026-42484,2026-05-08 17:19:31,2026-05-11 15:29:56,2026-T2,Vencido,Vencido,Email,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-42486,2026-05-08 17:21:21,2026-06-17 12:53:53,2026-T2,Finalizado,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Ancón,39.8
+2026-42507,2026-05-08 17:41:37,2026-05-12 09:54:22,2026-T2,Vencido,Vencido,Email,Aceras por reparar - MUPA,calles,Bella Vista,
+2026-42526,2026-05-08 17:55:21,2026-05-30 15:57:11,2026-T2,Finalizado,Resuelto,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,Don Bosco,21.9
+2026-42527,2026-05-08 17:56:14,2026-05-27 17:16:12,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,19.0
+2026-42532,2026-05-08 18:00:56,2026-06-22 12:33:29,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Don Bosco,44.8
+2026-43017,2026-05-09 11:24:24,2026-05-12 10:36:09,2026-T2,Vencido,Vencido,Llamada al 311,Atención al Cliente,otros,Don Bosco,
+2026-43117,2026-05-09 13:01:42,2026-06-20 10:19:15,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,41.9
+2026-43270,2026-05-09 15:58:10,2026-05-26 17:00:12,2026-T2,Finalizado,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Calidonia,17.0
+2026-43413,2026-05-09 20:46:55,2026-05-12 11:03:19,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Chilibre,
+2026-43621,2026-05-10 10:23:07,2026-06-20 10:01:28,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,41.0
+2026-43797,2026-05-10 13:57:20,2026-05-12 11:18:17,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-44065,2026-05-11 07:04:24,2026-05-25 15:47:38,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Juan Díaz,14.4
+2026-44135,2026-05-11 08:16:01,2026-05-12 11:41:16,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Ancón,
+2026-44262,2026-05-11 09:18:28,2026-05-28 10:20:30,2026-T2,Finalizado,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Pedregal,17.0
+2026-44589,2026-05-11 11:55:23,2026-06-17 17:41:35,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,37.2
+2026-44676,2026-05-11 12:39:17,2026-06-17 17:39:00,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Tocumen,37.2
+2026-44868,2026-05-11 14:21:38,2026-05-27 17:35:28,2026-T2,Finalizado,Resuelto,Llamada al 311,Lote sucio - MUPA,basura,Ernesto Córdoba Campos,16.1
+2026-44969,2026-05-11 15:26:56,2026-05-27 17:01:44,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Gato - MUPA,otros,Las Mañanitas,16.1
+2026-45171,2026-05-11 18:51:43,2026-05-28 16:29:50,2026-T2,Finalizado,Resuelto,App,Alteración del orden público - MUPA,ruido,San Francisco,16.9
+2026-45172,2026-05-11 18:51:49,2026-07-03 15:54:18,2026-T2,Finalizado,Resuelto,Llamada al 311,"Atención al Cliente, Parques - MUPA",arboles,Bethania,52.9
+2026-45466,2026-05-12 08:59:17,2026-06-17 17:19:54,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,36.3
+2026-45743,2026-05-12 11:26:05,2026-05-13 14:56:15,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Río Abajo,
+2026-45784,2026-05-12 11:43:03,2026-06-03 10:17:44,2026-T2,Finalizado,Resuelto,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,Tocumen,21.9
+2026-46282,2026-05-12 16:58:22,2026-05-28 13:44:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,15.9
+2026-46314,2026-05-12 17:26:33,2026-05-13 15:31:22,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-46335,2026-05-12 17:51:37,2026-05-28 13:28:09,2026-T2,Finalizado,Resuelto,Llamada al 311,Libar en vía pública - MUPA,ruido,Bella Vista,15.8
+2026-46342,2026-05-12 17:58:28,2026-05-13 15:44:20,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-46360,2026-05-12 18:16:31,2026-05-14 08:46:36,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-46362,2026-05-12 18:21:07,2026-05-29 10:14:00,2026-T2,Finalizado,Resuelto,Llamada al 311,Libar en vía pública - MUPA,ruido,Bella Vista,16.7
+2026-46398,2026-05-12 19:18:46,2026-05-14 09:03:22,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,
+2026-46404,2026-05-12 19:41:40,2026-05-14 09:29:20,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-46408,2026-05-12 19:45:32,2026-05-14 09:36:50,2026-T2,Vencido,Vencido,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-46438,2026-05-12 21:02:50,2026-05-14 09:46:18,2026-T2,Vencido,Vencido,Email,Obstrucción de acera por construcción - MUPA,calles,Bella Vista,
+2026-46441,2026-05-12 21:07:25,2026-07-01 17:58:55,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,49.9
+2026-46465,2026-05-12 21:58:49,2026-06-04 13:55:28,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,San Francisco,22.7
+2026-46467,2026-05-12 22:05:43,2026-05-29 10:01:16,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Ancón,16.5
+2026-46644,2026-05-13 08:30:14,2026-06-17 17:07:59,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,San Francisco,35.4
+2026-46898,2026-05-13 10:42:22,2026-05-14 11:44:00,2026-T2,Vencido,Vencido,App,Autos abandonados - MUPA,calles,Bethania,
+2026-47303,2026-05-13 14:50:05,2026-06-17 17:02:38,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,35.1
+2026-47458,2026-05-13 17:06:52,2026-05-14 12:04:55,2026-T2,Vencido,Vencido,Email,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-47644,2026-05-13 21:41:59,2026-06-20 09:37:57,2026-T2,Finalizado,Resuelto,Web,Caída de árbol - MUPA,arboles,24 de Diciembre,37.5
+2026-47649,2026-05-13 21:57:06,2026-06-03 09:53:52,2026-T2,Finalizado,Resuelto,Email,Lote sucio - MUPA,basura,Bella Vista,20.5
+2026-47918,2026-05-14 09:39:33,2026-06-01 12:04:14,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,18.1
+2026-48612,2026-05-14 16:59:43,2026-05-28 14:41:07,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Mañanitas,13.9
+2026-48643,2026-05-14 17:30:28,2026-06-04 12:50:19,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Río Abajo,20.8
+2026-48723,2026-05-14 19:48:01,2026-06-04 12:49:13,2026-T2,Finalizado,Resuelto,Web,Atención al Cliente,otros,San Francisco,20.7
+2026-48777,2026-05-14 21:09:49,2026-06-22 11:53:13,2026-T2,Finalizado,Resuelto,Email,Obstrucción de vía pública - MUPA,calles,Bella Vista,38.6
+2026-48937,2026-05-15 08:00:30,2026-05-29 16:55:20,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Parque Lefevre,14.4
+2026-49018,2026-05-15 09:05:03,2026-05-28 17:45:54,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Calidonia,13.4
+2026-49077,2026-05-15 09:42:42,2026-06-20 09:23:18,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Las Mañanitas,36.0
+2026-49219,2026-05-15 10:48:49,2026-06-01 15:10:44,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Alcalde Díaz,
+2026-49301,2026-05-15 11:27:59,2026-05-29 15:57:37,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,24 de Diciembre,14.2
+2026-49394,2026-05-15 12:30:18,2026-06-20 09:12:28,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Bethania,35.9
+2026-49432,2026-05-15 12:59:11,2026-05-19 11:48:02,2026-T2,Vencido,Vencido,Llamada al 311,Atención al Cliente,otros,Ancón,
+2026-49973,2026-05-15 22:12:38,2026-05-19 14:23:24,2026-T2,Vencido,Vencido,Email,Aceras por reparar - MUPA,calles,Bella Vista,
+2026-50317,2026-05-16 11:02:09,2026-06-23 08:50:03,2026-T2,Vencido,Vencido,Email,Autos abandonados - MUPA,calles,Río Abajo,
+2026-50509,2026-05-16 14:09:33,2026-05-19 14:42:44,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-50910,2026-05-17 08:18:06,2026-05-27 16:36:09,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Tocumen,10.3
+2026-50934,2026-05-17 09:16:17,2026-06-12 17:10:07,2026-T2,Finalizado,Resuelto,App,Ruido excesivo - MUPA,ruido,Calidonia,26.3
+2026-51026,2026-05-17 11:33:33,2026-05-20 09:47:22,2026-T2,Vencido,Vencido,Llamada al 311,Atención al Cliente,otros,Caimitillo,
+2026-51038,2026-05-17 11:45:13,2026-06-20 09:03:42,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,33.9
+2026-51078,2026-05-17 12:56:10,2026-05-20 10:03:28,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Alcalde Díaz,
+2026-51197,2026-05-17 18:45:23,2026-05-25 15:58:46,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,7.9
+2026-51615,2026-05-18 09:58:25,2026-06-22 11:44:42,2026-T2,Finalizado,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Bella Vista,35.1
+2026-51829,2026-05-18 11:24:45,2026-06-19 13:55:27,2026-T2,Finalizado,Resuelto,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,Ancón,32.1
+2026-51853,2026-05-18 11:33:18,2026-05-21 17:57:50,2026-T2,Finalizado,Resuelto,Llamada al 311,Construcción sin permisos - MUPA,otros,Parque Lefevre,3.3
+2026-52397,2026-05-18 16:04:52,2026-06-24 15:40:05,2026-T2,Finalizado,Resuelto,Llamada al 311,Daño de servidumbre - MUPA,calles,San Francisco,37.0
+2026-52932,2026-05-19 09:21:26,2026-06-17 16:36:56,2026-T2,Finalizado,Resuelto,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,Juan Díaz,29.3
+2026-52950,2026-05-19 09:32:02,2026-05-29 16:49:32,2026-T2,Finalizado,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,24 de Diciembre,10.3
+2026-52956,2026-05-19 09:36:36,2026-05-20 11:03:58,2026-T2,Vencido,Vencido,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Santa Ana,
+2026-53235,2026-05-19 11:54:12,2026-05-26 14:34:59,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,24 de Diciembre,7.1
+2026-53421,2026-05-19 13:27:45,2026-05-20 14:29:49,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,24 de Diciembre,
+2026-53617,2026-05-19 15:28:38,2026-05-29 17:56:13,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Mañanitas,10.1
+2026-53861,2026-05-19 20:35:51,2026-05-20 15:21:23,2026-T2,Vencido,Vencido,Llamada al 311,Construcción operando fuera del horario - MUPA,ruido,Bella Vista,
+2026-53867,2026-05-19 20:43:44,2026-05-20 14:39:16,2026-T2,Vencido,Vencido,Web,Locales sin permiso nocturno - MUPA,ruido,Santa Ana,
+2026-54014,2026-05-20 07:47:25,2026-06-17 16:23:17,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Juan Díaz,28.4
+2026-54193,2026-05-20 09:40:23,2026-06-12 14:54:32,2026-T2,Finalizado,Resuelto,Llamada al 311,Buhonería - MUPA,ruido,Bethania,23.2
+2026-54392,2026-05-20 11:15:29,2026-06-22 10:44:06,2026-T2,Finalizado,Resuelto,Llamada al 311,Daño de servidumbre - MUPA,calles,24 de Diciembre,33.0
+2026-54519,2026-05-20 12:18:59,2026-06-17 16:21:25,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Río Abajo,28.2
+2026-54609,2026-05-20 13:04:46,2026-05-26 11:29:40,2026-T2,Finalizado,Resuelto,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Calidonia,5.9
+2026-54644,2026-05-20 13:25:31,2026-06-24 15:26:03,2026-T2,Finalizado,Resuelto,Llamada al 311,Daño de servidumbre - MUPA,calles,San Francisco,35.1
+2026-54676,2026-05-20 13:38:32,2026-05-21 13:00:18,2026-T2,Vencido,Vencido,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Calidonia,
+2026-54954,2026-05-20 16:57:44,2026-06-17 16:11:29,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Pedregal,28.0
+2026-54960,2026-05-20 17:03:24,2026-06-19 16:45:17,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Río Abajo,30.0
+2026-55084,2026-05-20 20:46:27,2026-05-21 15:38:17,2026-T2,Vencido,Vencido,Llamada al 311,Lote sucio - MUPA,basura,Tocumen,
+2026-55089,2026-05-20 21:12:03,2026-06-19 16:41:27,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Don Bosco,29.8
+2026-56244,2026-05-21 22:35:54,2026-06-19 16:32:40,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Bella Vista,28.7
+2026-56290,2026-05-22 05:39:19,2026-06-20 09:12:16,2026-T2,Finalizado,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Ancón,29.1
+2026-56329,2026-05-22 07:12:58,2026-06-20 09:07:43,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Tocumen,29.1
+2026-56618,2026-05-22 09:59:25,2026-05-26 16:02:55,2026-T2,Finalizado,Resuelto,Llamada al 311,Construcción sin permisos - MUPA,otros,Ancón,4.3
+2026-57047,2026-05-22 13:38:54,2026-06-11 15:20:51,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,20.1
+2026-57334,2026-05-22 16:54:50,2026-06-01 15:24:56,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,9.9
+2026-57653,2026-05-23 01:50:11,2026-05-26 14:56:19,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,El Chorrillo,3.5
+2026-57872,2026-05-23 09:24:52,2026-05-25 15:09:30,2026-T2,Vencido,Vencido,Email,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-57931,2026-05-23 09:59:36,2026-05-26 12:48:25,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,24 de Diciembre,3.1
+2026-58684,2026-05-24 00:34:02,2026-06-22 10:07:56,2026-T2,Vencido,Vencido,Email,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-58906,2026-05-24 10:23:22,2026-06-17 15:26:41,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Calidonia,24.2
+2026-59451,2026-05-25 03:53:10,2026-06-02 09:49:18,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Alcalde Díaz,8.2
+2026-59567,2026-05-25 07:51:27,2026-06-19 13:43:17,2026-T2,Finalizado,Resuelto,App,Buhonería - MUPA,ruido,Ancón,25.2
+2026-59729,2026-05-25 09:13:02,2026-06-19 13:41:43,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,25.2
+2026-59843,2026-05-25 09:52:44,2026-06-13 16:14:22,2026-T2,Finalizado,Resuelto,Llamada al 311,Buhonería - MUPA,ruido,24 de Diciembre,19.3
+2026-60427,2026-05-25 13:48:40,2026-05-28 11:15:01,2026-T2,Vencido,Vencido,Llamada al 311,Construcción operando fuera del horario - MUPA,ruido,Calidonia,
+2026-60571,2026-05-25 15:07:22,2026-06-04 12:33:07,2026-T2,Finalizado,Resuelto,Web,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,9.9
+2026-61240,2026-05-25 19:45:22,2026-05-28 11:37:17,2026-T2,Vencido,Vencido,Llamada al 311,Ruido excesivo - MUPA,ruido,Calidonia,
+2026-61624,2026-05-26 08:53:20,2026-06-04 08:45:48,2026-T2,Vencido,Vencido,Llamada al 311,Autos abandonados - MUPA,calles,Las Cumbres,
+2026-61755,2026-05-26 09:37:02,2026-06-02 13:55:02,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Bethania,
+2026-62047,2026-05-26 11:40:21,2026-05-28 11:44:11,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Pueblo Nuevo,
+2026-62145,2026-05-26 12:32:42,2026-06-20 17:01:15,2026-T2,Finalizado,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Bethania,25.2
+2026-62231,2026-05-26 13:09:24,2026-06-20 08:19:48,2026-T2,Finalizado,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Río Abajo,24.8
+2026-62367,2026-05-26 14:08:50,2026-06-22 09:22:08,2026-T2,Finalizado,Resuelto,Llamada al 311,Ganado en soltura - MUPA,otros,Pacora,26.8
+2026-62408,2026-05-26 14:33:46,2026-05-28 15:24:12,2026-T2,Vencido,Vencido,Llamada al 311,Daño de servidumbre - MUPA,calles,Pedregal,
+2026-62556,2026-05-26 16:27:45,2026-06-04 10:08:07,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bethania,8.7
+2026-62645,2026-05-26 18:01:57,2026-07-02 10:14:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Don Bosco,36.7
+2026-62772,2026-05-26 20:49:04,2026-06-22 08:54:50,2026-T2,Finalizado,Resuelto,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,26.5
+2026-63024,2026-05-27 08:40:18,2026-06-22 08:44:46,2026-T2,Finalizado,Resuelto,App,Mala disposición de la basura - MUPA,basura,Bella Vista,26.0
+2026-63102,2026-05-27 09:14:04,2026-06-02 09:45:35,2026-T2,Vencido,Vencido,Llamada al 311,Construcción sin permisos - MUPA,otros,Río Abajo,
+2026-63469,2026-05-27 11:51:33,2026-06-08 10:16:50,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,San Francisco,11.9
+2026-63552,2026-05-27 12:34:20,2026-06-02 10:17:07,2026-T2,Vencido,Vencido,App,Autos abandonados - MUPA,calles,Parque Lefevre,
+2026-63745,2026-05-27 14:36:20,2026-06-17 16:29:58,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,24 de Diciembre,21.1
+2026-63791,2026-05-27 15:11:50,2026-06-20 12:57:10,2026-T2,Finalizado,Resuelto,App,Mala disposición de la basura - MUPA,basura,Calidonia,23.9
+2026-63954,2026-05-27 17:40:52,2026-07-01 17:28:42,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Gato - MUPA,otros,Chilibre,35.0
+2026-63988,2026-05-27 18:43:19,2026-07-01 17:25:40,2026-T2,Finalizado,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Don Bosco,34.9
+2026-64029,2026-05-27 20:08:21,2026-06-08 10:21:10,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,11.6
+2026-64046,2026-05-27 20:44:18,2026-06-17 13:32:53,2026-T2,Finalizado,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Las Mañanitas,20.7
+2026-64111,2026-05-27 23:11:30,2026-06-20 12:09:36,2026-T2,Finalizado,Resuelto,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,23.5
+2026-64135,2026-05-28 02:35:47,2026-06-20 08:07:22,2026-T2,Finalizado,Resuelto,Email,Atención al Cliente,otros,Bella Vista,23.2
+2026-64322,2026-05-28 08:46:53,2026-06-24 08:32:11,2026-T2,Finalizado,Resuelto,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Río Abajo,27.0
+2026-64329,2026-05-28 08:50:41,2026-06-08 11:38:10,2026-T2,Finalizado,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Río Abajo,11.1
+2026-64564,2026-05-28 10:39:26,2026-06-22 11:48:32,2026-T2,Finalizado,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,San Francisco,25.0
+2026-64796,2026-05-28 12:51:57,2026-06-24 08:25:19,2026-T2,Finalizado,Resuelto,Web,Autos abandonados - MUPA,calles,Pedregal,26.8
+2026-64805,2026-05-28 12:58:07,2026-06-03 09:34:21,2026-T2,En Proceso,En proceso,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Santa Ana,
+2026-65252,2026-05-28 19:26:16,2026-06-08 14:28:00,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,10.8
+2026-65282,2026-05-28 20:09:16,2026-06-03 09:58:30,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Alcalde Díaz,
+2026-65365,2026-05-29 03:14:44,2026-06-09 10:46:54,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bella Vista,
+2026-65383,2026-05-29 05:28:09,2026-07-01 17:09:49,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,33.5
+2026-65384,2026-05-29 05:33:39,2026-06-08 15:00:28,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,10.4
+2026-65642,2026-05-29 09:42:50,2026-06-24 12:21:50,2026-T2,Finalizado,Resuelto,Llamada al 311,Locales sin permiso nocturno - MUPA,ruido,Juan Díaz,26.1
+2026-65783,2026-05-29 10:47:58,2026-06-06 12:29:40,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Bethania,8.1
+2026-65914,2026-05-29 11:58:01,2026-06-03 10:50:23,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-66257,2026-05-29 15:50:39,2026-06-03 10:56:58,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Ancón,
+2026-66373,2026-05-29 18:17:52,2026-06-03 11:23:38,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Juan Díaz,
+2026-66440,2026-05-29 19:55:35,2026-06-20 13:57:34,2026-T2,Finalizado,Resuelto,Email,"Limpieza y Ornato - Juntas Comunales, Lote sucio - MUPA",basura,Ancón,21.8
+2026-66491,2026-05-29 23:12:58,2026-06-23 13:16:06,2026-T2,Finalizado,Resuelto,Llamada al 311,Atención al Cliente,otros,Juan Díaz,24.6
+2026-67306,2026-05-30 23:03:29,2026-06-03 12:04:24,2026-T2,En Proceso,En proceso,Llamada al 311,Ruido excesivo - MUPA,ruido,Bethania,
+2026-67824,2026-06-01 07:20:50,2026-06-03 12:57:02,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Pueblo Nuevo,
+2026-68279,2026-06-01 11:05:47,2026-06-06 10:02:15,2026-T2,Concluido,Resuelto,Llamada al 311,Hospedajes clandestinos - MUPA,otros,24 de Diciembre,5.0
+2026-68307,2026-06-01 11:18:05,2026-06-03 14:55:08,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Pueblo Nuevo,
+2026-68691,2026-06-01 14:52:26,2026-06-03 15:05:31,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Bella Vista,
+2026-68693,2026-06-01 14:53:10,2026-06-08 11:32:06,2026-T2,Concluido,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Pueblo Nuevo,6.9
+2026-68965,2026-06-01 19:08:03,2026-06-05 16:28:18,2026-T2,Concluido,Resuelto,Llamada al 311,Aceras por reparar - MUPA,calles,Don Bosco,3.9
+2026-69019,2026-06-01 20:25:34,2026-06-03 15:32:41,2026-T2,En Proceso,En proceso,Llamada al 311,Parques - MUPA,arboles,Alcalde Díaz,
+2026-69096,2026-06-01 22:58:12,2026-06-11 12:07:19,2026-T2,Concluido,Resuelto,Email,Ruido excesivo - MUPA,ruido,Bella Vista,9.5
+2026-69100,2026-06-01 23:50:23,2026-06-19 12:24:32,2026-T2,Concluido,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,17.5
+2026-69229,2026-06-02 08:26:15,2026-06-03 15:51:52,2026-T2,En Proceso,En proceso,Llamada al 311,Lote sucio - MUPA,basura,Parque Lefevre,
+2026-69426,2026-06-02 10:11:31,2026-06-08 17:47:50,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Santa Ana,6.3
+2026-69459,2026-06-02 10:26:33,2026-07-01 16:31:56,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Pueblo Nuevo,29.3
+2026-69579,2026-06-02 11:26:02,2026-06-08 16:58:05,2026-T2,Concluido,Resuelto,Llamada al 311,"Atención al Cliente, Maltrato Animal - Perro - MUPA",otros,Pacora,6.2
+2026-69711,2026-06-02 12:37:11,2026-07-01 16:29:28,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,San Francisco,29.2
+2026-69868,2026-06-02 13:58:11,2026-06-08 16:41:21,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Las Cumbres,6.1
+2026-70014,2026-06-02 15:40:07,2026-07-01 16:18:57,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,29.0
+2026-70041,2026-06-02 16:03:00,2026-06-23 13:19:20,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,20.9
+2026-70083,2026-06-02 17:05:46,2026-06-19 12:13:31,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,16.8
+2026-70195,2026-06-02 19:40:13,2026-06-05 09:25:37,2026-T2,En Proceso,En proceso,Llamada al 311,Locales sin permiso nocturno - MUPA,ruido,Ancón,
+2026-70443,2026-06-03 09:12:39,2026-06-19 15:37:36,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,San Francisco,16.3
+2026-70968,2026-06-03 14:10:05,2026-06-05 10:34:53,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Las Cumbres,
+2026-71481,2026-06-04 08:26:48,2026-06-17 17:31:15,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,13.4
+2026-71486,2026-06-04 08:29:15,2026-06-17 17:27:44,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,13.4
+2026-71648,2026-06-04 09:52:42,2026-06-19 14:59:15,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Caimitillo,15.2
+2026-71676,2026-06-04 10:04:46,2026-06-05 11:24:57,2026-T2,En Proceso,En proceso,Email,"Obstrucción de acera por comerciantes o particulares - MUPA, Obstrucción de acera por construcción - MUPA",calles,Pacora,
+2026-72182,2026-06-04 14:43:12,2026-06-06 17:15:24,2026-T2,Concluido,Resuelto,Llamada al 311,Aceras por reparar - MUPA,calles,Santa Ana,2.1
+2026-72193,2026-06-04 14:49:41,2026-06-06 17:18:57,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,2.1
+2026-72592,2026-06-05 07:03:01,2026-06-23 13:23:11,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Bethania,18.3
+2026-72696,2026-06-05 08:48:12,2026-06-08 11:20:55,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Bella Vista,
+2026-72709,2026-06-05 08:57:07,2026-06-08 11:27:25,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Río Abajo,
+2026-72725,2026-06-05 09:04:38,2026-06-17 16:36:32,2026-T2,Concluido,Resuelto,App,Buhonería - MUPA,ruido,Calidonia,12.3
+2026-72742,2026-06-05 09:14:35,2026-06-19 16:58:28,2026-T2,Concluido,Resuelto,Llamada al 311,Casa en ruina - MUPA,otros,Bella Vista,14.3
+2026-72810,2026-06-05 09:47:40,2026-06-08 12:02:59,2026-T2,En Proceso,En proceso,Llamada al 311,Daño de servidumbre - MUPA,calles,Pacora,
+2026-72938,2026-06-05 10:40:34,2026-06-19 17:02:07,2026-T2,Concluido,Resuelto,Llamada al 311,Construcción sin permisos - MUPA,otros,Ancón,14.3
+2026-73480,2026-06-05 16:31:13,2026-06-09 11:27:57,2026-T2,En Proceso,En proceso,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,24 de Diciembre,
+2026-73513,2026-06-05 17:03:59,2026-06-17 15:55:26,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,12.0
+2026-74102,2026-06-06 13:28:54,2026-06-30 09:21:17,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Parque Lefevre,23.8
+2026-74126,2026-06-06 13:59:00,2026-06-09 12:32:19,2026-T2,En Proceso,En proceso,Llamada al 311,Mala disposición de la basura - MUPA,basura,Pueblo Nuevo,
+2026-74378,2026-06-06 20:50:43,2026-06-09 13:00:29,2026-T2,En Proceso,En proceso,Llamada al 311,"Atención al Cliente, Alteración del orden público - MUPA, Malos olores - MUPA",ruido,Alcalde Díaz,
+2026-74383,2026-06-06 21:04:43,2026-07-01 14:34:50,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Chilibre,24.7
+2026-74895,2026-06-08 07:31:29,2026-06-11 11:05:35,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Parque Lefevre,3.1
+2026-74909,2026-06-08 07:41:29,2026-06-30 09:06:37,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Calidonia,22.1
+2026-75024,2026-06-08 09:08:28,2026-06-11 11:18:24,2026-T2,Concluido,Resuelto,Email,Obstrucción de acera por construcción - MUPA,calles,Bella Vista,3.1
+2026-75044,2026-06-08 09:16:43,2026-06-11 11:24:39,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Chilibre,3.1
+2026-75168,2026-06-08 10:22:12,2026-06-09 15:17:38,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de acera por construcción - MUPA,calles,Tocumen,
+2026-75249,2026-06-08 11:03:03,2026-06-11 10:46:09,2026-T2,Concluido,Resuelto,App,Atención al Cliente,otros,Pueblo Nuevo,3.0
+2026-75261,2026-06-08 11:08:12,2026-07-01 14:10:28,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Calidonia,23.1
+2026-75520,2026-06-08 13:27:33,2026-06-11 09:13:35,2026-T2,Concluido,Resuelto,Llamada al 311,"Consultas sobre el Programa 120 a los 65 - MIDES, Consultas sobre el Programa 120 a los 65 - Exclusión - MIDES, Consultas sobre el Programa 120 a los 65 - Reconsideración - MIDES, Atención al Cliente",otros,Parque Lefevre,2.8
+2026-75673,2026-06-08 14:50:28,2026-06-10 08:33:10,2026-T2,En Proceso,En proceso,Llamada al 311,"Construcción sin permisos - MUPA, Daño de servidumbre - MUPA",otros,Pacora,
+2026-75834,2026-06-08 16:58:32,2026-07-02 08:16:17,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Pueblo Nuevo,23.6
+2026-75894,2026-06-08 18:02:38,2026-06-11 10:01:51,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Caimitillo,2.7
+2026-75923,2026-06-08 18:44:53,2026-07-02 08:11:24,2026-T2,Concluido,Resuelto,Web,Atención al Cliente,otros,Pueblo Nuevo,23.6
+2026-75957,2026-06-08 19:43:48,2026-06-11 09:58:16,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Bella Vista,2.6
+2026-75964,2026-06-08 19:53:50,2026-06-11 09:56:06,2026-T2,Concluido,Resuelto,Llamada al 311,Mala disposición de la basura - MUPA,basura,Don Bosco,2.6
+2026-75965,2026-06-08 19:54:15,2026-06-11 09:55:18,2026-T2,Concluido,Resuelto,Email,Atención al Cliente,otros,Bella Vista,2.6
+2026-76205,2026-06-09 09:10:12,2026-06-11 09:14:05,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Curundú,2.0
+2026-76290,2026-06-09 09:54:37,2026-06-16 11:15:57,2026-T2,Concluido,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,24 de Diciembre,7.1
+2026-76350,2026-06-09 10:26:09,2026-06-10 10:56:46,2026-T2,En Proceso,En proceso,App,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Parque Lefevre,
+2026-76478,2026-06-09 11:33:16,2026-06-11 08:42:15,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,24 de Diciembre,1.9
+2026-76605,2026-06-09 13:09:50,2026-06-10 11:17:32,2026-T2,En Proceso,En proceso,Llamada al 311,Actividad temporal sin permiso - MUPA,otros,Río Abajo,
+2026-76743,2026-06-09 14:37:26,2026-06-10 11:23:51,2026-T2,En Proceso,En proceso,Llamada al 311,Autos abandonados - MUPA,calles,Río Abajo,
+2026-77082,2026-06-09 19:08:26,2026-06-11 09:32:50,2026-T2,Concluido,Resuelto,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Bella Vista,1.6
+2026-77295,2026-06-10 08:12:07,2026-06-12 08:21:31,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Tocumen,
+2026-77316,2026-06-10 08:29:17,2026-06-10 11:48:50,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Pacora,
+2026-77487,2026-06-10 09:57:44,2026-07-02 11:04:57,2026-T2,Concluido,Resuelto,App,Indigentes - MUPA,otros,Parque Lefevre,22.0
+2026-77567,2026-06-10 10:27:55,2026-07-01 17:55:50,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Las Cumbres,21.3
+2026-77589,2026-06-10 10:41:05,2026-06-10 15:15:48,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Juan Díaz,
+2026-77712,2026-06-10 11:40:47,2026-07-01 17:33:40,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Ernesto Córdoba Campos,21.2
+2026-77801,2026-06-10 12:39:20,2026-06-19 16:46:40,2026-T2,Concluido,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Ancón,9.2
+2026-77818,2026-06-10 12:50:05,2026-06-11 08:36:35,2026-T2,Concluido,Resuelto,Llamada al 311,Caída de árbol - MUPA,arboles,Parque Lefevre,0.8
+2026-77896,2026-06-10 13:57:13,2026-06-11 08:30:32,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Bethania,0.8
+2026-77966,2026-06-10 14:38:06,2026-06-30 08:41:15,2026-T2,Concluido,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,19.8
+2026-77968,2026-06-10 14:39:10,2026-06-11 08:19:51,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,24 de Diciembre,0.7
+2026-78170,2026-06-10 17:15:06,2026-06-30 08:39:15,2026-T2,Concluido,Resuelto,Web,Indigentes - MUPA,otros,Calidonia,19.6
+2026-78190,2026-06-10 17:39:02,2026-06-15 12:54:34,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,4.8
+2026-78251,2026-06-10 18:58:26,2026-06-12 16:58:30,2026-T2,Concluido,Resuelto,Llamada al 311,Lote sucio - MUPA,basura,Caimitillo,1.9
+2026-78455,2026-06-11 07:47:53,2026-06-11 10:27:42,2026-T2,En Proceso,En proceso,Llamada al 311,"Canalizaciones - MOP, Daño de servidumbre - MUPA",drenajes,Bethania,
+2026-78936,2026-06-11 12:23:29,2026-06-13 10:48:03,2026-T2,Concluido,Resuelto,Llamada al 311,"Autos abandonados - MUPA, Control de Vectores - MINSA",calles,Pacora,1.9
+2026-79007,2026-06-11 13:11:05,2026-06-16 11:13:37,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,4.9
+2026-79061,2026-06-11 13:43:27,2026-06-13 11:03:03,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Parque Lefevre,1.9
+2026-79223,2026-06-11 15:17:01,2026-06-13 11:06:44,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Gato - MUPA,otros,Bethania,1.8
+2026-79237,2026-06-11 15:30:53,2026-06-13 11:05:13,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,1.8
+2026-79288,2026-06-11 16:05:19,2026-06-13 11:10:02,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Tocumen,1.8
+2026-79609,2026-06-12 02:28:06,2026-06-13 09:05:35,2026-T2,Concluido,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Bella Vista,1.3
+2026-79611,2026-06-12 02:43:33,2026-06-30 08:16:43,2026-T2,Concluido,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Bella Vista,18.2
+2026-79706,2026-06-12 07:48:48,2026-06-13 08:51:01,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bethania,1.0
+2026-79729,2026-06-12 08:10:41,2026-06-13 08:34:42,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Ancón,1.0
+2026-79838,2026-06-12 09:03:40,2026-06-15 09:29:18,2026-T2,En Proceso,En proceso,Llamada al 311,"Atención al Cliente, Construcción sin permisos - MUPA",otros,Ancón,
+2026-79848,2026-06-12 09:10:34,2026-06-13 08:57:34,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,1.0
+2026-80060,2026-06-12 10:55:51,2026-06-16 10:46:37,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,4.0
+2026-80091,2026-06-12 11:12:33,2026-06-15 09:38:12,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de vía pública - MUPA,calles,Bella Vista,
+2026-80903,2026-06-12 20:09:41,2026-06-30 13:44:39,2026-T2,Concluido,Resuelto,Email,Indigentes - MUPA,otros,Bella Vista,17.7
+2026-80910,2026-06-12 20:19:15,2026-06-18 17:42:13,2026-T2,Concluido,Resuelto,Email,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bella Vista,5.9
+2026-81004,2026-06-12 23:40:35,2026-06-18 17:29:45,2026-T2,Concluido,Resuelto,Email,Construcción sin permisos - MUPA,otros,Ancón,5.7
+2026-81233,2026-06-13 09:27:51,2026-06-17 08:58:39,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Bethania,4.0
+2026-81462,2026-06-13 12:02:10,2026-06-16 10:07:37,2026-T2,Concluido,Resuelto,Llamada al 311,Lote sucio - MUPA,basura,Río Abajo,2.9
+2026-81523,2026-06-13 12:53:29,2026-06-16 16:00:04,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Tocumen,3.1
+2026-81680,2026-06-13 16:10:37,2026-06-15 11:52:36,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Las Cumbres,
+2026-81900,2026-06-13 22:54:30,2026-06-23 09:03:02,2026-T2,En Proceso,En proceso,App,Mala disposición de la basura - MUPA,basura,Ancón,
+2026-81918,2026-06-14 00:49:37,2026-07-01 12:42:45,2026-T2,Concluido,Resuelto,Email,Obstrucción de vía pública - MUPA,calles,Calidonia,17.5
+2026-82030,2026-06-14 09:29:04,2026-06-16 15:21:19,2026-T2,Concluido,Resuelto,Llamada al 311,Lote sucio - MUPA,basura,Caimitillo,2.2
+2026-82131,2026-06-14 12:17:57,2026-06-15 13:45:57,2026-T2,En Proceso,En proceso,Llamada al 311,"Alteración del orden público - MUPA, Saneamiento Básico Aire - MINSA",ruido,Don Bosco,
+2026-82169,2026-06-14 13:40:56,2026-06-16 14:47:06,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Río Abajo,2.0
+2026-82171,2026-06-14 13:43:46,2026-06-15 13:53:43,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Chilibre,
+2026-82214,2026-06-14 14:32:22,2026-06-16 14:09:44,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,24 de Diciembre,2.0
+2026-82353,2026-06-14 18:23:05,2026-06-15 14:08:45,2026-T2,En Proceso,En proceso,App,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Parque Lefevre,
+2026-82361,2026-06-14 18:30:56,2026-06-15 14:02:41,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Parque Lefevre,
+2026-82520,2026-06-15 05:15:27,2026-07-01 17:22:51,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,16.5
+2026-82571,2026-06-15 07:28:26,2026-06-16 12:24:28,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Las Cumbres,1.2
+2026-82851,2026-06-15 09:55:12,2026-06-15 14:36:25,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Parque Lefevre,
+2026-82998,2026-06-15 11:07:13,2026-06-15 14:42:17,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-83015,2026-06-15 11:13:51,2026-06-15 14:49:46,2026-T2,En Proceso,En proceso,Llamada al 311,Acciones de hecho contra propiedad privada - MUPA,otros,Río Abajo,
+2026-83548,2026-06-15 15:15:40,2026-07-04 15:38:25,2026-T2,Concluido,Resuelto,Llamada al 311,Parques - MUPA,arboles,San Felipe,19.0
+2026-83679,2026-06-15 16:57:19,2026-06-24 15:44:35,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,8.9
+2026-83714,2026-06-15 17:39:10,2026-06-23 09:24:36,2026-T2,En Proceso,En proceso,Web,Mala disposición de la basura - MUPA,basura,Alcalde Díaz,
+2026-83817,2026-06-15 20:51:26,2026-06-23 09:55:02,2026-T2,En Proceso,En proceso,Llamada al 311,Lote sucio - MUPA,basura,Pacora,
+2026-83856,2026-06-15 23:19:15,2026-06-24 15:41:03,2026-T2,Concluido,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Río Abajo,8.7
+2026-84018,2026-06-16 07:54:58,2026-07-01 14:45:08,2026-T2,Concluido,Resuelto,Llamada al 311,Buhonería - MUPA,ruido,San Francisco,15.3
+2026-84028,2026-06-16 08:06:35,2026-07-01 14:40:24,2026-T2,Concluido,Resuelto,App,Caída de árbol - MUPA,arboles,Ancón,15.3
+2026-84599,2026-06-16 12:18:35,2026-06-24 15:21:35,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Bethania,8.1
+2026-84722,2026-06-16 13:33:27,2026-06-23 11:46:18,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Río Abajo,
+2026-84758,2026-06-16 13:58:28,2026-06-23 13:41:15,2026-T2,En Proceso,En proceso,Email,"Casa en ruina - MUPA, Lote sucio - MUPA",otros,Bella Vista,
+2026-85103,2026-06-16 20:02:57,2026-06-24 15:02:11,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Alcalde Díaz,7.8
+2026-85146,2026-06-16 23:28:38,2026-06-24 14:58:50,2026-T2,Concluido,Resuelto,Email,Mala disposición de la basura - MUPA,basura,Bella Vista,7.6
+2026-85194,2026-06-17 06:47:40,2026-07-04 15:58:12,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,17.4
+2026-85536,2026-06-17 10:57:08,2026-06-25 09:43:14,2026-T2,Concluido,Resuelto,Llamada al 311,Mal Uso de vehículos del Estado,otros,San Francisco,7.9
+2026-85806,2026-06-17 14:28:37,2026-06-24 08:51:13,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Juan Díaz,
+2026-85965,2026-06-17 19:32:36,2026-06-24 09:14:59,2026-T2,En Proceso,En proceso,Email,Construcción sin permisos - MUPA,otros,Bella Vista,
+2026-86185,2026-06-18 08:31:36,2026-07-01 14:06:34,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Juan Díaz,13.2
+2026-86359,2026-06-18 09:59:54,2026-06-25 09:22:39,2026-T2,Concluido,Resuelto,Email,Ruido excesivo - MUPA,ruido,Bella Vista,7.0
+2026-86485,2026-06-18 10:57:05,2026-06-25 09:15:31,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Parque Lefevre,6.9
+2026-86650,2026-06-18 12:43:59,2026-06-24 09:55:05,2026-T2,En Proceso,En proceso,App,Autos abandonados - MUPA,calles,Tocumen,
+2026-86740,2026-06-18 13:22:07,2026-06-26 09:37:03,2026-T2,Concluido,Resuelto,Llamada al 311,Mala disposición de la basura - MUPA,basura,Parque Lefevre,7.8
+2026-87167,2026-06-18 21:22:09,2026-06-24 10:15:42,2026-T2,En Proceso,En proceso,Email,Autos abandonados - MUPA,calles,Pacora,
+2026-87203,2026-06-19 00:33:46,2026-06-24 10:21:53,2026-T2,En Proceso,En proceso,Llamada al 311,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-87271,2026-06-19 07:39:50,2026-06-24 10:56:28,2026-T2,En Proceso,En proceso,App,Aceras por reparar - MUPA,calles,Ancón,
+2026-87518,2026-06-19 10:07:26,2026-06-24 11:07:29,2026-T2,En Proceso,En proceso,Email,Mala disposición de la basura - MUPA,basura,Calidonia,
+2026-87579,2026-06-19 10:41:36,2026-06-24 11:16:56,2026-T2,En Proceso,En proceso,Web,Construcción sin permisos - MUPA,otros,Bethania,
+2026-87647,2026-06-19 11:17:28,2026-06-25 17:01:39,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,6.2
+2026-87778,2026-06-19 12:25:33,2026-06-24 11:45:19,2026-T2,En Proceso,En proceso,Llamada al 311,Parques - MUPA,arboles,Ancón,
+2026-87963,2026-06-19 14:13:55,2026-06-24 13:39:10,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Ancón,
+2026-88048,2026-06-19 15:17:16,2026-06-24 14:44:34,2026-T2,En Proceso,En proceso,Llamada al 311,"Atención al Cliente, Lote sucio - MUPA",basura,Caimitillo,
+2026-88385,2026-06-20 07:56:00,2026-06-24 14:52:30,2026-T2,En Proceso,En proceso,App,Daño de servidumbre - MUPA,calles,Ancón,
+2026-88407,2026-06-20 08:25:35,2026-06-24 15:20:00,2026-T2,En Proceso,En proceso,Email,Obstrucción de vía pública - MUPA,calles,24 de Diciembre,
+2026-88459,2026-06-20 09:05:15,2026-06-26 14:58:44,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Santa Ana,6.2
+2026-88546,2026-06-20 10:10:26,2026-06-24 15:14:10,2026-T2,En Proceso,En proceso,App,Daño de servidumbre - MUPA,calles,Ancón,
+2026-88653,2026-06-20 11:38:48,2026-06-25 09:01:41,2026-T2,En Proceso,En proceso,Web,Ruido excesivo - MUPA,ruido,Bella Vista,
+2026-88666,2026-06-20 11:48:58,2026-06-26 14:36:21,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Tocumen,6.1
+2026-88933,2026-06-20 19:19:12,2026-06-25 09:21:41,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Bethania,
+2026-89135,2026-06-21 11:45:19,2026-06-25 09:51:50,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Pedregal,
+2026-89151,2026-06-21 12:24:32,2026-06-27 16:02:24,2026-T2,Concluido,Resuelto,Web,Ruido excesivo - MUPA,ruido,Bella Vista,6.2
+2026-89174,2026-06-21 13:10:15,2026-06-25 10:21:06,2026-T2,En Proceso,En proceso,Llamada al 311,Ruido excesivo - MUPA,ruido,San Francisco,
+2026-89301,2026-06-21 19:50:47,2026-06-25 10:27:22,2026-T2,En Proceso,En proceso,Llamada al 311,Alteración del orden público - MUPA,ruido,Pueblo Nuevo,
+2026-89487,2026-06-22 08:20:50,2026-06-25 15:12:43,2026-T2,En Proceso,En proceso,Llamada al 311,Ruido excesivo - MUPA,ruido,Pedregal,
+2026-89753,2026-06-22 10:24:16,2026-06-26 16:33:53,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Don Bosco,4.3
+2026-89827,2026-06-22 10:58:07,2026-06-26 16:11:53,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Juan Díaz,4.2
+2026-89870,2026-06-22 11:14:54,2026-06-25 15:25:19,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Alcalde Díaz,
+2026-89915,2026-06-22 11:32:51,2026-06-26 08:19:22,2026-T2,En Proceso,En proceso,Llamada al 311,"Daño de servidumbre - MUPA, Obstrucción de acera por construcción - MUPA",calles,Chilibre,
+2026-89938,2026-06-22 11:41:43,2026-06-29 17:02:30,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Río Abajo,7.2
+2026-90253,2026-06-22 14:23:24,2026-06-29 14:44:57,2026-T2,Concluido,Resuelto,Email,Ruido excesivo - MUPA,ruido,Bella Vista,7.0
+2026-90260,2026-06-22 14:26:12,2026-06-29 14:43:02,2026-T2,Concluido,Resuelto,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Río Abajo,7.0
+2026-90287,2026-06-22 14:39:11,2026-06-26 08:40:11,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,San Martín,
+2026-90497,2026-06-22 17:44:53,2026-06-26 09:15:47,2026-T2,En Proceso,En proceso,Llamada al 311,Daño de servidumbre - MUPA,calles,Bethania,
+2026-90904,2026-06-23 09:21:16,2026-06-29 13:44:00,2026-T2,Concluido,Resuelto,Llamada al 311,Mala disposición de la basura - MUPA,basura,Calidonia,6.2
+2026-91080,2026-06-23 10:50:09,2026-06-26 09:44:16,2026-T2,En Proceso,En proceso,Llamada al 311,Locales sin permiso nocturno - MUPA,ruido,El Chorrillo,
+2026-91121,2026-06-23 11:05:39,2026-06-29 16:39:47,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Juan Díaz,6.2
+2026-91179,2026-06-23 11:42:07,2026-06-29 16:34:05,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,6.2
+2026-91263,2026-06-23 12:34:11,2026-06-29 16:31:56,2026-T2,Concluido,Resuelto,Llamada al 311,Acciones de hecho contra propiedad privada - MUPA,otros,Pacora,6.2
+2026-91507,2026-06-23 15:41:09,2026-06-29 16:19:32,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Pacora,6.0
+2026-91820,2026-06-24 08:30:31,2026-06-26 10:09:05,2026-T2,En Proceso,En proceso,Web,Mala disposición de la basura - MUPA,basura,Pedregal,
+2026-92210,2026-06-24 11:30:18,2026-06-29 15:16:54,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,24 de Diciembre,5.2
+2026-92304,2026-06-24 12:18:11,2026-06-29 14:05:18,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Ancón,5.1
+2026-92924,2026-06-24 21:31:27,2026-06-26 11:06:30,2026-T2,En Proceso,En proceso,Web,Obstrucción de vía pública - MUPA,calles,Las Cumbres,
+2026-93106,2026-06-25 08:33:37,2026-07-04 15:32:26,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,9.3
+2026-93165,2026-06-25 09:02:01,2026-06-26 11:28:54,2026-T2,En Proceso,En proceso,Web,Parques - MUPA,arboles,San Francisco,
+2026-93320,2026-06-25 10:06:23,2026-06-29 10:00:11,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Bethania,4.0
+2026-93456,2026-06-25 11:09:56,2026-06-26 11:42:21,2026-T2,En Proceso,En proceso,Llamada al 311,"Construcción sin permisos - MUPA, Daño de servidumbre - MUPA",otros,Chilibre,
+2026-93486,2026-06-25 11:27:48,2026-07-01 12:20:06,2026-T2,Concluido,Resuelto,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Bethania,6.0
+2026-93575,2026-06-25 12:15:13,2026-06-26 11:55:04,2026-T2,En Proceso,En proceso,Llamada al 311,"Atención al Cliente, Verificación de Avisos de Operación - MICI",otros,Pedregal,
+2026-93614,2026-06-25 12:38:07,2026-06-29 09:36:44,2026-T2,Concluido,Resuelto,Llamada al 311,Construcción operando fuera del horario - MUPA,ruido,Pueblo Nuevo,3.9
+2026-93767,2026-06-25 14:34:38,2026-06-29 09:07:19,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Pueblo Nuevo,3.8
+2026-93998,2026-06-25 18:23:46,2026-06-29 13:02:41,2026-T2,Concluido,Resuelto,Llamada al 311,Construcción sin permisos - MUPA,otros,24 de Diciembre,3.8
+2026-94186,2026-06-26 08:10:32,2026-06-26 13:32:41,2026-T2,En Proceso,En proceso,Web,Daño de servidumbre - MUPA,calles,Ancón,
+2026-94192,2026-06-26 08:16:42,2026-07-01 10:59:33,2026-T2,Concluido,Resuelto,Web,Buhonería - MUPA,ruido,Ancón,5.1
+2026-94233,2026-06-26 08:40:04,2026-07-01 10:51:01,2026-T2,Concluido,Resuelto,Web,Buhonería - MUPA,ruido,Ancón,5.1
+2026-94306,2026-06-26 09:20:43,2026-06-29 09:23:09,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,San Felipe,3.0
+2026-94319,2026-06-26 09:25:10,2026-07-04 13:51:19,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,8.2
+2026-94425,2026-06-26 10:15:56,2026-06-30 16:18:07,2026-T2,Concluido,Resuelto,Web,Ruido excesivo - MUPA,ruido,Bella Vista,4.3
+2026-94724,2026-06-26 12:47:00,2026-06-30 15:12:47,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Pacora,4.1
+2026-94788,2026-06-26 13:28:38,2026-06-29 08:29:58,2026-T2,Concluido,Resuelto,Llamada al 311,Acciones de hecho contra propiedad privada - MUPA,otros,Pacora,2.8
+2026-95290,2026-06-27 08:43:19,2026-07-01 09:58:38,2026-T2,Concluido,Resuelto,Llamada al 311,Ideas y Sugerencias,otros,Bethania,4.1
+2026-95424,2026-06-27 10:50:47,2026-06-29 09:44:50,2026-T2,En Proceso,En proceso,Web,Autos abandonados - MUPA,calles,Pueblo Nuevo,
+2026-95491,2026-06-27 11:49:03,2026-06-29 11:13:28,2026-T2,En Proceso,En proceso,Llamada al 311,Construcción sin permisos - MUPA,otros,Pueblo Nuevo,
+2026-95588,2026-06-27 13:15:52,2026-06-29 10:13:35,2026-T2,En Proceso,En proceso,Llamada al 311,Obstrucción de acera por comerciantes o particulares - MUPA,calles,Río Abajo,
+2026-95598,2026-06-27 13:29:17,2026-07-03 10:45:45,2026-T2,En Proceso,En proceso,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Curundú,
+2026-95771,2026-06-27 17:26:29,2026-06-29 10:20:13,2026-T2,En Proceso,En proceso,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,
+2026-95780,2026-06-27 17:41:45,2026-07-01 11:36:40,2026-T2,Concluido,Resuelto,Llamada al 311,Ruido excesivo - MUPA,ruido,Ancón,3.7
+2026-95832,2026-06-27 20:13:41,2026-06-29 10:48:12,2026-T2,En Proceso,En proceso,Llamada al 311,Indigentes - MUPA,otros,Bella Vista,
+2026-95834,2026-06-27 20:18:41,2026-06-29 10:56:59,2026-T2,En Proceso,En proceso,Llamada al 311,Lote sucio - MUPA,basura,Bella Vista,
+2026-96522,2026-06-29 07:13:11,2026-07-01 08:54:23,2026-T2,Concluido,Resuelto,Llamada al 311,Fiestas sin permiso - MUPA,ruido,El Chorrillo,2.1
+2026-96852,2026-06-29 10:09:25,2026-06-29 11:19:03,2026-T2,En Proceso,En proceso,Web,Construcción sin permisos - MUPA,otros,Pueblo Nuevo,
+2026-96940,2026-06-29 10:39:41,2026-06-30 12:19:06,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Tocumen,1.1
+2026-97202,2026-06-29 12:18:51,2026-06-30 11:52:19,2026-T2,Concluido,Resuelto,Llamada al 311,Maltrato Animal - Perro - MUPA,otros,Don Bosco,1.0
+2026-97420,2026-06-29 14:16:06,2026-06-29 15:00:58,2026-T2,En Proceso,En proceso,Email,Buhonería - MUPA,ruido,Bella Vista,
+2026-97610,2026-06-29 15:59:17,2026-06-30 08:21:50,2026-T2,En Proceso,En proceso,Llamada al 311,Atención al Cliente,otros,Tocumen,
+2026-97745,2026-06-29 17:55:11,2026-06-30 08:34:24,2026-T2,En Proceso,En proceso,Web,Lote sucio - MUPA,basura,Alcalde Díaz,
+2026-97891,2026-06-29 21:57:42,2026-06-30 09:02:11,2026-T2,En Proceso,En proceso,Web,Lote sucio - MUPA,basura,Parque Lefevre,
+2026-97979,2026-06-30 07:23:03,2026-07-04 12:40:19,2026-T2,Concluido,Resuelto,Llamada al 311,Indigentes - MUPA,otros,Calidonia,4.2
+2026-98190,2026-06-30 09:31:15,2026-07-01 08:29:58,2026-T2,Concluido,Resuelto,Llamada al 311,Autos abandonados - MUPA,calles,Pueblo Nuevo,1.0
+2026-98268,2026-06-30 10:10:36,2026-07-01 08:28:08,2026-T2,Concluido,Resuelto,Llamada al 311,"Actividad temporal sin permiso - MUPA, Sin carnet de salud para manejo de alimentos - MINSA",otros,San Francisco,0.9
+2026-98840,2026-06-30 15:20:43,2026-07-01 15:20:30,2026-T2,En Proceso,En proceso,Llamada al 311,Acciones de hecho contra propiedad privada - MUPA,otros,Pacora,
+2026-99050,2026-06-30 18:21:38,2026-07-01 15:41:36,2026-T2,En Proceso,En proceso,Llamada al 311,Lote sucio - MUPA,basura,24 de Diciembre,
+2026-99154,2026-06-30 21:17:35,2026-07-04 12:10:10,2026-T2,Concluido,Resuelto,Llamada al 311,Atención al Cliente,otros,Calidonia,3.6

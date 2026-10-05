@@ -29,7 +29,17 @@ def recortar(fuente: TTFont, flavor: str | None) -> None:
     opciones = subset.Options()
     opciones.flavor = flavor
     opciones.layout_features = ["kern", "liga", "calt", "ccmp", "locl", "mark", "mkmk"]
-    opciones.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14]  # conserva copyright y licencia OFL
+    opciones.name_IDs = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        14,
+    ]  # conserva copyright y licencia OFL
     opciones.notdef_outline = True
     opciones.hinting = False
     opciones.desubroutinize = True

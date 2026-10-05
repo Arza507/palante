@@ -1,9 +1,49 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Mapa311 from '../../components/Mapa311.astro';
+import Compartir from '../../components/Compartir.astro';
+import Panel311 from '../../islands/Panel311';
+import { datos311 } from '../../modulos/m311/datos';
+import { descargasModulo } from '../../modulos/m311/descargas';
+import { numero } from '../../lib/formato';
+import '../../styles/m311.css';
+
+const d = datos311();
+const jsonLd = d ? (await descargasModulo()).map((x) => x.jsonLd) : undefined;
+const url = new URL('/311', Astro.site).href;
 ---
-<Base titulo="Mapa del 311" descripcion="Mapa de los reportes al 311 por corregimiento del distrito de Panamá. Próximamente.">
-  <div class="contenedor">
-    <h1>Mapa del 311</h1>
-    <div class="banda-azulejo"><p>Próximamente. Estamos preparando los datos de la Alcaldía de Panamá.</p></div>
-  </div>
-</Base>
+{d ? (
+  <Base
+    titulo="Mapa del 311"
+    descripcion={`Reportes al 311 de la Alcaldía de Panamá por corregimiento, ${d.periodo}. Filtra por categoría, estado y trimestre.`}
+    fechaDatos={d.meta.fecha_datos_texto}
+    jsonLd={jsonLd}
+  >
+    <div class="contenedor">
+      <h1>Reportes al 311 por corregimiento</h1>
+      <p class="intro">Cuántos problemas reporta la gente al 311 de la Alcaldía en cada corregimiento del distrito de Panamá, de qué tipo y cuántos se resuelven.</p>
+      <p>Casos creados {d.periodo}. Fuente: <a href={d.meta.url}>Alcaldía de Panamá, datos abiertos</a> (CC0).</p>
+      {!d.meta.poblacion_disponible && <p class="aviso">{d.meta.poblacion_nota}</p>}
+      <p class="aviso alerta">Más reportes no siempre significa más problemas: los barrios que conocen el 311 reportan más. <a href="/311/metodologia">Lee cómo hacemos este mapa</a>.</p>
+      <Panel311 client:load resumen={d.resumen} periodo={d.periodo}>
+        <Mapa311 topo={d.topo} resumen={d.resumen} />
+      </Panel311>
+      <p>
+        <Compartir
+          texto={`En el distrito de Panamá hubo ${numero(d.resumen.total)} reportes al 311 entre el ${d.inicio} y el ${d.fin}. Míralo en Palante.`}
+          url={url}
+          titulo="Mapa del 311"
+        />
+      </p>
+      <p><a href="/datos">Descarga los datos limpios</a> · <a href="/311/metodologia">Metodología</a></p>
+      <p class="fuente-mapa">Límites de corregimientos: © colaboradores de OpenStreetMap (ODbL).</p>
+    </div>
+  </Base>
+) : (
+  <Base titulo="Mapa del 311" descripcion="Mapa de los reportes al 311 por corregimiento del distrito de Panamá. Próximamente.">
+    <div class="contenedor">
+      <h1>Mapa del 311</h1>
+      <div class="banda-azulejo"><p>Próximamente. Estamos preparando los datos de la Alcaldía de Panamá.</p></div>
+    </div>
+  </Base>
+)}

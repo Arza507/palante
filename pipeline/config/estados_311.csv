@@ -1,0 +1,6 @@
+estado_original,estado,resuelto
+Concluido,Resuelto,si
+Finalizado,Resuelto,si
+En Proceso,En proceso,no
+Remitido,Remitido a otra entidad,no
+Vencido,Vencido,no

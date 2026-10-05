@@ -1,0 +1,65 @@
+/* Mapa del 311 y fichas */
+.mapas { display: grid; gap: 1rem; margin: 1rem 0; }
+@media (min-width: 48rem) { .mapas { grid-template-columns: 1fr 1fr; } }
+.mapas figure { margin: 0; background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: .5rem; }
+.mapas figcaption { font-size: .9375rem; color: var(--hierro-suave); padding: .25rem .5rem; }
+.mapa311 { display: block; width: 100%; height: auto; }
+.mapa311 path { stroke: var(--cal); stroke-width: .8; stroke-linejoin: round; cursor: pointer; }
+.mapa311 path:hover { stroke: var(--hierro); stroke-width: 1.5; }
+.mapa311 .recuadro { fill: none; stroke: var(--hierro); stroke-width: 1.2; stroke-dasharray: 3 2; pointer-events: none; }
+
+.filtros { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); align-items: end; margin: 1rem 0; }
+.filtros label { display: grid; gap: .25rem; font-weight: 600; }
+.filtros select {
+  min-height: 44px; font: inherit; color: var(--hierro); background: var(--superficie);
+  border: 1px solid var(--hierro-suave); border-radius: 8px; padding: 0 .5rem;
+}
+.acciones-filtro { display: flex; flex-wrap: wrap; gap: .5rem; }
+.estado-filtro { font-weight: 600; }
+
+.leyenda { margin: 1rem 0; }
+.leyenda-titulo { margin: 0 0 .25rem; font-weight: 600; }
+.leyenda ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.leyenda li { display: inline-flex; align-items: center; gap: .4rem; font-variant-numeric: tabular-nums; }
+.muestra { display: inline-block; width: 1rem; height: 1rem; border-radius: 3px; border: 1px solid var(--hierro-suave); vertical-align: -.15em; margin-right: .4rem; flex: none; }
+
+.ordenar {
+  font: inherit; font-weight: 600; color: var(--persiana); background: none; border: 0; padding: 0;
+  min-height: 44px; cursor: pointer; text-decoration: underline; text-underline-offset: .18em;
+}
+th[aria-sort="ascending"] .ordenar::after { content: ' ↑'; }
+th[aria-sort="descending"] .ordenar::after { content: ' ↓'; }
+tbody th { font-weight: 400; }
+tbody th a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.hoja {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 8;
+  background: var(--superficie); border-top: 4px solid var(--terracota);
+  border-radius: 16px 16px 0 0; padding: 1rem 1rem calc(4.5rem + env(safe-area-inset-bottom));
+  max-height: 70vh; overflow-y: auto; box-shadow: 0 -2px 12px rgb(0 0 0 / .15);
+}
+@media (min-width: 48rem) { .hoja { left: auto; right: 1rem; bottom: 1rem; width: 24rem; border-radius: 16px; padding-bottom: 1rem; } }
+.hoja-cabecera { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+.hoja-cabecera h2 { margin: 0; }
+.boton-cerrar { min-width: 44px; min-height: 44px; display: grid; place-items: center; background: none; border: 1px solid var(--linea); border-radius: 8px; color: var(--hierro); cursor: pointer; }
+.boton-cerrar svg { width: 1.25rem; height: 1.25rem; }
+.hoja-dato strong { font-size: 1.75rem; }
+
+.cifras { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin: 1.5rem 0; padding: 0; list-style: none; }
+.cifra { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 1rem; }
+.cifra .valor { font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.1; }
+.cifra .rotulo { margin: .25rem 0 0; color: var(--hierro-suave); }
+
+.barras { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .5rem; }
+.barras li { display: grid; grid-template-columns: 1fr 3.5rem; gap: .25rem .5rem; align-items: center; }
+.barras li .chip { grid-column: 1 / -1; justify-self: start; }
+@media (min-width: 40rem) {
+  .barras li { grid-template-columns: minmax(10rem, 14rem) 1fr 3.5rem; }
+  .barras li .chip { grid-column: auto; }
+}
+.barras svg { width: 100%; height: 1.25rem; display: block; }
+.barras .num { text-align: right; }
+.chip { display: inline-flex; align-items: center; gap: .35rem; padding: .1rem .5rem; border-radius: 999px; color: #2A2623; font-size: .9375rem; }
+.chip svg { width: 1rem; height: 1rem; }
+.principales { padding-left: 1.25rem; }
+.principales li { margin: .4rem 0; }

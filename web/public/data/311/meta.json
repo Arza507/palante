@@ -1,0 +1,45 @@
+{
+  "modulo": "311",
+  "fuente": "Alcaldía de Panamá - Detalle de Casos Reportados al 311- 2026",
+  "url": "https://www.datosabiertos.gob.pa/dataset/alcaldia-de-panama-detalle-de-casos-reportados-al-311-2026",
+  "licencia": "CC0 1.0 (dominio público)",
+  "fecha_datos": "2026-06-30",
+  "fecha_datos_texto": "30 de junio de 2026",
+  "periodo_inicio": "2026-04-01",
+  "periodo_fin": "2026-06-30",
+  "fecha_proceso": "2026-10-05",
+  "archivos": [
+    "311-junio-mayo-abril-2026-detalles-de-casos.xlsx"
+  ],
+  "filas_leidas": 530,
+  "filas_validas": 528,
+  "filas_descartadas": [
+    {
+      "motivo": "corregimiento fuera del distrito de Panamá o sin polígono",
+      "filas": 2,
+      "detalle": [
+        "JOSÉ DOMINGO ESPINAR (1)",
+        "AMELIA DENIS DE ICAZA (1)"
+      ]
+    }
+  ],
+  "servicios_sin_categoria": [],
+  "poblacion_disponible": false,
+  "poblacion_nota": "Todavía no tenemos la población por corregimiento del INEC. El mapa muestra el número de reportes, no la tasa por habitante.",
+  "fuentes": [
+    {
+      "id": "311",
+      "nombre": "Alcaldía de Panamá - Detalle de Casos Reportados al 311- 2026",
+      "url": "https://www.datosabiertos.gob.pa/dataset/alcaldia-de-panama-detalle-de-casos-reportados-al-311-2026",
+      "licencia": "CC0 1.0",
+      "fecha_texto": "casos creados del 1 de abril de 2026 al 30 de junio de 2026"
+    },
+    {
+      "id": "osm",
+      "nombre": "Límites de corregimientos de OpenStreetMap",
+      "url": "https://www.openstreetmap.org/relation/8415626",
+      "licencia": "ODbL 1.0",
+      "fecha_texto": "descargados el 5 de octubre de 2026"
+    }
+  ]
+}

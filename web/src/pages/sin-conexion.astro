@@ -13,13 +13,21 @@ import Base from '../layouts/Base.astro';
   </div>
   <script is:inline>
 (function () {
+  // Busca las páginas de cada módulo guardadas en el teléfono y lee la fecha de sus datos.
   if (!('caches' in window)) return;
   var lista = document.getElementById('guardados');
-  var mods = [['311', '/311', 'Mapa del 311'], ['empleo', '/empleo', 'Observatorio de empleo']];
+  var mods = [['/311', 'Mapa del 311'], ['/empleo', 'Observatorio de empleo']];
+  function buscar(ruta) {
+    return caches.match(ruta).then(function (r) { return r || caches.match(ruta + '.html', { ignoreSearch: true }); });
+  }
   Promise.all(mods.map(function (m) {
-    return caches.match('/data/' + m[0] + '/meta.json')
-      .then(function (r) { return r ? r.json().then(function (j) { return [m, j]; }) : null; })
-      .catch(function () { return null; });
+    return buscar(m[0]).then(function (r) {
+      if (!r) return null;
+      return r.text().then(function (html) {
+        var f = /data-fecha="([^"]+)"/.exec(html);
+        return f ? [m, f[1]] : null;
+      });
+    }).catch(function () { return null; });
   })).then(function (rs) {
     var ok = rs.filter(Boolean);
     if (!ok.length) return;
@@ -27,10 +35,10 @@ import Base from '../layouts/Base.astro';
     ok.forEach(function (x) {
       var li = document.createElement('li');
       var a = document.createElement('a');
-      a.href = x[0][1];
-      a.textContent = x[0][2];
+      a.href = x[0][0];
+      a.textContent = x[0][1];
       li.appendChild(a);
-      li.appendChild(document.createTextNode(': datos guardados del ' + (x[1].fecha_datos_texto || '')));
+      li.appendChild(document.createTextNode(': datos guardados del ' + x[1] + '.'));
       lista.appendChild(li);
     });
   });

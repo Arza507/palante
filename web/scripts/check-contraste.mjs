@@ -59,5 +59,14 @@ for (const [nombre, tema] of [['claro', claro], ['oscuro', oscuro]]) {
     console.log(`${ok ? 'ok   ' : 'FALLA'} ${nombre.padEnd(6)} --${t} sobre --${f}: ${r.toFixed(2)}:1`);
   }
 }
+// Chips de categoría: color de fachada fijo con texto hierro (#2A2623) encima, en ambos temas.
+const m311 = readFileSync(fileURLToPath(new URL('../src/lib/m311.ts', import.meta.url)), 'utf8');
+for (const m of m311.matchAll(/(\w+): \{ color: '(#[0-9A-Fa-f]{6})'/g)) {
+  const r = contraste('#2A2623', m[2]);
+  const ok = r >= 4.5;
+  if (!ok) fallos++;
+  console.log(`${ok ? 'ok   ' : 'FALLA'} categoría ${m[1]}: texto #2A2623 sobre ${m[2]}: ${r.toFixed(2)}:1`);
+}
+
 if (fallos) { console.error(`\n${fallos} problemas de contraste`); process.exit(1); }
 console.log('\nContraste AA correcto en todas las combinaciones.');

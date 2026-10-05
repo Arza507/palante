@@ -1,0 +1,41 @@
+---
+// Dos SVG generados en el build: todo el distrito y el centro de la ciudad ampliado.
+// El color inicial es la vista sin filtros; la isla Panel311 recolorea con JavaScript.
+import type { Topology } from 'topojson-specification';
+import { rasgos, vistaDistrito, vistaCentro } from '../lib/mapa';
+import { agregar, clase, COLOR_CLASE, cortes, SIN_FILTRO, usaTasa, type Resumen311 } from '../lib/m311';
+import { numero } from '../lib/formato';
+
+interface Props { topo: Topology; resumen: Resumen311 }
+const { topo, resumen } = Astro.props;
+const fc = rasgos(topo);
+const distrito = vistaDistrito(fc);
+const centro = vistaCentro(fc);
+const tasa = usaTasa(resumen);
+const filas = new Map(agregar(resumen, SIN_FILTRO).map((f) => [f.slug, f]));
+const c = cortes([...filas.values()].map((f) => f.valor), tasa ? 1 : 0);
+const unidad = tasa ? 'reportes por cada 10.000 habitantes' : 'reportes';
+const relleno = (slug: string) => COLOR_CLASE[clase(filas.get(slug)?.valor ?? 0, c)];
+const titulo = (slug: string, nombre: string) => `${nombre}: ${numero(filas.get(slug)?.valor ?? 0, tasa ? 1 : 0)} ${unidad}`;
+---
+<div class="mapas" id="mapa-311">
+  <figure>
+    <svg class="mapa311" viewBox={`0 0 ${distrito.ancho} ${distrito.alto}`} role="img" aria-labelledby="mapa-distrito-titulo">
+      <title id="mapa-distrito-titulo">Mapa de reportes al 311 en todo el distrito de Panamá. La lista de corregimientos tiene los mismos datos.</title>
+      {distrito.trazos.map((t) => (
+        <path d={t.d} data-slug={t.slug} style={`fill:${relleno(t.slug)}`}><title>{titulo(t.slug, t.nombre)}</title></path>
+      ))}
+      {distrito.recuadro && <rect class="recuadro" x={distrito.recuadro.x} y={distrito.recuadro.y} width={distrito.recuadro.w} height={distrito.recuadro.h}></rect>}
+    </svg>
+    <figcaption>Todo el distrito. El recuadro marca el centro de la ciudad.</figcaption>
+  </figure>
+  <figure>
+    <svg class="mapa311" viewBox={`0 0 ${centro.ancho} ${centro.alto}`} role="img" aria-labelledby="mapa-centro-titulo">
+      <title id="mapa-centro-titulo">Mapa ampliado del centro de la ciudad de Panamá con los reportes al 311.</title>
+      {centro.trazos.map((t) => (
+        <path d={t.d} data-slug={t.slug} style={`fill:${relleno(t.slug)}`}><title>{titulo(t.slug, t.nombre)}</title></path>
+      ))}
+    </svg>
+    <figcaption>Centro de la ciudad, ampliado. Toca un corregimiento para ver su resumen.</figcaption>
+  </figure>
+</div>

@@ -1,0 +1,193 @@
+{
+ "_marca": "FIXTURE",
+ "osm3s": {
+  "timestamp_osm_base": "2026-10-01T00:00:00Z"
+ },
+ "elements": [
+  {
+   "type": "relation",
+   "id": 8415626,
+   "tags": {
+    "name": "Distrito de Panamá FIXTURE",
+    "admin_level": "6"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 1,
+     "role": "outer",
+     "geometry": [
+      {
+       "lon": -79.6,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.3,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.3,
+       "lat": 9.200000000000001
+      },
+      {
+       "lon": -79.6,
+       "lat": 9.200000000000001
+      },
+      {
+       "lon": -79.6,
+       "lat": 8.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "relation",
+   "id": 101,
+   "tags": {
+    "name": "Bella Vista",
+    "admin_level": "8"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 2,
+     "role": "outer",
+     "geometry": [
+      {
+       "lon": -79.6,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.5,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.5,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.6,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.6,
+       "lat": 8.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "relation",
+   "id": 102,
+   "tags": {
+    "name": "Bethania",
+    "admin_level": "8"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 3,
+     "role": "outer",
+     "geometry": [
+      {
+       "lon": -79.5,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.4,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.4,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.5,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.5,
+       "lat": 8.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "relation",
+   "id": 103,
+   "tags": {
+    "name": "Calidonia",
+    "admin_level": "8"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 4,
+     "role": "outer",
+     "geometry": [
+      {
+       "lon": -79.4,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.30000000000001,
+       "lat": 8.9
+      },
+      {
+       "lon": -79.30000000000001,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.4,
+       "lat": 9.0
+      },
+      {
+       "lon": -79.4,
+       "lat": 8.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "relation",
+   "id": 104,
+   "tags": {
+    "name": "José Domingo Espinar",
+    "admin_level": "8"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 5,
+     "role": "outer",
+     "geometry": [
+      {
+       "lon": -79.0,
+       "lat": 9.3
+      },
+      {
+       "lon": -78.9,
+       "lat": 9.3
+      },
+      {
+       "lon": -78.9,
+       "lat": 9.4
+      },
+      {
+       "lon": -79.0,
+       "lat": 9.4
+      },
+      {
+       "lon": -79.0,
+       "lat": 9.3
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

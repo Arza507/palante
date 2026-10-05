@@ -28,3 +28,23 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 - **Contacto en /acerca por variable `PUBLIC_CONTACTO_EMAIL`**: no se inventa un correo; mientras falte, se enlaza a los temas de GitHub.
 - **Analítica por variable `PUBLIC_CF_BEACON_TOKEN`**: sin token no se carga ningún script externo.
 - **ruff con líneas de 110 caracteres**: los textos de ayuda en español son largos.
+
+## M1, mapa del 311
+
+- **Solo el conjunto 2026 de la Alcaldía** (CC0), como dice el SPEC; hoy trae un trimestre (abril a junio). Los conjuntos de la AIG de 2017 a 2024 (CC BY) quedan anotados en REPORT.md.
+- **Límites con Overpass por caja y filtro espacial**: se toman los corregimientos (admin_level 8) cuyo punto interior cae en el distrito (relación 8415626); así no se depende de una lista de nombres. Varios servidores con reintentos porque Overpass suele estar ocupado.
+- **Nombres de OpenStreetMap en la interfaz** ("Bethania"); los del 311 se unen con clave sin tildes y `config/alias_corregimientos.csv`.
+- **Casos de corregimientos fuera del distrito se descartan** con su motivo en `meta.json` y se listan en REPORT.md.
+- **Un caso, una categoría**: si tiene varios servicios se usa el primero que no sea genérico (`config/servicios_genericos.csv`), para que la suma de categorías sea igual al total.
+- **Resueltos = Concluido o Finalizado** (`config/estados_311.csv`); Iker puede cambiarlo.
+- **Días hasta el cierre con la fecha de "Último Cambio"** de los casos resueltos: el archivo no trae fecha de cierre.
+- **Mediana solo con 5 casos resueltos o más**: con menos, el número engaña.
+- **Casos repetidos entre archivos**: se queda la versión con el último cambio más reciente.
+- **Sin población del INEC** (el sitio no respondió desde esta red): el mapa muestra conteos y una nota visible; el pipeline usa la población en cuanto exista `raw/poblacion/poblacion_corregimientos.csv`.
+- **Cinco clases por cuantiles** de los corregimientos con reportes, con "sin reportes" aparte; si hay menos valores distintos, la clase más alta siempre es la más oscura.
+- **Dos mapas: distrito completo y centro ampliado** (corregimientos de menos del 0,6 % del área): los urbanos no se ven a escala del distrito.
+- **El mapa no recibe foco de teclado**; la lista ordenable es la vista equivalente y accesible, con enlace a cada ficha.
+- **La isla recibe el resumen como props** (5 KB) en lugar de pedirlo con fetch: la vista por defecto sale en el HTML, funciona sin JavaScript y queda guardada sin conexión con la página.
+- **Filtros con espacio reservado** antes de hidratar (CLS 0) y ocultos con `<noscript>` cuando no hay JavaScript.
+- **Página sin conexión lee la fecha de las páginas guardadas** (atributo `data-fecha`), no de los JSON.
+- **Fixtures del 311 en Excel versionado** (`fixtures/311/`), generado por `fixtures/generar_fixtures_311.py`.

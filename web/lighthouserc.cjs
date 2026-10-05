@@ -2,7 +2,7 @@
 // Perfil móvil por defecto de Lighthouse: Slow 4G simulado y CPU 4 veces más lenta.
 // LHCI_DIST permite apuntar a dist-fixtures en pruebas locales.
 const dist = process.env.LHCI_DIST || './dist';
-const paginas = (process.env.LHCI_PAGINAS || '/,/311,/empleo,/fuentes').split(',');
+const paginas = (process.env.LHCI_PAGINAS || '/,/311,/311/bella-vista,/empleo,/fuentes').split(',');
 const puerto = process.env.LHCI_PUERTO || '4500';
 
 module.exports = {

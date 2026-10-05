@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base titulo="Sin conexión" descripcion="Qué puedes ver en Palante cuando no tienes internet.">
+  <div class="contenedor">
+    <h1>Estás sin conexión</h1>
+    <p class="intro">Puedes seguir viendo las páginas que ya abriste. Te mostramos los últimos datos guardados en tu teléfono.</p>
+    <h2>Datos guardados</h2>
+    <ul id="guardados">
+      <li>Abre una página con datos cuando tengas internet y quedará guardada aquí.</li>
+    </ul>
+    <p><a href="/">Volver al inicio</a></p>
+  </div>
+  <script is:inline>
+(function () {
+  if (!('caches' in window)) return;
+  var lista = document.getElementById('guardados');
+  var mods = [['311', '/311', 'Mapa del 311'], ['empleo', '/empleo', 'Observatorio de empleo']];
+  Promise.all(mods.map(function (m) {
+    return caches.match('/data/' + m[0] + '/meta.json')
+      .then(function (r) { return r ? r.json().then(function (j) { return [m, j]; }) : null; })
+      .catch(function () { return null; });
+  })).then(function (rs) {
+    var ok = rs.filter(Boolean);
+    if (!ok.length) return;
+    lista.textContent = '';
+    ok.forEach(function (x) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = x[0][1];
+      a.textContent = x[0][2];
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(': datos guardados del ' + (x[1].fecha_datos_texto || '')));
+      lista.appendChild(li);
+    });
+  });
+})();
+  </script>
+</Base>

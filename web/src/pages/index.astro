@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import TarjetaModulo from '../components/TarjetaModulo.astro';
+import Baranda from '../components/Baranda.astro';
+import { SITIO, RUTAS_ACTIVAS } from '../lib/sitio';
+import { tarjetasInicio } from '../modulos/inicio';
+
+const tarjetas = await tarjetasInicio();
+---
+<Base titulo="Inicio" descripcion={SITIO.descripcion} fachadas>
+  <div class="contenedor">
+    <h1>Datos públicos de Panamá, claros y a la mano</h1>
+    <p class="intro">Palante convierte datos abiertos de Panamá en mapas y paneles que se entienden desde cualquier teléfono.</p>
+    <ul class="tarjetas">
+      {tarjetas.filter((t) => t.href !== '/rutas' || RUTAS_ACTIVAS).map((t) => <TarjetaModulo {...t} />)}
+    </ul>
+    <Baranda />
+    <h2>Cómo funciona</h2>
+    <p>Tomamos datos públicos, los limpiamos y los publicamos con su fuente y su fecha. Cada número enlaza a su origen y puedes descargar los datos limpios.</p>
+    <p><a href="/fuentes">Ver fuentes y licencias</a></p>
+  </div>
+</Base>

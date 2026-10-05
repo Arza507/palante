@@ -1,0 +1,51 @@
+{
+  "name": "palante-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-presupuestos.mjs dist",
+    "build:fixtures": "node scripts/preparar-fixtures.mjs && node scripts/con-fixtures.mjs astro build && node scripts/check-presupuestos.mjs dist-fixtures",
+    "preview": "node scripts/servir.mjs dist",
+    "check": "astro check",
+    "lint": "astro check && npm run textos && npm run contraste",
+    "textos": "node scripts/check-textos.mjs",
+    "contraste": "node scripts/check-contraste.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "lhci": "lhci autorun"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^6.0.5",
+    "astro": "^7.3.5",
+    "preact": "^10.29.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.63.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/d3-geo": "^3.1.1",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "d3-geo": "^3.1.1",
+    "esbuild": "^0.28.2",
+    "satori": "^0.35.0",
+    "topojson-client": "^3.1.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3",
+    "workbox-build": "^7.4.1",
+    "workbox-core": "^7.4.1",
+    "workbox-expiration": "^7.4.1",
+    "workbox-precaching": "^7.4.1",
+    "workbox-routing": "^7.4.1",
+    "workbox-strategies": "^7.4.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

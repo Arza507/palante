@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITIO } from '../lib/sitio';
+---
+<Base titulo="Acerca de Palante" descripcion="Quién hace Palante, por qué y cómo puedes revisar su código.">
+  <div class="contenedor">
+    <h1>Acerca de Palante</h1>
+    <p class="intro">Palante toma datos públicos de Panamá y los vuelve mapas y paneles que cualquiera entiende desde el teléfono.</p>
+    <h2>Quién lo hace</h2>
+    <p>Palante lo hace Iker, en Panamá, como proyecto independiente. No es una página del Gobierno ni de ninguna institución.</p>
+    <h2>Por qué</h2>
+    <p>En Panamá hay muchos datos públicos, pero casi siempre están en hojas de cálculo difíciles de leer en un teléfono. Palante los pone en un formato claro y liviano, con su fuente a la vista.</p>
+    <h2>Código abierto</h2>
+    <p>Todo el código está en <a href={SITIO.repositorio}>GitHub</a>. Puedes revisar cómo se procesa cada dato y proponer cambios.</p>
+    <h2>Contacto</h2>
+    {SITIO.contacto
+      ? <p>Escríbenos a <a href={`mailto:${SITIO.contacto}`}>{SITIO.contacto}</a>.</p>
+      : <p>Por ahora, puedes escribirnos abriendo un tema en <a href={`${SITIO.repositorio}/issues`}>el repositorio de GitHub</a>.</p>}
+  </div>
+</Base>

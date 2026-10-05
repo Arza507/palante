@@ -1,0 +1,37 @@
+name: Datos
+
+# Descarga los datos abiertos, corre el pipeline y abre un pull request con las salidas nuevas.
+# No usa la API de Anthropic: el módulo de empleo se procesa en local con el tope MAX_USD_EMPLEO.
+on:
+  schedule:
+    - cron: '0 12 5 * *' # día 5 de cada mes, 7:00 en Panamá
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - run: uv python install 3.12
+      - working-directory: pipeline
+        run: uv sync --all-groups
+      - name: Descargar fuentes oficiales y procesar
+        working-directory: pipeline
+        run: uv run python -m palante_pipeline todo --descargar
+      - name: Pruebas del pipeline sobre los datos nuevos
+        working-directory: pipeline
+        run: uv run pytest
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          branch: datos/actualizacion
+          commit-message: 'Datos: actualización automática'
+          title: 'Datos: actualización automática'
+          body: Salidas nuevas del pipeline. Revisa REPORT.md y los meta.json antes de unir.
+          add-paths: |
+            web/public/data/**
+            docs/datos-311.md

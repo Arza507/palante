@@ -1,0 +1,21 @@
+---
+// Botón de compartir. Sin JavaScript es un enlace de WhatsApp; con JavaScript usa la Web Share API si existe.
+import Icono from './Icono.astro';
+interface Props { texto: string; url: string; titulo?: string; etiqueta?: string }
+const { texto, url, titulo = 'Palante', etiqueta = 'Compartir' } = Astro.props;
+const wa = `https://wa.me/?text=${encodeURIComponent(`${texto} ${url}`)}`;
+---
+<a class="boton compartir no-imprimir" href={wa} rel="noopener" target="_blank"
+   data-texto={texto} data-url={url} data-titulo={titulo}>
+  <Icono nombre="compartir" />{etiqueta}
+</a>
+<script>
+  import { compartir } from '../lib/compartir';
+  for (const a of document.querySelectorAll<HTMLAnchorElement>('a.compartir')) {
+    a.addEventListener('click', (e) => {
+      if (!('share' in navigator)) return;
+      e.preventDefault();
+      void compartir(a.dataset.titulo ?? 'Palante', a.dataset.texto ?? '', a.dataset.url ?? location.href, a.href);
+    });
+  }
+</script>

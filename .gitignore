@@ -1,0 +1,35 @@
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Node y Astro
+node_modules/
+web/dist/
+web/dist-fixtures/
+web/public-fixtures/
+web/.astro/
+web/.lighthouseci/
+web/test-results/
+web/playwright-report/
+
+# Python
+__pycache__/
+*.pyc
+pipeline/.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Datos crudos: se descargan de su fuente oficial con el pipeline
+pipeline/data/raw/**/*
+!pipeline/data/raw/**/
+!pipeline/data/raw/**/.gitkeep
+!pipeline/data/raw/**/LEEME.md
+!pipeline/data/raw/empleo/ofertas-plantilla.csv
+!pipeline/data/raw/poblacion/*.csv
+!pipeline/data/raw/poblacion/*.md
+pipeline/data/cache/
+
+# Sistema
+.DS_Store
+Thumbs.db

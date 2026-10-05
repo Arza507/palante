@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import Icono from '../components/Icono.astro';
+import Fachadas from '../components/Fachadas.astro';
+import { SITIO } from '../lib/sitio';
+import { entradasNav, esActiva } from '../lib/nav';
+import { slugOg } from '../lib/og';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  fachadas?: boolean;
+  /** Fecha ISO de los datos que muestra la página, para el aviso sin conexión. */
+  fechaDatos?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+const { titulo, descripcion, fachadas = false, fechaDatos, jsonLd, noindex = false } = Astro.props;
+const ruta = Astro.url.pathname.replace(/\.html$/, '').replace(/(.)\/$/, '$1');
+const sitio = Astro.site ?? new URL('https://palante.pages.dev');
+const canonica = new URL(ruta === '/index' ? '/' : ruta, sitio).href;
+const imagen = new URL(`/og/${slugOg(ruta)}.png`, sitio).href;
+const tituloCompleto = ruta === '/' || ruta === '/index' ? `${SITIO.nombre}: ${SITIO.lema}` : `${titulo} | ${SITIO.nombre}`;
+const nav = entradasNav();
+---
+<!doctype html>
+<html lang="es-PA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#B5452F" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href="/fonts/fraunces-palante.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PA" />
+    <meta property="og:site_name" content="Palante" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagen} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>try{var t=localStorage.getItem('palante-tema');if(t==='claro'||t==='oscuro')document.documentElement.dataset.theme=t}catch(e){}</script>
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>}
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <p class="aviso-sin-conexion" id="aviso-sin-conexion" role="status" hidden data-fecha={fechaDatos ?? ''}></p>
+    <header class="cabecera">
+      <div class="contenedor">
+        <Logo />
+        <nav class="nav-escritorio" aria-label="Principal">
+          {nav.map((e) => <a href={e.href} aria-current={esActiva(e.href, ruta) ? 'page' : undefined}>{e.texto}</a>)}
+        </nav>
+        <button class="boton-tema" id="boton-tema" type="button" aria-pressed="false" hidden>
+          <Icono nombre="tema" /><span class="visualmente-oculto">Modo oscuro</span>
+        </button>
+      </div>
+    </header>
+    {fachadas && <Fachadas />}
+    <main id="contenido" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="pie">
+      <div class="contenedor">
+        <ul>
+          <li><a href="/fuentes">Fuentes</a></li>
+          <li><a href="/datos">Datos abiertos</a></li>
+          <li><a href="/privacidad">Privacidad</a></li>
+          <li><a href="/acerca">Acerca de Palante</a></li>
+        </ul>
+        <p>Palante es un proyecto independiente. No es una página del Gobierno de Panamá.</p>
+      </div>
+    </footer>
+    <nav class="nav-movil" aria-label="Principal en móvil">
+      {nav.map((e) => (
+        <a href={e.href} aria-current={esActiva(e.href, ruta) ? 'page' : undefined}>
+          <Icono nombre={e.icono} />
+          <span>{e.texto}</span>
+        </a>
+      ))}
+    </nav>
+    <script is:inline>
+(function(){var d=document.documentElement,b=document.getElementById('boton-tema');
+function osc(){return d.dataset.theme?d.dataset.theme==='oscuro':matchMedia('(prefers-color-scheme: dark)').matches}
+function pinta(){b.setAttribute('aria-pressed',String(osc()))}
+b.hidden=false;pinta();b.addEventListener('click',function(){var n=osc()?'claro':'oscuro';d.dataset.theme=n;try{localStorage.setItem('palante-tema',n)}catch(e){}pinta()});
+var a=document.getElementById('aviso-sin-conexion');
+function red(){if(navigator.onLine){a.hidden=true;return}var f=a.dataset.fecha;a.textContent=f?'Sin conexión. Datos guardados del '+f+'.':'Sin conexión. Estás viendo la última versión guardada.';a.hidden=false}
+addEventListener('online',red);addEventListener('offline',red);red();
+if('serviceWorker' in navigator)addEventListener('load',function(){setTimeout(function(){navigator.serviceWorker.register('/sw.js')},1500)});
+})();
+    </script>
+    {SITIO.balizaAnalitica && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITIO.balizaAnalitica })}></script>
+    )}
+  </body>
+</html>

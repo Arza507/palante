@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { FUENTES } from '../lib/fuentes';
+import { fechasFuentes } from '../modulos/fechas';
+
+const fechas = await fechasFuentes();
+---
+<Base titulo="Fuentes" descripcion="De dónde salen los datos de Palante, con su licencia y su fecha.">
+  <div class="contenedor">
+    <h1>Fuentes y licencias</h1>
+    <p class="intro">Cada dato de Palante viene de una fuente pública. Aquí ves quién lo publica, con qué licencia y de qué fecha es.</p>
+    {FUENTES.map((f) => (
+      <section aria-labelledby={`f-${f.id}`}>
+        <h2 id={`f-${f.id}`}>{f.nombre}</h2>
+        <p>{f.quien}. {f.uso}</p>
+        <p>Licencia: <a href={f.urlLicencia}>{f.licencia}</a>.{f.atribucion && <> Atribución: {f.atribucion}.</>}</p>
+        <p>Fecha de los datos: {fechas[f.id] ?? 'todavía no usamos esta fuente en una página publicada'}.</p>
+        <p><a href={f.url}>Ir a la fuente<span class="visualmente-oculto">: {f.nombre}</span></a></p>
+      </section>
+    ))}
+  </div>
+</Base>

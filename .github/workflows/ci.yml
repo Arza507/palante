@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pipeline:
+    name: Pipeline de datos
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pipeline
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - run: uv python install 3.12
+      - run: uv sync --all-groups --all-extras
+      - run: uv run ruff check .
+      - run: uv run pytest
+
+  web:
+    name: Web, pruebas y presupuestos
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - name: Lint, textos y contraste
+        run: npm run lint
+      - name: Pruebas unitarias
+        run: npm test
+      - name: Build de producción (falla si hay datos FIXTURE o se rompe un presupuesto)
+        run: npm run build
+      - name: Build con datos de prueba para las pruebas de interfaz
+        run: npm run build:fixtures
+      - run: npx playwright install --with-deps chromium webkit firefox
+      - name: Playwright y axe-core sobre el build de producción
+        run: npm run test:e2e
+      - name: Playwright y axe-core sobre el build con datos de prueba
+        run: npm run test:e2e
+        env:
+          DIST: dist-fixtures
+          PORT: '4322'
+      - name: Lighthouse CI (móvil, Slow 4G, CPU 4x)
+        run: |
+          export CHROME_PATH="$(node -e "console.log(require('@playwright/test').chromium.executablePath())")"
+          npx lhci autorun
+          LHCI_DIST=./dist-fixtures LHCI_PUERTO=4501 npx lhci autorun
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reportes
+          path: |
+            web/playwright-report
+            web/test-results
+            web/.lighthouseci
+          retention-days: 7

@@ -1,0 +1,78 @@
+/* Tokens de diseño de Palante, estilo Casco Antiguo.
+   scripts/check-contraste.mjs lee este archivo: cada bloque de tema debe definir los mismos tokens. */
+
+/* tema: claro */
+:root {
+  --cal: #FBF6EE;
+  --superficie: #FFFDF9;
+  --hierro: #2A2623;
+  --hierro-suave: #5E5650;
+  --terracota: #B5452F;
+  --terracota-oscuro: #7A2E1F;
+  --persiana: #2E6B62;
+  --azulejo: #2F5E8E;
+  --buganvilla: #A3245C;
+  --ocre: #E8B04B;
+  --rosa-fachada: #E7A598;
+  --linea: #D9CFC2;
+  --sobre-acento: #FBF6EE;
+  --sobre-ocre: #2A2623;
+  --calor-1: #F3E2C4;
+  --calor-2: #E8B04B;
+  --calor-3: #D27A3C;
+  --calor-4: #B5452F;
+  --calor-5: #7A2E1F;
+  --calor-sin-dato: #E9E3DA;
+  color-scheme: light;
+}
+
+/* tema: oscuro */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="claro"]) {
+    --cal: #1C1A18;
+    --superficie: #262320;
+    --hierro: #F3ECE2;
+    --hierro-suave: #C9BFB3;
+    --terracota: #E07A5F;
+    --terracota-oscuro: #F0A48F;
+    --persiana: #6FB3A8;
+    --azulejo: #7FA7D6;
+    --buganvilla: #E58AB0;
+    --ocre: #E8B04B;
+    --rosa-fachada: #E7A598;
+    --linea: #4A443E;
+    --sobre-acento: #1C1A18;
+    --sobre-ocre: #2A2623;
+    --calor-1: #3A332B;
+    --calor-2: #8A6A2E;
+    --calor-3: #C27A3F;
+    --calor-4: #E07A5F;
+    --calor-5: #F2B8A6;
+    --calor-sin-dato: #2E2A26;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="oscuro"] {
+  --cal: #1C1A18;
+  --superficie: #262320;
+  --hierro: #F3ECE2;
+  --hierro-suave: #C9BFB3;
+  --terracota: #E07A5F;
+  --terracota-oscuro: #F0A48F;
+  --persiana: #6FB3A8;
+  --azulejo: #7FA7D6;
+  --buganvilla: #E58AB0;
+  --ocre: #E8B04B;
+  --rosa-fachada: #E7A598;
+  --linea: #4A443E;
+  --sobre-acento: #1C1A18;
+  --sobre-ocre: #2A2623;
+  --calor-1: #3A332B;
+  --calor-2: #8A6A2E;
+  --calor-3: #C27A3F;
+  --calor-4: #E07A5F;
+  --calor-5: #F2B8A6;
+  --calor-sin-dato: #2E2A26;
+  color-scheme: dark;
+}

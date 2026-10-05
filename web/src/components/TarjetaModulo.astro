@@ -1,0 +1,26 @@
+---
+// Tarjeta de un módulo en el inicio. Sin dato real muestra "Próximamente", nunca un número inventado.
+interface Props {
+  href: string;
+  titulo: string;
+  resumen: string;
+  color: string;
+  dato?: string;
+  detalle?: string;
+  fuente?: string;
+}
+const { href, titulo, resumen, color, dato, detalle, fuente } = Astro.props;
+---
+<li class="tarjeta" style={`--franja: ${color}`}>
+  <h2><a class="estirado" href={href}>{titulo}</a></h2>
+  <p>{resumen}</p>
+  {dato ? (
+    <>
+      <p class="dato num">{dato}</p>
+      {detalle && <p>{detalle}</p>}
+      {fuente && <p class="fuente">{fuente}</p>}
+    </>
+  ) : (
+    <p><span class="etiqueta">Próximamente</span></p>
+  )}
+</li>

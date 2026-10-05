@@ -1,0 +1,19 @@
+{
+  "name": "Palante",
+  "short_name": "Palante",
+  "description": "Datos públicos de Panamá en mapas y paneles claros.",
+  "lang": "es-PA",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#B5452F",
+  "background_color": "#FBF6EE",
+  "categories": ["news", "education", "utilities"],
+  "icons": [
+    { "src": "/icons/icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icono-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icono-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

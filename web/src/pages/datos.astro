@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { descargas } from '../modulos/descargas';
+
+const lista = await descargas();
+const jsonLd = lista.map((d) => d.jsonLd);
+---
+<Base titulo="Datos abiertos" descripcion="Descarga los datos limpios que usa Palante, con su fuente y licencia." jsonLd={jsonLd.length ? jsonLd : undefined}>
+  <div class="contenedor">
+    <h1>Datos abiertos</h1>
+    <p class="intro">Puedes descargar los datos limpios que usamos en cada página. Cada archivo indica su fuente, su licencia y su fecha.</p>
+    {lista.length === 0 ? (
+      <div class="banda-azulejo"><p>Próximamente. Aquí estarán los datos limpios de cada módulo.</p></div>
+    ) : (
+      <ul>
+        {lista.map((d) => (
+          <li>
+            <a href={d.url} download>{d.titulo}</a> ({d.formato}, {d.tamano}). {d.descripcion} Licencia: {d.licencia}. Datos del {d.fecha}.
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Base>

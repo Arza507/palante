@@ -1,0 +1,24 @@
+---
+// Iconos lineales de 24 x 24, decorativos (el texto del enlace o botón da el nombre).
+interface Props { nombre: string; clase?: string }
+const { nombre, clase } = Astro.props;
+const trazos: Record<string, string> = {
+  inicio: 'M3 11l9-7 9 7M5 10v10h5v-6h4v6h5V10',
+  '311': 'M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21zM12 12.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+  empleo: 'M3 8h18v12H3zM8 8V5h8v3M3 13h18',
+  rutas: 'M5 4h14v12H5zM5 11h14M8 16v3M16 16v3M8 13.5h.01M16 13.5h.01',
+  compartir: 'M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4',
+  tema: 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z',
+  descargar: 'M12 3v12M7 10l5 5 5-5M4 20h16',
+  agua: 'M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z',
+  calles: 'M4 21L9 3M20 21L15 3M12 5v2M12 11v2M12 17v2',
+  basura: 'M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14',
+  alumbrado: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z',
+  drenajes: 'M3 15c2 0 2-2 4.5-2s2.5 2 4.5 2 2-2 4.5-2 2.5 2 4.5 2M3 20c2 0 2-2 4.5-2s2.5 2 4.5 2 2-2 4.5-2 2.5 2 4.5 2M12 3v7M9 7l3 3 3-3',
+  arboles: 'M12 21v-6M12 15a5 5 0 0 0 5-5 5 5 0 0 0-5-7 5 5 0 0 0-5 7 5 5 0 0 0 5 5z',
+  ruido: 'M4 9v6h4l5 4V5L8 9zM16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12',
+  otros: 'M5 12h.01M12 12h.01M19 12h.01M3 5h18v14H3z',
+};
+const d = trazos[nombre] ?? trazos.otros;
+---
+<svg class={clase} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={d}></path></svg>

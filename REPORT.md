@@ -1,5 +1,18 @@
 # REPORT de Palante
 
+## Resumen para Iker (6 de octubre de 2026)
+
+- **Hecho:** M2 (empleo), M3 (rutas y app de captura) y M4 (cierre), con commit y push cada uno. CI en verde en GitHub (commit `a083d80`).
+- **Sin API:** el modo `empleo --probar` estima el costo (unos 2,84 USD por cada 1.000 ofertas cortas con Haiku 4.5); no se llamó a la API.
+- **Datos reales:** no hay ofertas ni rutas reales; `/empleo` dice «Próximamente» y `/rutas` sigue oculta. Todo se probó con datos FIXTURE.
+- **Falló y se corrigió:** el CI no arrancaba el pipeline desde M1 (`setup-uv@v10` no existe) y una prueba de la captura era inestable.
+- **GTFS:** Java no está aquí; el validador de MobilityData corre en CI y da 0 errores.
+- **Tu decisión:** julio y agosto del 311 (conteos sin corregimiento): mostrarlos sin mapa o pedir el detalle a la Alcaldía. No añadí nada.
+- **Tu decisión también:** logo, licencia del código y revisar `docs/textos-para-revisar.md` y `pipeline/config/`.
+- **Tus tareas:** clave de Anthropic en `.env`, ofertas en `ofertas.csv`, ESCO (pide correo), datos del INEC, cuenta de Cloudflare y dominio.
+- **Pruebas en teléfono:** captura de 30 minutos en Android sin conexión, Samsung Internet y la prueba antes de lanzar.
+- Detalle de todo al final de este archivo, en «M4, cierre», «Pendiente de Iker».
+
 Informe del agente. Se completa al final de cada hito.
 
 ## M1, mapa del 311

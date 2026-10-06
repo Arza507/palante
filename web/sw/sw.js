@@ -31,6 +31,12 @@ registerRoute(
   }),
 );
 
+// Código del mapa de calles (Leaflet): se guarda la primera vez que se abre /rutas, no antes.
+registerRoute(
+  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('/_astro/') && url.pathname.endsWith('.js'),
+  new StaleWhileRevalidate({ cacheName: 'palante-codigo', plugins: [new ExpirationPlugin({ maxEntries: 20 })] }),
+);
+
 // Sin red y sin copia: la página de sin conexión.
 setCatchHandler(async ({ request }) => {
   if (request.mode === 'navigate') {

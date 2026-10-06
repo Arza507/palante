@@ -1,0 +1,24 @@
+/* Página de rutas */
+.mapa-figura { margin: 1rem 0; }
+.mapa-figura figcaption { color: var(--hierro-suave); font-size: .9375rem; margin-top: .5rem; }
+.mapa-rutas { display: block; width: 100%; max-width: 40rem; height: auto; border: 1px solid var(--linea); border-radius: 12px; }
+.mapa-rutas a path { cursor: pointer; }
+.mapa-rutas a:hover path { stroke-width: 6; }
+.mapa-leaflet { height: 60vh; min-height: 20rem; border: 1px solid var(--linea); border-radius: 12px; }
+.lista-rutas { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+.ficha-ruta { background: var(--superficie); border: 1px solid var(--linea); border-left: 8px solid var(--color-ruta); border-radius: 12px; padding: 1rem; scroll-margin-top: 1rem; }
+.ficha-ruta:target { outline: 3px solid var(--color-ruta); }
+.ficha-ruta h4 { margin: 0 0 .5rem; font-size: 1.125rem; display: flex; gap: .5rem; align-items: center; }
+.numero-ruta {
+  display: inline-grid; place-items: center; min-width: 1.75rem; height: 1.75rem; border-radius: 999px;
+  background: var(--color-ruta); color: var(--sobre-acento); font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.ficha-ruta dl { display: grid; grid-template-columns: auto 1fr; gap: .25rem .75rem; margin: 0 0 .5rem; }
+.ficha-ruta dt { color: var(--hierro-suave); }
+.ficha-ruta dd { margin: 0; }
+.ficha-ruta summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--persiana); }
+.icono-en-linea { width: 1.1em; height: 1.1em; vertical-align: -.2em; margin-right: .25rem; }
+.numero-mapa {
+  display: grid; place-items: center; border-radius: 999px; background: var(--hierro); color: var(--cal);
+  font: 700 12px/1 system-ui, sans-serif; border: 2px solid var(--cal);
+}

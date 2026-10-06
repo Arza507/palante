@@ -1,0 +1,15 @@
+---
+// App de captura para voluntarios. Fuera del menú y de los buscadores; funciona sin conexión.
+import Base from '../layouts/Base.astro';
+import CapturaApp from '../islands/Captura.tsx';
+import '../styles/captura.css';
+---
+<Base titulo="Captura de rutas" descripcion="Herramienta para voluntarios de Palante: graba el recorrido y las paradas de una ruta de busito o chiva." noindex>
+  <div class="contenedor">
+    <h1>Captura de rutas</h1>
+    <p class="intro">Para voluntarios. Graba el recorrido y las paradas de una ruta. Todo queda en tu teléfono hasta que lo envías.</p>
+    <CapturaApp client:load>
+    </CapturaApp>
+    <noscript><p class="aviso alerta">La captura necesita JavaScript activado.</p></noscript>
+  </div>
+</Base>

@@ -14,3 +14,9 @@
 - `provincias.csv`: provincias y comarcas que acepta la columna `provincia`.
 - `sinonimos_habilidades.csv`: correcciones manuales. Lo que la extracción escribe en `texto` pasa a
   llamarse `habilidad` ("Excel avanzado" pasa a "Microsoft Excel"). Tildes y mayúsculas ya se ignoran.
+
+## Rutas
+
+- `rutas.csv`: datos de cada ruta que la captura no trae: sector (para la lista), días con servicio (siete
+  cifras de lunes a domingo, `1111110` = lunes a sábado), primera y última salida (`05:30`, `21:00`) y cada
+  cuántos minutos pasa. Una ruta sin fila aquí se muestra en el mapa pero no entra al GTFS.

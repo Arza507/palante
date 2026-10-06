@@ -29,13 +29,17 @@ export function buscarFixtures(dir) {
 }
 
 // Páginas que se precargan para que la app abra sin conexión desde la primera visita.
-const PRECARGA_PAGINAS = ['index.html', '311.html', 'empleo.html', 'sin-conexion.html', '404.html'];
+const PRECARGA_PAGINAS = ['index.html', '311.html', 'empleo.html', 'captura.html', 'sin-conexion.html', '404.html'];
 
-export default function palante({ permitirFixtures = false } = {}) {
+export default function palante({ permitirFixtures = false, rutas = false } = {}) {
   let site;
   return {
     name: 'palante',
     hooks: {
+      'astro:config:setup': ({ injectRoute }) => {
+        // /rutas solo existe con PUBLIC_RUTAS=true (SPEC.md, sección 8).
+        if (rutas) injectRoute({ pattern: '/rutas', entrypoint: './src/rutas/rutas.astro' });
+      },
       'astro:config:done': ({ config }) => {
         site = config.site;
       },
@@ -64,6 +68,15 @@ export default function palante({ permitirFixtures = false } = {}) {
             '\n</urlset>\n',
         );
 
+        // Leaflet y protomaps solo se descargan al abrir el mapa de calles: no van en la precarga.
+        const astroDir = join(salida, '_astro');
+        const soloMapa = new Set();
+        for (const f of readdirSync(astroDir).filter((n) => n.startsWith('MapaCalles.'))) {
+          const codigo = readFileSync(join(astroDir, f), 'utf8');
+          for (const m of codigo.matchAll(/import\(\s*["'`]\.\/([^"'`]+\.js)["'`]\s*\)/g)) soloMapa.add(`_astro/${m[1]}`);
+          for (const m of codigo.matchAll(/["'`]\/?(_astro\/[^"'`]+\.css)["'`]/g)) soloMapa.add(m[1]);
+        }
+
         const fuente = join(salida, 'sw-fuente.js');
         await build({
           entryPoints: [fileURLToPath(new URL('../sw/sw.js', import.meta.url))],
@@ -81,6 +94,7 @@ export default function palante({ permitirFixtures = false } = {}) {
           globDirectory: salida,
           globPatterns: [
             ...PRECARGA_PAGINAS,
+            ...(rutas ? ['rutas.html'] : []),
             '_astro/*.{js,css}',
             'fonts/*.woff2',
             'favicon.svg',
@@ -88,6 +102,7 @@ export default function palante({ permitirFixtures = false } = {}) {
             'img/*.svg',
             'manifest.webmanifest',
           ],
+          globIgnores: [...soloMapa],
           maximumFileSizeToCacheInBytes: 300 * 1024,
         });
         rmSync(fuente);

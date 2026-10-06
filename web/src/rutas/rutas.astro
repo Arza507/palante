@@ -1,0 +1,69 @@
+---
+// Página pública de rutas. Solo se construye con PUBLIC_RUTAS=true (la integración de Palante la inyecta)
+// y solo cuando hay rutas reales validadas en web/public/data/rutas/.
+import Base from '../layouts/Base.astro';
+import MapaRutas from '../components/rutas/MapaRutas.astro';
+import MapaCalles from '../islands/MapaCalles.tsx';
+import Icono from '../components/Icono.astro';
+import { datosRutas } from '../modulos/rutas/datos';
+import { color, COLORES, nombreParada, porSector, tarifa } from '../lib/rutas';
+import { fecha } from '../lib/formato';
+import '../styles/rutas.css';
+
+const d = datosRutas();
+if (!d) throw new Error('PUBLIC_RUTAS=true pero no hay rutas en web/public/data/rutas/. Corre el pipeline de rutas.');
+const pmtiles = (import.meta.env.PUBLIC_PMTILES_URL as string | undefined) || '';
+const props = d.rutas.features.map((f) => f.properties);
+const grupos = porSector(props);
+const parada = new Map(d.paradas.features.map((f) => [f.id, f.properties]));
+const descripcion = `Rutas internas de busitos y chivas con permiso de la ATTT: recorridos, paradas, tarifas y operadores. Datos del ${d.fecha}.`;
+---
+<Base titulo="Rutas de transporte" descripcion={descripcion} fechaDatos={d.fecha} mapaCalles={!!pmtiles}>
+  <div class="contenedor">
+    <h1>Rutas de transporte</h1>
+    <p class="intro">Rutas internas de busitos y chivas con permiso de la ATTT, recorridas y grabadas por voluntarios.</p>
+    <p class="aviso">Solo publicamos rutas que tienen permiso de la ATTT, según quien las capturó. Los horarios y la frecuencia pueden cambiar.</p>
+
+    <figure class="mapa-figura">
+      {pmtiles ? (
+        <MapaCalles client:visible pmtiles={pmtiles} rutas={d.rutas} paradas={d.paradas} colores={COLORES}>
+          <MapaRutas rutas={d.rutas} paradas={d.paradas} />
+        </MapaCalles>
+      ) : <MapaRutas rutas={d.rutas} paradas={d.paradas} />}
+      <figcaption>
+        Cada línea es una ruta, con su número. Los círculos blancos son paradas. Toca una ruta para ver sus datos.
+        {pmtiles && ' Mapa de calles: Protomaps, © colaboradores de OpenStreetMap.'}
+      </figcaption>
+    </figure>
+
+    <h2>Rutas por sector</h2>
+    {grupos.map((g) => (
+      <section class="sector-rutas">
+        <h3>{g.sector}</h3>
+        <ul class="lista-rutas">
+          {g.rutas.map((r) => (
+            <li id={`ruta-${r.id}`} class="ficha-ruta" style={`--color-ruta:${color(r.n - 1)}`}>
+              <h4><span class="numero-ruta" aria-hidden="true">{r.n}</span> {r.ruta}, {r.sentido}</h4>
+              <dl>
+                <dt>Operador</dt><dd>{r.operador || 'sin dato'}</dd>
+                <dt>Tarifa</dt><dd>{tarifa(r.tarifa_usd)}</dd>
+                <dt>Última captura</dt><dd>{fecha(r.ultima_captura)}</dd>
+              </dl>
+              <details>
+                <summary>{r.paradas.length} paradas</summary>
+                <ol>{r.paradas.map((p) => <li>{nombreParada(parada.get(p), p)}</li>)}</ol>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <h2>Descargas</h2>
+    <ul>
+      {d.hayGtfs && <li><a href="/data/rutas/gtfs.zip" download><Icono nombre="descargar" clase="icono-en-linea" />Rutas en formato GTFS</a>, el formato abierto que leen las apps de transporte.</li>}
+      <li><a href="/data/rutas/rutas.geojson" download>Recorridos en GeoJSON</a> y <a href="/data/rutas/paradas.geojson" download>paradas en GeoJSON</a>.</li>
+    </ul>
+    <p>Datos de rutas de Palante con licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>. Datos del {d.fecha}.</p>
+  </div>
+</Base>

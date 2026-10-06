@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { existsSync } from 'node:fs';
 import { sinErroresAxe } from './ayuda';
+
+/** Rutas solo existe en builds con PUBLIC_RUTAS=true (el de datos de prueba). */
+const conRutas = existsSync(`${process.env.DIST ?? 'dist'}/rutas.html`);
 
 const PAGINAS_COMUNES = ['/', '/acerca', '/fuentes', '/privacidad', '/datos', '/sin-conexion', '/311', '/empleo'];
 
@@ -35,10 +39,10 @@ test('una ruta inexistente responde 404 con enlaces útiles', async ({ page }) =
   await sinErroresAxe(page);
 });
 
-test('la navegación lleva a cada sección y no muestra Rutas', async ({ page, isMobile }) => {
+test('la navegación lleva a cada sección y solo muestra Rutas con la bandera', async ({ page, isMobile }) => {
   await page.goto('/');
   const nav = page.getByRole('navigation', { name: isMobile ? 'Principal en móvil' : 'Principal', exact: true });
-  await expect(nav.getByRole('link', { name: 'Rutas' })).toHaveCount(0);
+  await expect(nav.getByRole('link', { name: 'Rutas' })).toHaveCount(conRutas ? 1 : 0);
   await nav.getByRole('link', { name: '311' }).click();
   await expect(page).toHaveURL(/\/311$/);
   await expect(nav.getByRole('link', { name: '311' })).toHaveAttribute('aria-current', 'page');

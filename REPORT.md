@@ -114,3 +114,38 @@ datos) y Lighthouse CI en los dos builds (también `/empleo/tecnologia` y `/empl
 - **Encuesta de Mercado Laboral del INEC**: inec.gob.pa no respondió desde esta red y el portal de datos
   abiertos no tiene esas tablas. Sin ese dato el aviso no da la cifra de informalidad («casi la mitad» del SPEC
   no se escribe sin fuente). Formato para añadirla en `pipeline/data/raw/empleo/inec/LEEME.md`.
+
+## M3, rutas
+
+### Hecho
+
+- App de captura en `/captura` (fuera del menú y del sitemap, `noindex`): instrucciones en cinco pasos, código
+  de voluntario, aviso de seguridad, aviso para iPhone, formulario, grabación con GPS cada 5 s en alta
+  precisión, botón «Parada aquí» de 96 px, contador de paradas y minutos, pantalla encendida (Wake Lock),
+  aviso si la precisión pasa de 50 m, revisión con traza en SVG, nombrar y borrar paradas, envío con Web
+  Share API o descarga. Todo queda en IndexedDB y funciona sin conexión; si se cierra la pestaña, sigue grabando.
+- Pipeline `uv run python -m palante_pipeline rutas`: valida el esquema, descarta puntos con precisión peor
+  que 50 m y saltos de más de 120 km/h, simplifica a 10 m, fusiona paradas a menos de 30 m, elige la traza más
+  completa y genera `rutas.geojson`, `paradas.geojson`, `gtfs.zip` y `meta.json`. Solo rutas con permiso «si».
+- `/rutas` detrás de `PUBLIC_RUTAS` (apagada): mapa SVG sobre fondo liso, con número en cada ruta, lista por
+  sector con operador, tarifa, paradas y fecha de la última captura, y descarga del GTFS. Con
+  `PUBLIC_PMTILES_URL`, mapa de calles con Leaflet y protomaps-leaflet (91 KB gzip; con ahorro de datos no
+  se carga).
+- Guía `docs/guia-voluntarios.md`. Horarios de cada ruta en `pipeline/config/rutas.csv` (vacío).
+
+### Verificación
+
+ruff y pytest (53), lint, Vitest (38), los dos builds con presupuestos cumplidos, Playwright con axe en los
+cinco perfiles sobre los dos builds (184 y 210 pasan; la captura con GPS simulado y reloj falso corre en
+Chromium) y Lighthouse CI en `/rutas` y `/captura`.
+Una prueba de Playwright falló una vez en cuatro corridas completas y no se repitió; en CI hay un reintento.
+
+### Pendiente
+
+- **Validador GTFS oficial**: necesita Java, que no está en esta computadora. Lo añadí al CI (trabajo
+  «Validador GTFS de MobilityData», versión 8.0.1). Localmente el feed pasa la validación interna con 0 errores.
+- **Prueba manual en Android (Iker)**: grabar 30 minutos sin conexión en un Android real, enviar por WhatsApp
+  y anotar aquí el resultado. No se puede hacer desde esta computadora.
+- **Rutas reales**: no hay capturas. `/rutas` sigue oculta y `web/public/data/rutas/` vacío.
+- **Bucket R2 con el PMTiles de Panamá** (Iker, cuenta de Cloudflare): sin él, el mapa usa el fondo liso.
+- **Horarios y sectores** de cada ruta en `pipeline/config/rutas.csv`, confirmados con las cooperativas.

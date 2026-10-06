@@ -1,0 +1,66 @@
+{
+  "modulo": "rutas",
+  "marca": "FIXTURE",
+  "licencia": "CC BY 4.0",
+  "fecha_proceso": "2026-10-05",
+  "archivos_leidos": 6,
+  "capturas_validas": 5,
+  "rutas": [
+    {
+      "id": "ruta-fixture-tres-ida",
+      "ruta": "Ruta FIXTURE Tres",
+      "sentido": "ida",
+      "operador": "Cooperativa FIXTURE",
+      "tarifa_usd": 0.5,
+      "sector": "Sin sector",
+      "paradas": 3,
+      "capturas": 1,
+      "ultima_captura": "2026-09-15",
+      "en_gtfs": false
+    },
+    {
+      "id": "ruta-fixture-uno-ida",
+      "ruta": "Ruta FIXTURE Uno",
+      "sentido": "ida",
+      "operador": "Cooperativa FIXTURE",
+      "tarifa_usd": 0.5,
+      "sector": "Sector FIXTURE Oeste",
+      "paradas": 5,
+      "capturas": 2,
+      "ultima_captura": "2026-09-16",
+      "en_gtfs": true
+    },
+    {
+      "id": "ruta-fixture-uno-vuelta",
+      "ruta": "Ruta FIXTURE Uno",
+      "sentido": "vuelta",
+      "operador": "Cooperativa FIXTURE",
+      "tarifa_usd": 0.5,
+      "sector": "Sector FIXTURE Oeste",
+      "paradas": 5,
+      "capturas": 1,
+      "ultima_captura": "2026-09-14",
+      "en_gtfs": true
+    }
+  ],
+  "descartes": [
+    {
+      "motivo": "archivo con formato inválido",
+      "n": 1,
+      "detalle": [
+        "mala.json"
+      ]
+    },
+    {
+      "motivo": "sin permiso de la ATTT confirmado",
+      "n": 1,
+      "detalle": []
+    }
+  ],
+  "puntos_leidos": 1084,
+  "puntos_descartados_precision": 9,
+  "puntos_descartados_salto": 1,
+  "validacion_gtfs": [
+    "validación interna: 0 errores"
+  ]
+}

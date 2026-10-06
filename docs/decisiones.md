@@ -81,3 +81,24 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 - **Estilos `.cifras` pasan a `global.css`**: los usan el 311 y empleo.
 - **Informe con `@page A4`, `break-inside: avoid` en gráficos y `break-after: avoid` en subtítulos**; cada sector empieza en página nueva.
 - **`astral-sh/setup-uv@v10.2.0` con versión exacta**: el proyecto ya no publica la etiqueta `v10` y el CI fallaba al preparar el trabajo.
+
+## M3, rutas
+
+- **`stop_times.txt` en el GTFS** aunque el SPEC no lo nombra: es obligatorio para que un viaje tenga paradas; las horas salen de la captura, relativas a la primera parada.
+- **Horario y frecuencia en `config/rutas.csv`**: la captura no los trae. Una ruta sin fila ahí sale en el mapa y en los GeoJSON, pero no en el GTFS (no se inventa un horario).
+- **`agency_url` del GTFS = repositorio de Palante**: el campo es obligatorio y las cooperativas no tienen página propia.
+- **Validación interna del GTFS en Python** (archivos, campos, referencias, horas, coordenadas) y **validador oficial de MobilityData 8.0.1 en CI** con Java 21: Java no está instalado en esta computadora.
+- **La traza más completa es la más larga después de limpiar**; empate, la más reciente.
+- **Paradas fusionadas con su centroide** y nombre más repetido; se numeran de norte a sur para que los id no cambien entre corridas con las mismas capturas.
+- **Ida y vuelta comparten paradas** si quedan a menos de 30 m (lo pide el SPEC); en avenidas anchas pueden quedar separadas.
+- **El código de voluntario no se publica** en ninguna salida.
+- **`/rutas` se inyecta con `injectRoute` solo con `PUBLIC_RUTAS=true`**; si la bandera está activa y no hay datos, el build falla. El build con datos de prueba la activa.
+- **Las variables `PUBLIC_` se leen del `.env` de la raíz** (`vite.envDir: '..'` y `loadEnv` en `astro.config.mjs`); antes Astro solo miraba `web/.env`.
+- **Mapa de rutas en SVG del build sobre fondo liso**; con `PUBLIC_PMTILES_URL` y sin ahorro de datos, una isla carga Leaflet y protomaps-leaflet (91 KB gzip con la página, límite 150 KB).
+- **Leaflet fuera de la precarga del service worker**: se guarda en caché la primera vez que se abre el mapa de calles. Quien no abre `/rutas` no lo descarga.
+- **El script de presupuestos cuenta los `import()` en páginas con mapa de calles**: Leaflet llega apenas se ve el mapa.
+- **CSS de Leaflet con `?url`**: con `inlineStylesheets: 'always'` el CSS importado dentro de la isla no llegaba a la salida.
+- **Cada ruta lleva un número en el mapa y en la lista**: el color no es la única señal.
+- **Un punto GPS por lectura nueva cada 5 s, con la hora del muestreo**: si el GPS no da una lectura nueva, no se repite el punto anterior.
+- **La app de captura pinta su inicio en el HTML del build** (sin «Cargando…»): CLS 0.
+- **Lighthouse no exige SEO en `/captura`**: es `noindex` a propósito.

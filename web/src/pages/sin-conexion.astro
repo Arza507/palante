@@ -16,7 +16,7 @@ import Base from '../layouts/Base.astro';
   // Busca las páginas de cada módulo guardadas en el teléfono y lee la fecha de sus datos.
   if (!('caches' in window)) return;
   var lista = document.getElementById('guardados');
-  var mods = [['/311', 'Mapa del 311'], ['/empleo', 'Observatorio de empleo']];
+  var mods = [['/311', 'Mapa del 311'], ['/empleo', 'Observatorio de empleo'], ['/rutas', 'Rutas de transporte']];
   function buscar(ruta) {
     return caches.match(ruta).then(function (r) { return r || caches.match(ruta + '.html', { ignoreSearch: true }); });
   }

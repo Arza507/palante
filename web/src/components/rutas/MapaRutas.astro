@@ -1,0 +1,34 @@
+---
+// Mapa de rutas en SVG generado en el build, sobre fondo liso: no necesita teselas ni JavaScript.
+// Cada línea lleva el número de la ruta (el color no es la única señal) y enlaza a su ficha en la lista.
+import { geoMercator, geoPath } from 'd3-geo';
+import type { FeatureCollection } from 'geojson';
+import { color, type ParadasGeo, type RutasGeo } from '../../lib/rutas';
+
+interface Props { rutas: RutasGeo; paradas: ParadasGeo; ancho?: number; alto?: number }
+const { rutas, paradas, ancho = 400, alto = 400 } = Astro.props;
+const todo = { type: 'FeatureCollection', features: [...rutas.features, ...paradas.features] } as unknown as FeatureCollection;
+const proy = geoMercator().fitExtent([[24, 24], [ancho - 24, alto - 24]], todo);
+const camino = geoPath(proy).digits(1);
+const lineas = rutas.features.map((f, i) => {
+  const c = f.geometry.coordinates;
+  const [x, y] = proy(c[Math.floor(c.length / 2)]) ?? [0, 0];
+  return { id: f.properties.id, nombre: `${f.properties.ruta}, ${f.properties.sentido}`, d: camino(f as never) ?? '', color: color(i), n: i + 1, x, y };
+});
+const puntos = paradas.features.map((f) => proy(f.geometry.coordinates) ?? [0, 0]);
+---
+<svg class="mapa-rutas" viewBox={`0 0 ${ancho} ${alto}`} role="group" aria-label="Mapa de las rutas sobre fondo liso. La lista de abajo tiene los mismos datos.">
+  <rect width={ancho} height={alto} fill="var(--superficie)"></rect>
+  {lineas.map((l) => (
+    <a href={`#ruta-${l.id}`} aria-label={`Ruta ${l.n}: ${l.nombre}`} tabindex="-1">
+      <path d={l.d} fill="none" stroke={l.color} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+    </a>
+  ))}
+  {puntos.map(([x, y]) => <circle cx={x} cy={y} r="3.5" fill="var(--superficie)" stroke="var(--hierro)" stroke-width="1.5"></circle>)}
+  {lineas.map((l) => (
+    <g aria-hidden="true">
+      <circle cx={l.x} cy={l.y} r="10" fill={l.color}></circle>
+      <text x={l.x} y={l.y + 4} text-anchor="middle" font-size="12" font-weight="700" fill="var(--sobre-acento)">{l.n}</text>
+    </g>
+  ))}
+</svg>

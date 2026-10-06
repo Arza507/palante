@@ -1,0 +1,4 @@
+ruta,sentido,sector,dias,inicio,fin,frecuencia_min
+Ruta FIXTURE Uno,ida,Sector FIXTURE Oeste,1111110,05:30,21:00,15
+Ruta FIXTURE Uno,vuelta,Sector FIXTURE Oeste,1111110,06:00,21:30,15
+Ruta FIXTURE Dos,ida,Sector FIXTURE Norte,1111111,06:00,20:00,20

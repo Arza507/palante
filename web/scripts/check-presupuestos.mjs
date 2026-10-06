@@ -26,14 +26,21 @@ function* archivos(dir) {
 }
 
 /** Sigue los imports estáticos de un módulo JS y devuelve todos los archivos que carga al inicio. */
-function grafoJs(dist, archivo, vistos = new Set()) {
+function grafoJs(dist, archivo, vistos = new Set(), dinamicos = false) {
   if (vistos.has(archivo) || !existsSync(archivo)) return vistos;
   vistos.add(archivo);
   const codigo = readFileSync(archivo, 'utf8');
+  // En páginas con mapa de calles, Leaflet llega con import() apenas se ve el mapa: también cuenta.
+  if (dinamicos) {
+    for (const m of codigo.matchAll(/import\(\s*["'`]([^"'`]+\.js)["'`]\s*\)/g)) {
+      const destino = m[1].startsWith('/') ? join(dist, m[1]) : join(dirname(archivo), m[1]);
+      grafoJs(dist, destino, vistos, dinamicos);
+    }
+  }
   // Solo imports estáticos: `import ... from "x"` e `import "x"`. Los import() dinámicos no cuentan como carga inicial.
   for (const m of codigo.matchAll(/(?:^|[;\s}])(?:import|export)\s*(?:[\w*{}\s,$]+from\s*)?["']([^"']+\.js)["']/g)) {
     const destino = m[1].startsWith('/') ? join(dist, m[1]) : join(dirname(archivo), m[1]);
-    grafoJs(dist, destino, vistos);
+    grafoJs(dist, destino, vistos, dinamicos);
   }
   return vistos;
 }
@@ -46,7 +53,7 @@ export function analizarPagina(dist, html) {
   const islas = [...texto.matchAll(/component-url="([^"]+)"|renderer-url="([^"]+)"|<script[^>]+src="(\/[^"]+\.js)"|<link[^>]+rel="modulepreload"[^>]+href="([^"]+)"/g)];
   for (const m of islas) {
     const src = m[1] ?? m[2] ?? m[3] ?? m[4];
-    if (src && src.startsWith('/')) grafoJs(dist, join(dist, src), js);
+    if (src && src.startsWith('/')) grafoJs(dist, join(dist, src), js, conMapa);
   }
   // Scripts de Astro con hoisting: <script type="module" src=...> ya cubiertos; los inline se suman al HTML.
   let jsInline = 0;

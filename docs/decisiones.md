@@ -80,3 +80,4 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 - **Fixtures de la web con 80 ofertas** (20 escritas a mano y 60 sintéticas) para que haya varios sectores publicables en las pruebas.
 - **Estilos `.cifras` pasan a `global.css`**: los usan el 311 y empleo.
 - **Informe con `@page A4`, `break-inside: avoid` en gráficos y `break-after: avoid` en subtítulos**; cada sector empieza en página nueva.
+- **`astral-sh/setup-uv@v10.2.0` con versión exacta**: el proyecto ya no publica la etiqueta `v10` y el CI fallaba al preparar el trabajo.

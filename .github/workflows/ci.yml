@@ -41,7 +41,7 @@ jobs:
         run: |
           uv sync --all-groups
           uv run python ../fixtures/generar_fixtures_rutas.py
-          git diff --exit-code -- ../fixtures/web/data/rutas ':!*.zip' || (echo "Los datos de prueba de rutas no están al día" && exit 1)
+          git diff --exit-code -- ../fixtures/web/data/rutas/*.json ../fixtures/web/data/rutas/*.geojson || (echo "Los datos de prueba de rutas no están al día" && exit 1)
       - uses: actions/setup-java@v6
         with:
           distribution: temurin

@@ -16,3 +16,6 @@
 
 /sw.js
   Cache-Control: no-cache
+
+/captura
+  X-Robots-Tag: noindex

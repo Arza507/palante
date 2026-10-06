@@ -143,6 +143,7 @@ def tablas(res: "Resultado", desde: date, hasta: date) -> dict[str, list[dict]]:
             "feed_start_date": desde.strftime("%Y%m%d"),
             "feed_end_date": hasta.strftime("%Y%m%d"),
             "feed_version": desde.isoformat(),
+            "feed_contact_url": f"{URL_EDITOR}/issues",
         }
     ]
     return t

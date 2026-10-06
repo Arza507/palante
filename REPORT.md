@@ -138,7 +138,8 @@ datos) y Lighthouse CI en los dos builds (también `/empleo/tecnologia` y `/empl
 ruff y pytest (53), lint, Vitest (38), los dos builds con presupuestos cumplidos, Playwright con axe en los
 cinco perfiles sobre los dos builds (184 y 210 pasan; la captura con GPS simulado y reloj falso corre en
 Chromium) y Lighthouse CI en `/rutas` y `/captura`.
-Una prueba de Playwright falló una vez en cuatro corridas completas y no se repitió; en CI hay un reintento.
+Una prueba de la captura fallaba a veces: cortaba la red antes de que la isla cargara tras recargar. Corregida
+en M4 (20 repeticiones seguidas en verde).
 
 ### Pendiente
 
@@ -149,3 +150,54 @@ Una prueba de Playwright falló una vez en cuatro corridas completas y no se rep
 - **Rutas reales**: no hay capturas. `/rutas` sigue oculta y `web/public/data/rutas/` vacío.
 - **Bucket R2 con el PMTiles de Panamá** (Iker, cuenta de Cloudflare): sin él, el mapa usa el fondo liso.
 - **Horarios y sectores** de cada ruta en `pipeline/config/rutas.csv`, confirmados con las cooperativas.
+
+## M4, cierre
+
+### Hecho
+
+- Pruebas de la sección 10 en CI: pytest, Vitest, Playwright con axe-core en cinco perfiles (Pixel 5, iPhone SE
+  con WebKit, Chrome, Firefox y Safari de escritorio a 1.280 px), sin conexión, ahorro de datos (`Save-Data`),
+  Lighthouse CI móvil con los presupuestos, validador GTFS de MobilityData (0 errores, 0 avisos tras añadir
+  `feed_contact_url`), contraste, reglas de textos y guardia FIXTURE.
+- `docs/textos-para-revisar.md`: cada texto visible, página por página, más los textos de las islas. Se regenera
+  con `npm run build:fixtures && node scripts/extraer-textos.mjs`.
+- Cloudflare Pages listo sin publicar: `web/wrangler.toml`, `web/public/_headers` (también `noindex` en
+  `/captura`), flujo manual `deploy.yml` (vista previa por defecto) y pasos en `docs/publicar.md`.
+- `README.md` en español con los comandos exactos.
+- Revisión: no hay claves ni datos personales en el repositorio (solo correos de ejemplo en datos de prueba).
+- La tarjeta de Rutas del inicio muestra el número de rutas cuando hay datos reales.
+
+### Verificación
+
+ruff y pytest (53), lint, Vitest (38), los dos builds con presupuestos cumplidos, Playwright con axe en los dos
+builds (185 y 210 pasan; las omitidas dependen del navegador o de si hay datos) y Lighthouse CI en 6 páginas del
+build de producción y 8 del build con datos de prueba, todas en verde.
+
+### Pendiente de Iker
+
+**Decisiones**
+
+- **311, julio y agosto de 2026**: la Alcaldía solo publicó conteos de tres direcciones para esos meses, sin
+  corregimiento. ¿Mostrarlos como conteos del distrito (sin mapa), o pedir a la Alcaldía el detalle por caso?
+  No añadí nada, como pediste. Pedírselo es contactar a una institución.
+- **Logo**: elegir una de las tres variantes de `design/logo/`.
+- **Licencia del código**: el repositorio no tiene archivo LICENSE y `/acerca` dice que es código abierto.
+- **Textos**: revisar `docs/textos-para-revisar.md`.
+- **Configuración**: revisar `pipeline/config/` (categorías del 311, estados resueltos, sectores, sinónimos).
+
+**Cuentas, claves y datos**
+
+- Clave de API de Anthropic con límite de gasto, en `.env`; luego `empleo --probar` y `empleo --extraer`.
+- Ofertas reales en `pipeline/data/raw/empleo/ofertas.csv`.
+- ESCO en español (la descarga pide un correo) y, si quieres la cifra de informalidad, el dato de la Encuesta
+  de Mercado Laboral del INEC (inec.gob.pa no respondió desde esta red).
+- Población por corregimiento del INEC (pendiente desde M1): sin ella el mapa del 311 usa conteos.
+- Cuenta de Cloudflare, secretos de GitHub y, si quieres mapa de calles, el bucket R2 con el PMTiles de Panamá.
+- Comprobar `palante` como dominio y marca en la DIGERPI.
+
+**Pruebas en teléfonos reales**
+
+- Captura de 30 minutos en un Android sin conexión y envío por WhatsApp (criterio de la sección 8).
+- Samsung Internet: carga, instalación y compartir.
+- Prueba antes de lanzar (sección 10): Android barato con datos móviles en Panamá, instalar, abrir sin
+  conexión, compartir una ficha por WhatsApp y pedir a tres personas que encuentren su corregimiento.

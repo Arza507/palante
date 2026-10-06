@@ -66,9 +66,9 @@ test('graba con GPS simulado, guarda sin conexión y descarga el archivo', async
   // La recarga sin red se prueba aparte con el service worker.
   await context.setOffline(false);
   await page.reload();
-  await context.setOffline(true);
   await expect(page.getByRole('heading', { name: /Grabando/ })).toBeVisible();
   await expect(page.locator('.contadores')).toContainText('2 paradas');
+  await context.setOffline(true);
   await avanzar(context, page, 9, 14);
   await parada.click();
   await page.getByRole('button', { name: 'Fin de ruta' }).click();

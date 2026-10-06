@@ -10,11 +10,11 @@ from palante_pipeline.m311 import descarga, geo, poblacion, proceso
 def main(args: Namespace) -> None:
     carpeta = RAW / "311"
     archivos = sorted(carpeta.glob("*.xls*"))
-    if args.descargar or not archivos:
+    if args.descargar or not archivos or not descarga.INDICE.exists():
         archivos = descarga.descargar_todo()
     if args.descargar or not geo.ARCHIVO.exists():
         geo.descargar()
-    conjunto = json.loads((carpeta / "_conjunto.json").read_text(encoding="utf-8"))
+    conjuntos = json.loads(descarga.INDICE.read_text(encoding="utf-8"))
 
     poligonos, meta_geo = geo.corregimientos()
     if not poblacion.PLANTILLA.exists():
@@ -22,7 +22,7 @@ def main(args: Namespace) -> None:
     pob = poblacion.leer()
 
     resultado, perfiles = proceso.procesar(
-        archivos, poligonos, proceso.cargar_config(), conjunto, meta_geo["fecha_osm"], pob
+        archivos, poligonos, proceso.cargar_config(), conjuntos, meta_geo["fecha_osm"], pob
     )
     proceso.escribir(resultado, proceso.topologia(poligonos))
     proceso.escribir_documentacion(perfiles, resultado)
@@ -34,3 +34,6 @@ def main(args: Namespace) -> None:
     if m.servicios_sin_categoria:
         print(f"  Servicios sin categoría (van a Otros): {m.servicios_sin_categoria}")
     print(f"  Población: {'sí' if m.poblacion_disponible else 'no'}")
+    print("  Filas por archivo y mes de creación:")
+    for p in m.filas_por_periodo:
+        print(f"    {p.archivo} {p.mes}: {p.leidas} leídas, {p.validas} válidas")

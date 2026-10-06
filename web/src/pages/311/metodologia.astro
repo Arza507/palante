@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import Baranda from '../../components/Baranda.astro';
 import { datos311 } from '../../modulos/m311/datos';
 import { numero, fecha } from '../../lib/formato';
+import { MINIMO_MUESTRA } from '../../lib/m311';
 
 const d = datos311();
 const csv = (nombre: string) =>
@@ -25,7 +26,14 @@ const genericos = csv('servicios_genericos.csv').map((f) => f[0]);
     <h2>Fuente y licencia</h2>
     {d ? (
       <>
-        <p>Usamos el conjunto <a href={d.meta.url}>{d.meta.fuente}</a>, que publica la Alcaldía de Panamá en el Portal de Datos Abiertos con licencia {d.meta.licencia}.</p>
+        {d.meta.conjuntos.length > 1 ? (
+          <>
+            <p>Usamos estos conjuntos, que publica la Alcaldía de Panamá en el Portal de Datos Abiertos con licencia {d.meta.licencia}:</p>
+            <ul>{d.meta.conjuntos.map((c) => <li><a href={c.url}>{c.titulo}</a></li>)}</ul>
+          </>
+        ) : (
+          <p>Usamos el conjunto <a href={d.meta.url}>{d.meta.fuente}</a>, que publica la Alcaldía de Panamá en el Portal de Datos Abiertos con licencia {d.meta.licencia}. Es el único con el detalle de cada caso. Los demás conjuntos del 311 de la Alcaldía son conteos por mes de esos mismos casos.</p>
+        )}
         <p>Estos datos cubren los casos creados {d.periodo}. Los procesamos el {fecha(d.meta.fecha_proceso)}.</p>
         <p>Leímos {numero(d.meta.filas_leidas)} filas y usamos {numero(d.meta.filas_validas)}.</p>
         {d.meta.filas_descartadas.length > 0 && (
@@ -67,6 +75,9 @@ const genericos = csv('servicios_genericos.csv').map((f) => f[0]);
     <h2>Días hasta el cierre</h2>
     <p>El archivo no trae la fecha de cierre. Para los casos resueltos usamos la fecha de su último cambio. La cifra es la mediana: la mitad de los casos se cerró en menos días y la otra mitad en más.</p>
     {d && <p>Solo la mostramos cuando hay al menos {d.resumen.minimo_casos_mediana} casos resueltos.</p>}
+
+    <h2>Muestras pequeñas</h2>
+    <p>Cuando un corregimiento o una categoría tiene menos de {MINIMO_MUESTRA} casos, no damos porcentajes ni lo ponemos en un orden de principales. Mostramos el número de casos y la nota «muestra insuficiente». Con tan pocos casos, uno solo cambia mucho el porcentaje. Cada porcentaje va junto a su número de casos.</p>
 
     <h2>Colores del mapa</h2>
     <p>El mapa usa cinco tonos, de claro a oscuro. Cada tono agrupa a una quinta parte de los corregimientos con reportes, más o menos. La leyenda muestra los valores de cada tono y la lista tiene los números exactos.</p>

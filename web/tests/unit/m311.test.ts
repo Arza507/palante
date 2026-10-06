@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import {
-  agregar, clase, cortes, detalle, escribirFiltros, leerFiltros, leyenda, SIN_FILTRO,
+  agregar, clase, cortes, detalle, escribirFiltros, leerFiltros, leyenda, proporcion, SIN_FILTRO,
   textoCompartir, totalDistrito, usaTasa, type Resumen311,
 } from '../../src/lib/m311';
 
@@ -44,13 +44,33 @@ describe('agregados del 311', () => {
     expect(usaTasa(conPob)).toBe(true);
     expect(agregar(conPob, SIN_FILTRO)[0].valor).toBe(4);
   });
-  it('arma el detalle y el texto para compartir con datos reales', () => {
+  it('con menos de 10 casos no da porcentajes ni orden de categorías', () => {
     const d = detalle(mini, agregar(mini, SIN_FILTRO)[0]);
-    expect(d.principales.map((p) => p.id)).toEqual(['ruido', 'otros']);
-    expect(d.porcentajeResuelto).toBeCloseTo(5 / 8);
+    expect(d.total).toBe(8);
+    expect(d.suficiente).toBe(false);
+    expect(d.principales).toEqual([]);
+    expect(d.pocas.map((p) => [p.id, p.n])).toEqual([['ruido', 5], ['otros', 3]]);
+    expect(d.porcentajeResuelto).toBeNull();
     expect(textoCompartir('Alfa', d, '1 de abril', '30 de junio de 2026')).toBe(
-      'En Alfa hubo 5 reportes de ruido y convivencia al 311 entre el 1 de abril y el 30 de junio de 2026. Míralo en Palante.',
+      'En Alfa hubo 8 reportes al 311 entre el 1 de abril y el 30 de junio de 2026. Míralo en Palante.',
     );
+  });
+  it('con 10 casos o más ordena solo las categorías con 10 casos o más', () => {
+    const grande: Resumen311 = { ...mini, conteos: [[0, 0, 1, 0, 12], [0, 1, 1, 1, 4]], total: 16 };
+    const d = detalle(grande, agregar(grande, SIN_FILTRO)[0]);
+    expect(d.suficiente).toBe(true);
+    expect(d.principales.map((p) => p.id)).toEqual(['ruido']);
+    expect(d.pocas.map((p) => p.id)).toEqual(['otros']);
+    expect(d.porcentajeResuelto).toBeCloseTo(12 / 16);
+    expect(textoCompartir('Alfa', d, '1 de abril', '30 de junio de 2026')).toBe(
+      'En Alfa hubo 12 reportes de ruido y convivencia al 311 entre el 1 de abril y el 30 de junio de 2026. Míralo en Palante.',
+    );
+  });
+  it('cada porcentaje lleva su número de casos', () => {
+    expect(proporcion(31, 50)).toBe('62 % (31 de 50 casos)');
+    expect(proporcion(1, 10)).toBe('10 % (1 de 10 casos)');
+    expect(proporcion(3, 9)).toBeNull();
+    expect(proporcion(10, 1528, 1)).toBe('0,7 % (10 de 1.528 casos)');
   });
 });
 

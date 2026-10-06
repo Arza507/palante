@@ -11,6 +11,32 @@
   "archivos": [
     "311-junio-mayo-abril-2026-detalles-de-casos.xlsx"
   ],
+  "conjuntos": [
+    {
+      "titulo": "Alcaldía de Panamá - Detalle de Casos Reportados al 311- 2026",
+      "url": "https://www.datosabiertos.gob.pa/dataset/alcaldia-de-panama-detalle-de-casos-reportados-al-311-2026"
+    }
+  ],
+  "filas_por_periodo": [
+    {
+      "archivo": "311-junio-mayo-abril-2026-detalles-de-casos.xlsx",
+      "mes": "2026-04",
+      "leidas": 113,
+      "validas": 113
+    },
+    {
+      "archivo": "311-junio-mayo-abril-2026-detalles-de-casos.xlsx",
+      "mes": "2026-05",
+      "leidas": 204,
+      "validas": 202
+    },
+    {
+      "archivo": "311-junio-mayo-abril-2026-detalles-de-casos.xlsx",
+      "mes": "2026-06",
+      "leidas": 213,
+      "validas": 213
+    }
+  ],
   "filas_leidas": 530,
   "filas_validas": 528,
   "filas_descartadas": [

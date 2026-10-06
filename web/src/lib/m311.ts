@@ -1,5 +1,5 @@
 // Lógica del mapa del 311, compartida entre el build (Astro) y el cliente (isla de Preact).
-import { numero } from './formato';
+import { numero, porcentaje } from './formato';
 
 export interface Resumen311 {
   version: number;
@@ -29,6 +29,8 @@ export interface Meta311 {
   servicios_sin_categoria: string[];
   poblacion_disponible: boolean;
   poblacion_nota: string;
+  conjuntos: { titulo: string; url: string }[];
+  filas_por_periodo: { archivo: string; mes: string; leidas: number; validas: number }[];
   fuentes: { id: string; nombre: string; url: string; licencia: string; fecha_texto: string }[];
 }
 
@@ -144,23 +146,51 @@ export function leyenda(c: number[], decimales = 0): PasoLeyenda[] {
 
 export const COLOR_CLASE = ['var(--calor-sin-dato)', 'var(--calor-1)', 'var(--calor-2)', 'var(--calor-3)', 'var(--calor-4)', 'var(--calor-5)'];
 
+/** Por debajo de este número de casos no se dan porcentajes ni posiciones de ranking. */
+export const MINIMO_MUESTRA = 10;
+export const MUESTRA_INSUFICIENTE = 'muestra insuficiente';
+
+export const muestraSuficiente = (casos: number) => casos >= MINIMO_MUESTRA;
+
+/** "1 caso" o "12 casos". */
+export const casos = (n: number) => `${numero(n)} ${n === 1 ? 'caso' : 'casos'}`;
+
+/** Porcentaje con su número de casos: "62 % (31 de 50 casos)". Null si la base tiene menos de 10 casos. */
+export function proporcion(parte: number, base: number, decimales = 0): string | null {
+  if (!muestraSuficiente(base)) return null;
+  return `${porcentaje(parte / base, decimales)} (${numero(parte)} de ${casos(base)})`;
+}
+
+export interface CategoriaFila { id: string; nombre: string; n: number }
+
 export interface Detalle {
   total: number;
-  principales: { id: string; nombre: string; n: number }[];
+  /** El corregimiento tiene 10 casos o más. */
+  suficiente: boolean;
+  /** Hasta tres categorías con 10 casos o más, en orden. Vacío si el total no llega a 10. */
+  principales: CategoriaFila[];
+  /** Categorías con casos que no entran en el orden por tener menos de 10. */
+  pocas: CategoriaFila[];
+  resueltos: number;
+  /** Null si no hay casos o la muestra es insuficiente. */
   porcentajeResuelto: number | null;
 }
 
-/** Total, tres problemas principales y porcentaje resuelto de una fila. */
+/** Total, tres problemas principales y porcentaje resuelto de una fila, sin porcentajes ni orden en muestras pequeñas. */
 export function detalle(r: Resumen311, fila: Fila): Detalle {
-  const principales = r.categorias
+  const suficiente = muestraSuficiente(fila.total);
+  const conCasos = r.categorias
     .map((c, i) => ({ id: c.id, nombre: c.nombre, n: fila.porCategoria[i] }))
     .filter((c) => c.n > 0)
-    .sort((a, b) => b.n - a.n || a.nombre.localeCompare(b.nombre, 'es'))
-    .slice(0, 3);
+    .sort((a, b) => b.n - a.n || a.nombre.localeCompare(b.nombre, 'es'));
+  const principales = suficiente ? conCasos.filter((c) => muestraSuficiente(c.n)).slice(0, 3) : [];
   return {
     total: fila.total,
+    suficiente,
     principales,
-    porcentajeResuelto: fila.total > 0 ? fila.resueltos / fila.total : null,
+    pocas: conCasos.filter((c) => !muestraSuficiente(c.n)),
+    resueltos: fila.resueltos,
+    porcentajeResuelto: suficiente ? fila.resueltos / fila.total : null,
   };
 }
 

@@ -31,6 +31,18 @@ class Conjunto:
     recursos: list[Recurso]
 
 
+def buscar(organizacion: str, texto: str) -> list[tuple[str, str]]:
+    """Nombre y título de los conjuntos de una organización que coinciden con el texto."""
+    r = httpx.get(
+        f"{PORTAL}/api/3/action/package_search",
+        params={"q": texto, "fq": f"organization:{organizacion}", "rows": 1000},
+        headers={"User-Agent": AGENTE},
+        timeout=60,
+    )
+    r.raise_for_status()
+    return [(d["name"], d["title"]) for d in r.json()["result"]["results"]]
+
+
 def conjunto(nombre: str) -> Conjunto:
     r = httpx.get(
         f"{PORTAL}/api/3/action/package_show",

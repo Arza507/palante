@@ -14,12 +14,14 @@ from palante_pipeline.comun.texto import clave, slug
 from palante_pipeline.m311 import lectura
 from palante_pipeline.m311.modelo import (
     Categoria,
+    ConjuntoMeta,
     Corregimiento,
     Descarte,
     Estado,
     FuenteMeta,
     Mediana,
     Meta,
+    PeriodoFilas,
     Resumen,
     Trimestre,
 )
@@ -97,13 +99,24 @@ def procesar(
     archivos: list[Path],
     poligonos: gpd.GeoDataFrame,
     config: Config,
-    conjunto: dict,
+    conjuntos: list[dict],
     fecha_osm: str,
     poblacion: Poblacion | None,
     hoy: date | None = None,
 ) -> tuple[Resultado, list]:
     df, perfiles, leidas = lectura.leer(archivos)
     descartes: list[Descarte] = []
+    if not conjuntos:
+        raise ValueError("Falta la lista de conjuntos de datos del 311")
+    # El conjunto más reciente da el nombre y el enlace principal de la fuente.
+    principal = conjuntos[0]
+    df["mes"] = (
+        df["fecha_creacion"]
+        .fillna("")
+        .str.slice(0, 7)
+        .where(df["fecha_creacion"].fillna("").str.match(r"^\d{4}-\d{2}"), "sin fecha")
+    )
+    leidas_periodo = df.groupby(["archivo", "mes"]).size()
 
     def descartar(mascara: pd.Series, motivo: str, detalle: list[str] | None = None) -> None:
         nonlocal df
@@ -204,6 +217,7 @@ def procesar(
         minimo_casos_mediana=MINIMO_CASOS_MEDIANA,
     )
 
+    validas_periodo = df.groupby(["archivo", "mes"]).size()
     inicio, fin = df["fecha_creacion"].min().date(), df["fecha_creacion"].max().date()
     hoy = hoy or datetime.now(UTC).date()
     con_poblacion = poblacion is not None and all(c.poblacion for c in resumen.corregimientos)
@@ -211,8 +225,8 @@ def procesar(
     fuentes = [
         FuenteMeta(
             id="311",
-            nombre=conjunto["titulo"],
-            url=conjunto["url"],
+            nombre="; ".join(c["titulo"] for c in conjuntos),
+            url=principal["url"],
             licencia="CC0 1.0",
             fecha_texto=f"casos creados del {fecha_texto(inicio)} al {fecha_texto(fin)}",
         ),
@@ -235,8 +249,8 @@ def procesar(
             )
         )
     meta = Meta(
-        fuente=conjunto["titulo"],
-        url=conjunto["url"],
+        fuente=principal["titulo"],
+        url=principal["url"],
         licencia="CC0 1.0 (dominio público)",
         fecha_datos=fin.isoformat(),
         fecha_datos_texto=fecha_texto(fin),
@@ -244,6 +258,11 @@ def procesar(
         periodo_fin=fin.isoformat(),
         fecha_proceso=hoy.isoformat(),
         archivos=sorted({Path(a).name for a in archivos}),
+        conjuntos=[ConjuntoMeta(titulo=c["titulo"], url=c["url"]) for c in conjuntos],
+        filas_por_periodo=[
+            PeriodoFilas(archivo=a, mes=m, leidas=int(n), validas=int(validas_periodo.get((a, m), 0)))
+            for (a, m), n in sorted(leidas_periodo.items())
+        ],
         filas_leidas=leidas,
         filas_validas=len(df),
         filas_descartadas=descartes,
@@ -307,7 +326,7 @@ def escribir_documentacion(
         "",
         "Generado por el pipeline (`uv run python -m palante_pipeline 311`). No editar a mano.",
         "",
-        f"- Fuente: [{m.fuente}]({m.url}), licencia {m.licencia}.",
+        *[f"- Fuente: [{c.titulo}]({c.url}), licencia {m.licencia}." for c in m.conjuntos],
         f"- Casos creados del {m.periodo_inicio} al {m.periodo_fin}. Procesado el {m.fecha_proceso}.",
         f"- Filas leídas: {m.filas_leidas}. Válidas: {m.filas_validas}.",
         "",
@@ -327,7 +346,16 @@ def escribir_documentacion(
             ej = c.omitida or "; ".join(e.replace("|", "/")[:60] for e in c.ejemplos)
             lineas.append(f"| {c.nombre} | {c.tipo} | {c.vacias} | {c.distintos} | {ej} |")
         lineas.append("")
-    lineas += ["## Filas descartadas", ""]
+    lineas += [
+        "## Filas por archivo y mes de creación",
+        "",
+        "| Archivo | Mes | Leídas | Válidas |",
+        "| --- | --- | --- | --- |",
+        *[f"| {p.archivo} | {p.mes} | {p.leidas} | {p.validas} |" for p in m.filas_por_periodo],
+        "",
+        "## Filas descartadas",
+        "",
+    ]
     if not m.filas_descartadas:
         lineas.append("Ninguna.")
     for d in m.filas_descartadas:

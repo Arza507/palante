@@ -31,7 +31,6 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 
 ## M1, mapa del 311
 
-- **Solo el conjunto 2026 de la Alcaldía** (CC0), como dice el SPEC; hoy trae un trimestre (abril a junio). Los conjuntos de la AIG de 2017 a 2024 (CC BY) quedan anotados en REPORT.md.
 - **Límites con Overpass por caja y filtro espacial**: se toman los corregimientos (admin_level 8) cuyo punto interior cae en el distrito (relación 8415626); así no se depende de una lista de nombres. Varios servidores con reintentos porque Overpass suele estar ocupado.
 - **Nombres de OpenStreetMap en la interfaz** ("Bethania"); los del 311 se unen con clave sin tildes y `config/alias_corregimientos.csv`.
 - **Casos de corregimientos fuera del distrito se descartan** con su motivo en `meta.json` y se listan en REPORT.md.
@@ -48,3 +47,16 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 - **Filtros con espacio reservado** antes de hidratar (CLS 0) y ocultos con `<noscript>` cuando no hay JavaScript.
 - **Página sin conexión lee la fecha de las páginas guardadas** (atributo `data-fecha`), no de los JSON.
 - **Fixtures del 311 en Excel versionado** (`fixtures/311/`), generado por `fixtures/generar_fixtures_311.py`.
+
+## Ajustes al M1 (6 de octubre de 2026)
+
+- **El pipeline busca en el portal todos los conjuntos «Detalle de Casos Reportados al 311» de la Alcaldía** (organización `municipio-de-panama`, cualquier año) con la API de CKAN: un conjunto nuevo de 2027 entra solo, sin tocar código.
+- **No se suman los otros conjuntos del 311 de la Alcaldía** (por corregimiento, por tipo, por estado, por dirección, Gestión Ambiental, Obras, Permisos): son conteos mensuales de los mismos casos; sumarlos los contaría dos veces.
+- **No se usan los conjuntos del 311 de la AIG** (2016 a 2024): son de otra institución, de todo el país, con licencia CC BY y sin corregimiento.
+- **`meta.json` guarda las filas leídas y válidas por archivo y mes de creación**, y una prueba exige que sumen las filas totales.
+- **Muestra mínima de 10 casos** (`MINIMO_MUESTRA` en `web/src/lib/m311.ts`) para porcentajes y posiciones en el orden de principales, igual que el umbral de 10 ofertas del módulo de empleo.
+- **Cada porcentaje se escribe con su base**: «62 % (31 de 50 casos)».
+- **Al ordenar la lista por resueltos, los corregimientos con muestra insuficiente van al final** en los dos sentidos: no tienen porcentaje que comparar.
+- **Cada corregimiento del mapa es un `<a href>` a su ficha en el HTML**; la isla solo intercepta el clic principal sin teclas modificadoras para abrir la hoja.
+- **Los SVG del mapa pasan de `role="img"` a `role="group"`** y cada enlace lleva `aria-label`: axe no admite enlaces dentro de una imagen y WebKit no toma el nombre del `<title>` del trazo.
+- **Los enlaces del mapa siguen sin foco de teclado** (`tabindex="-1"`): la lista es la vista equivalente y evita más de 30 paradas de tabulador.

@@ -1,11 +1,13 @@
 // Isla del mapa del 311: filtros en la URL, recoloreo del mapa SVG, leyenda, lista ordenable y hoja inferior.
+// Cada corregimiento del mapa y de la lista es un enlace a su ficha desde el HTML; la hoja inferior
+// solo intercepta el toque en el mapa cuando la isla ya está hidratada.
 import type { ComponentChildren } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import {
-  agregar, clase, COLOR_CLASE, cortes, detalle, escribirFiltros, leerFiltros, leyenda,
-  SIN_FILTRO, totalDistrito, usaTasa, type Filtros, type Resumen311,
+  agregar, casos, clase, COLOR_CLASE, cortes, detalle, escribirFiltros, leerFiltros, leyenda, MINIMO_MUESTRA,
+  muestraSuficiente, proporcion, SIN_FILTRO, totalDistrito, usaTasa, type Filtros, type Resumen311,
 } from '../lib/m311';
-import { numero, porcentaje } from '../lib/formato';
+import { numero } from '../lib/formato';
 
 interface Props {
   resumen: Resumen311;
@@ -57,11 +59,16 @@ export default function Panel311({ resumen, periodo, children }: Props) {
     }
   }, [filas, c, decimales, unidad]);
 
-  // Tocar un corregimiento abre la hoja inferior.
+  // Con la isla hidratada, tocar un corregimiento abre la hoja inferior en lugar de ir a la ficha.
+  // Clic con teclas modificadoras o con otro botón: el enlace hace lo normal (nueva pestaña, etc.).
   useEffect(() => {
     const alTocar = (e: Event) => {
+      const m = e as MouseEvent;
+      if (m.defaultPrevented || m.button !== 0 || m.metaKey || m.ctrlKey || m.shiftKey || m.altKey) return;
       const p = (e.target as Element).closest<SVGPathElement>('[data-slug]');
-      if (p?.dataset.slug) setAbierto(p.dataset.slug);
+      if (!p?.dataset.slug || !p.closest('a')) return;
+      e.preventDefault();
+      setAbierto(p.dataset.slug);
     };
     const mapas = document.querySelectorAll('.mapa311');
     mapas.forEach((m) => m.addEventListener('click', alTocar));
@@ -82,10 +89,13 @@ export default function Panel311({ resumen, periodo, children }: Props) {
   }, [abierto]);
 
   const ordenadas = useMemo(() => {
-    const pr = (f: (typeof filas)[number]) => (f.total ? f.resueltos / f.total : -1);
+    // Los corregimientos con menos de 10 casos no entran en el orden por porcentaje: van al final.
+    const suf = (f: (typeof filas)[number]) => (muestraSuficiente(f.total) ? 1 : 0);
     const v = [...filas].sort((a, b) => {
+      if (orden.columna === 'resuelto' && suf(a) !== suf(b)) return suf(b) - suf(a);
       const d = orden.columna === 'nombre' ? a.nombre.localeCompare(b.nombre, 'es')
-        : orden.columna === 'valor' ? a.valor - b.valor : pr(a) - pr(b);
+        : orden.columna === 'valor' ? a.valor - b.valor
+        : suf(a) ? a.resueltos / a.total - b.resueltos / b.total : 0;
       return (orden.asc ? d : -d) || a.nombre.localeCompare(b.nombre, 'es');
     });
     return v;
@@ -173,7 +183,7 @@ export default function Panel311({ resumen, periodo, children }: Props) {
                   <a href={`/311/${f.slug}`}>{f.nombre}</a>
                 </th>
                 <td class="num">{numero(f.valor, decimales)}</td>
-                <td class="num">{f.total ? porcentaje(f.resueltos / f.total) : '–'}</td>
+                <td class="num">{f.total ? proporcion(f.resueltos, f.total) ?? <span class="insuficiente">Muestra insuficiente</span> : '–'}</td>
               </tr>
             ))}
           </tbody>
@@ -192,13 +202,22 @@ export default function Panel311({ resumen, periodo, children }: Props) {
             <strong class="num">{numero(det.total)}</strong> {det.total === 1 ? 'reporte' : 'reportes'}
             {tasa && filaAbierta.poblacion ? ` (${numero(filaAbierta.valor, 1)} por cada 10.000 habitantes)` : ''}
           </p>
+          {det.total > 0 && !det.suficiente && (
+            <p>{casos(det.total)}: muestra insuficiente. Con menos de {MINIMO_MUESTRA} casos no damos porcentajes ni posiciones.</p>
+          )}
           {det.principales.length > 0 && (
             <>
               <p>Problemas principales:</p>
-              <ol>{det.principales.map((p) => <li>{p.nombre}: {numero(p.n)}</li>)}</ol>
+              <ol>{det.principales.map((p) => <li>{p.nombre}: {casos(p.n)}</li>)}</ol>
             </>
           )}
-          {det.porcentajeResuelto !== null && <p>Resueltos: {porcentaje(det.porcentajeResuelto)}.</p>}
+          {det.pocas.length > 0 && (
+            <>
+              <p>{det.suficiente ? `Con menos de ${MINIMO_MUESTRA} casos (muestra insuficiente):` : 'Casos por categoría:'}</p>
+              <ul>{det.pocas.map((p) => <li>{p.nombre}: {casos(p.n)}</li>)}</ul>
+            </>
+          )}
+          {det.suficiente && <p>Resueltos: {proporcion(det.resueltos, det.total)}.</p>}
           <a class="boton" href={`/311/${filaAbierta.slug}`}>Ver la ficha de {filaAbierta.nombre}</a>
         </div>
       )}

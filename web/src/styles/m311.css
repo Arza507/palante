@@ -63,3 +63,4 @@ tbody th a { display: inline-flex; align-items: center; min-height: 44px; }
 .chip svg { width: 1rem; height: 1rem; }
 .principales { padding-left: 1.25rem; }
 .principales li { margin: .4rem 0; }
+.insuficiente { color: var(--hierro-suave); font-variant-numeric: normal; }

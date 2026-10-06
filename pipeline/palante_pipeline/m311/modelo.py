@@ -71,6 +71,19 @@ class FuenteMeta(BaseModel):
     fecha_texto: str
 
 
+class ConjuntoMeta(BaseModel):
+    titulo: str
+    url: str
+
+
+class PeriodoFilas(BaseModel):
+    archivo: str
+    # Mes de creación del caso (AAAA-MM) o "sin fecha".
+    mes: str
+    leidas: int = Field(ge=0)
+    validas: int = Field(ge=0)
+
+
 class Meta(BaseModel):
     modulo: str = "311"
     fuente: str
@@ -82,6 +95,8 @@ class Meta(BaseModel):
     periodo_fin: str
     fecha_proceso: str
     archivos: list[str]
+    conjuntos: list[ConjuntoMeta]
+    filas_por_periodo: list[PeriodoFilas]
     filas_leidas: int
     filas_validas: int
     filas_descartadas: list[Descarte]
@@ -94,4 +109,8 @@ class Meta(BaseModel):
     def cuadra(self) -> "Meta":
         if self.filas_validas + sum(d.filas for d in self.filas_descartadas) != self.filas_leidas:
             raise ValueError("Filas válidas + descartadas no suman las filas leídas")
+        if sum(p.leidas for p in self.filas_por_periodo) != self.filas_leidas:
+            raise ValueError("Las filas por periodo no suman las filas leídas")
+        if sum(p.validas for p in self.filas_por_periodo) != self.filas_validas:
+            raise ValueError("Las filas válidas por periodo no suman las filas válidas")
         return self

@@ -11,7 +11,14 @@ from palante_pipeline.m311 import geo, proceso
 from palante_pipeline.m311.modelo import Mediana, Resumen
 
 F = FIXTURES / "311"
-CONJUNTO = {"titulo": "Detalle de casos 311 FIXTURE", "url": "https://example.org/311", "licencia": "cc-zero"}
+CONJUNTOS = [
+    {
+        "titulo": "Detalle de casos 311 2027 FIXTURE",
+        "url": "https://example.org/311-2027",
+        "licencia": "cc-zero",
+    },
+    {"titulo": "Detalle de casos 311 FIXTURE", "url": "https://example.org/311", "licencia": "cc-zero"},
+]
 
 
 @pytest.fixture(scope="module")
@@ -21,7 +28,7 @@ def corrida(tmp_path_factory):
         [F / "casos-fixture.xlsx"],
         poligonos,
         proceso.cargar_config(),
-        CONJUNTO,
+        CONJUNTOS,
         meta_geo["fecha_osm"],
         None,
         hoy=date(2026, 10, 5),
@@ -168,3 +175,42 @@ def test_ninguna_descripcion_real_llega_a_public():
     assert textos, "no se leyeron textos de control"
     fugas = [t for t in textos if t in publico]
     assert fugas == []
+
+
+def test_filas_por_periodo_cuadran(corrida):
+    r, _, _, _ = corrida
+    m = r.meta
+    assert sum(p.leidas for p in m.filas_por_periodo) == m.filas_leidas
+    assert sum(p.validas for p in m.filas_por_periodo) == m.filas_validas
+    assert {p.archivo for p in m.filas_por_periodo} == {"casos-fixture.xlsx"}
+
+
+def test_varios_conjuntos_en_la_fuente(corrida):
+    r, _, _, _ = corrida
+    assert [c.url for c in r.meta.conjuntos] == [c["url"] for c in CONJUNTOS]
+    assert r.meta.url == CONJUNTOS[0]["url"]
+    fuente = next(f for f in r.meta.fuentes if f.id == "311")
+    assert all(c["titulo"] in fuente.nombre for c in CONJUNTOS)
+
+
+def test_descarga_busca_todos_los_detalles_de_la_alcaldia(monkeypatch):
+    from palante_pipeline.m311 import descarga
+
+    monkeypatch.setattr(
+        descarga.ckan,
+        "buscar",
+        lambda org, texto: [
+            (
+                "alcaldia-de-panama-detalle-de-casos-reportados-al-311-2027",
+                "Alcaldía de Panamá - Detalle de Casos Reportados al 311 - 2027",
+            ),
+            (
+                "alcaldia-de-panama-reportes-311-por-tipo-2026",
+                "Alcaldía de Panamá - Reportes 311 por Tipo - 2026",
+            ),
+        ],
+    )
+    assert descarga.nombres_conjuntos() == [
+        "alcaldia-de-panama-detalle-de-casos-reportados-al-311-2027",
+        "alcaldia-de-panama-detalle-de-casos-reportados-al-311-2026",
+    ]

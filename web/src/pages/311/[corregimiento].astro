@@ -5,7 +5,9 @@ import Compartir from '../../components/Compartir.astro';
 import BarrasCategorias from '../../components/BarrasCategorias.astro';
 import Icono from '../../components/Icono.astro';
 import { datos311 } from '../../modulos/m311/datos';
-import { agregar, detalle, ESTILO_CATEGORIA, SIN_FILTRO, textoCompartir, totalDistrito, usaTasa } from '../../lib/m311';
+import {
+  agregar, casos, detalle, ESTILO_CATEGORIA, MINIMO_MUESTRA, proporcion, SIN_FILTRO, textoCompartir, totalDistrito, usaTasa,
+} from '../../lib/m311';
 import { numero, porcentaje } from '../../lib/formato';
 import '../../styles/m311.css';
 
@@ -26,7 +28,7 @@ const tasa = usaTasa(d.resumen);
 const dias = d.resumen.dias_cierre[fila.slug];
 const diasDistrito = d.resumen.dias_cierre_distrito;
 const minimo = d.resumen.minimo_casos_mediana;
-const parteDistrito = distrito.total ? fila.total / distrito.total : 0;
+const resueltoDistrito = proporcion(detDistrito.resueltos, detDistrito.total);
 const categorias = d.resumen.categorias
   .map((c, i) => ({ id: c.id, nombre: c.nombre, n: fila.porCategoria[i] }))
   .filter((c) => c.n > 0)
@@ -51,8 +53,17 @@ const descripcion = det.total
             <p class="rotulo">{det.total === 1 ? 'reporte' : 'reportes'}{tasa && fila.poblacion ? `, ${numero(fila.valor, 1)} por cada 10.000 habitantes` : ''}</p>
           </li>
           <li class="cifra">
-            <p class="valor num">{porcentaje(det.porcentajeResuelto ?? 0)}</p>
-            <p class="rotulo">resueltos. En el distrito: {porcentaje(detDistrito.porcentajeResuelto ?? 0)}.</p>
+            {det.porcentajeResuelto !== null ? (
+              <>
+                <p class="valor num">{porcentaje(det.porcentajeResuelto)}</p>
+                <p class="rotulo">resueltos: {numero(det.resueltos)} de {casos(det.total)}.{resueltoDistrito && ` En el distrito: ${resueltoDistrito}.`}</p>
+              </>
+            ) : (
+              <>
+                <p class="valor">Muestra insuficiente</p>
+                <p class="rotulo">Hay {casos(det.total)}. Con menos de {MINIMO_MUESTRA} no damos el porcentaje de resueltos.</p>
+              </>
+            )}
           </li>
           <li class="cifra">
             {dias?.mediana != null ? (
@@ -67,23 +78,34 @@ const descripcion = det.total
               </>
             )}
           </li>
-          <li class="cifra">
-            <p class="valor num">{porcentaje(parteDistrito, 1)}</p>
-            <p class="rotulo">de los {numero(distrito.total)} reportes del distrito.</p>
-          </li>
+          {det.suficiente && (
+            <li class="cifra">
+              <p class="valor num">{porcentaje(det.total / distrito.total, 1)}</p>
+              <p class="rotulo">de los reportes del distrito: {numero(det.total)} de {casos(distrito.total)}.</p>
+            </li>
+          )}
         </ul>
 
-        <h2>Tres problemas principales</h2>
-        <ol class="principales">
-          {det.principales.map((p) => (
-            <li>
-              <span class="chip" style={`background:${(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).color}`}>
-                <Icono nombre={(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).icono} />{p.nombre}
-              </span>{' '}
-              {numero(p.n)} {p.n === 1 ? 'reporte' : 'reportes'} ({porcentaje(p.n / det.total)})
-            </li>
-          ))}
-        </ol>
+        <h2>{det.principales.length === 3 ? 'Tres problemas principales' : 'Problemas principales'}</h2>
+        {det.principales.length > 0 && (
+          <ol class="principales">
+            {det.principales.map((p) => (
+              <li>
+                <span class="chip" style={`background:${(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).color}`}>
+                  <Icono nombre={(ESTILO_CATEGORIA[p.id] ?? ESTILO_CATEGORIA.otros).icono} />{p.nombre}
+                </span>{' '}
+                {porcentaje(p.n / det.total)} ({numero(p.n)} de {casos(det.total)})
+              </li>
+            ))}
+          </ol>
+        )}
+        {!det.suficiente ? (
+          <p class="aviso">Hay {casos(det.total)}: muestra insuficiente. Con menos de {MINIMO_MUESTRA} casos no damos porcentajes ni posiciones. Abajo ves los casos de cada categoría.</p>
+        ) : det.pocas.length > 0 && (
+          <p>
+            Con menos de {MINIMO_MUESTRA} casos, muestra insuficiente: {det.pocas.map((p) => `${p.nombre.toLowerCase()}, ${casos(p.n)}`).join('; ')}.
+          </p>
+        )}
 
         <h2>Reportes por categoría</h2>
         <BarrasCategorias items={categorias} titulo={`Reportes por categoría en ${fila.nombre}`} />

@@ -24,6 +24,14 @@ Las columnas de nombre y detalle se eliminan al leer. No se muestran ejemplos de
 | Corregimiento | texto | 0 | 28 | CALIDONIA O LA EXPOSICIÓN; 24 DE DICIEMBRE; PACORA |
 | Detalle | texto | 0 | 529 | texto libre del ciudadano: se elimina al leer |
 
+## Filas por archivo y mes de creación
+
+| Archivo | Mes | Leídas | Válidas |
+| --- | --- | --- | --- |
+| 311-junio-mayo-abril-2026-detalles-de-casos.xlsx | 2026-04 | 113 | 113 |
+| 311-junio-mayo-abril-2026-detalles-de-casos.xlsx | 2026-05 | 204 | 202 |
+| 311-junio-mayo-abril-2026-detalles-de-casos.xlsx | 2026-06 | 213 | 213 |
+
 ## Filas descartadas
 
 - corregimiento fuera del distrito de Panamá o sin polígono: 2: JOSÉ DOMINGO ESPINAR (1), AMELIA DENIS DE ICAZA (1).

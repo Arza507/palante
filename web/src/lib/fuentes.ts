@@ -44,8 +44,8 @@ export const FUENTES: Fuente[] = [
     nombre: 'ESCO: clasificación europea de capacidades y ocupaciones',
     quien: 'Comisión Europea',
     url: 'https://esco.ec.europa.eu/es',
-    licencia: 'Reutilización libre con atribución (Decisión 2011/833/UE)',
-    urlLicencia: 'https://esco.ec.europa.eu/es/about-esco/data-science-and-esco/esco-copyright-and-licence',
+    licencia: 'Descarga gratuita; reutilización con cita de la fuente (Decisión 2011/833/UE)',
+    urlLicencia: 'https://eur-lex.europa.eu/eli/dec/2011/833/oj',
     uso: 'Nombres en español de habilidades para agrupar las ofertas de empleo.',
   },
   {

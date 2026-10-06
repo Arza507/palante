@@ -1,0 +1,15 @@
+---
+// Aviso fijo de cada página de empleo: tamaño de la muestra, fechas y por qué no representa todo el empleo.
+import { numero } from '../../lib/formato';
+import { ofertas } from '../../lib/empleo';
+import type { DatosEmpleo } from '../../modulos/empleo/datos';
+
+interface Props { d: DatosEmpleo }
+const { d } = Astro.props;
+const inf = d.meta.informalidad;
+---
+<p class="aviso aviso-muestra" role="note">
+  Muestra de {ofertas(d.resumen.total.ofertas)} publicadas {d.periodo}, recogidas a mano en páginas públicas de empleo.
+  No representa todo el empleo de Panamá: muchas personas trabajan en la informalidad, sin ofertas publicadas.
+  {inf && <> Según {inf.fuente}, el {numero(inf.porcentaje, 1)} % del empleo era informal en {inf.periodo} (<a href={inf.url}>fuente</a>).</>}
+</p>

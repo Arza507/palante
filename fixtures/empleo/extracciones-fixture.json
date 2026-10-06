@@ -1,0 +1,328 @@
+{
+  "marca": "FIXTURE",
+  "extracciones": {
+    "F-0001": {
+      "habilidades": [
+        "Análisis de datos"
+      ],
+      "herramientas": [
+        "SQL",
+        "Power BI"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "intermedio"
+        }
+      ],
+      "anios_experiencia": 2.0,
+      "nivel_educativo": "universitario",
+      "modalidad": "hibrido",
+      "salario": null
+    },
+    "F-0002": {
+      "habilidades": [
+        "Desarrollo web"
+      ],
+      "herramientas": [
+        "JavaScript",
+        "React"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "avanzado"
+        }
+      ],
+      "anios_experiencia": 3.0,
+      "nivel_educativo": "no indicado",
+      "modalidad": "remoto",
+      "salario": {
+        "minimo": 2000.0,
+        "maximo": 2000.0,
+        "periodo": "mes"
+      }
+    },
+    "F-0003": {
+      "habilidades": [
+        "Soporte técnico",
+        "Redes",
+        "Atención al cliente"
+      ],
+      "herramientas": [
+        "Windows"
+      ],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "tecnico",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0004": {
+      "habilidades": [
+        "Redes",
+        "Cableado estructurado"
+      ],
+      "herramientas": [
+        "Fibra óptica",
+        "Licencia de conducir"
+      ],
+      "idiomas": [],
+      "anios_experiencia": 1.0,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0005": {
+      "habilidades": [
+        "Ingeniería de datos"
+      ],
+      "herramientas": [
+        "Python",
+        "SQL",
+        "AWS"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "avanzado"
+        }
+      ],
+      "anios_experiencia": 4.0,
+      "nivel_educativo": "universitario",
+      "modalidad": "hibrido",
+      "salario": null
+    },
+    "F-0006": {
+      "habilidades": [
+        "Análisis de sistemas",
+        "Trabajo en equipo"
+      ],
+      "herramientas": [
+        "SQL Server",
+        "Excel avanzado"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "intermedio"
+        }
+      ],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0007": {
+      "habilidades": [
+        "Reparación de computadoras",
+        "Atención al cliente",
+        "Manejo de caja"
+      ],
+      "herramientas": [],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0008": {
+      "habilidades": [
+        "Diseño de experiencia de usuario"
+      ],
+      "herramientas": [
+        "Figma"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "basico"
+        }
+      ],
+      "anios_experiencia": 2.0,
+      "nivel_educativo": "no indicado",
+      "modalidad": "remoto",
+      "salario": null
+    },
+    "F-0009": {
+      "habilidades": [
+        "Administración de bases de datos"
+      ],
+      "herramientas": [
+        "PostgreSQL",
+        "MySQL"
+      ],
+      "idiomas": [],
+      "anios_experiencia": 5.0,
+      "nivel_educativo": "universitario",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0010": {
+      "habilidades": [
+        "Desarrollo de aplicaciones móviles"
+      ],
+      "herramientas": [
+        "Kotlin",
+        "Swift"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "intermedio"
+        }
+      ],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "hibrido",
+      "salario": null
+    },
+    "F-0011": {
+      "habilidades": [
+        "Soporte técnico"
+      ],
+      "herramientas": [
+        "Paquete Office"
+      ],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "secundaria",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0012": {
+      "habilidades": [
+        "Redes"
+      ],
+      "herramientas": [
+        "SAP"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "intermedio"
+        }
+      ],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0013": {
+      "habilidades": [
+        "Operación de montacargas"
+      ],
+      "herramientas": [
+        "Montacargas",
+        "Licencia de conducir"
+      ],
+      "idiomas": [],
+      "anios_experiencia": 2.0,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0014": {
+      "habilidades": [
+        "Manejo de inventario"
+      ],
+      "herramientas": [
+        "Excel"
+      ],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "secundaria",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0015": {
+      "habilidades": [
+        "Conducción",
+        "Atención al cliente"
+      ],
+      "herramientas": [
+        "Licencia de conducir"
+      ],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0016": {
+      "habilidades": [
+        "Trámites aduaneros",
+        "Coordinación"
+      ],
+      "herramientas": [],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "avanzado"
+        }
+      ],
+      "anios_experiencia": 3.0,
+      "nivel_educativo": "universitario",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0017": {
+      "habilidades": [
+        "Planificación de rutas",
+        "Trabajo en equipo"
+      ],
+      "herramientas": [
+        "Excel avanzado",
+        "SAP"
+      ],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0018": {
+      "habilidades": [
+        "Ventas",
+        "Atención al cliente",
+        "Manejo de caja"
+      ],
+      "herramientas": [],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0019": {
+      "habilidades": [
+        "Manejo de caja"
+      ],
+      "herramientas": [],
+      "idiomas": [],
+      "anios_experiencia": null,
+      "nivel_educativo": "secundaria",
+      "modalidad": "presencial",
+      "salario": null
+    },
+    "F-0020": {
+      "habilidades": [
+        "Ventas",
+        "Comunicación efectiva"
+      ],
+      "herramientas": [
+        "Licencia de conducir"
+      ],
+      "idiomas": [
+        {
+          "idioma": "Inglés",
+          "nivel": "basico"
+        }
+      ],
+      "anios_experiencia": null,
+      "nivel_educativo": "no indicado",
+      "modalidad": "presencial",
+      "salario": null
+    }
+  }
+}

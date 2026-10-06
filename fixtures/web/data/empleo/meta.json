@@ -1,0 +1,41 @@
+{
+  "modulo": "empleo",
+  "origen": "FIXTURE: ofertas inventadas para pruebas",
+  "marca": "FIXTURE",
+  "fecha_proceso": "2026-10-05",
+  "fecha_inicio": "2026-08-02",
+  "fecha_fin": "2026-09-29",
+  "filas_leidas": 83,
+  "ofertas_validas": 80,
+  "ofertas_con_extraccion": 80,
+  "ofertas_sin_extraccion": 0,
+  "filas_descartadas": [
+    {
+      "motivo": "oferta duplicada (mismo título y empresa a menos de 7 días)",
+      "filas": 1
+    },
+    {
+      "motivo": "sector fuera de config/sectores.csv",
+      "filas": 1
+    },
+    {
+      "motivo": "sin texto de la oferta",
+      "filas": 1
+    }
+  ],
+  "fuentes_ofertas": [
+    "Portal FIXTURE"
+  ],
+  "modelo_extraccion": "claude-haiku-4-5",
+  "esco_disponible": true,
+  "informalidad": null,
+  "fuentes": [
+    {
+      "id": "esco",
+      "nombre": "ESCO, clasificación europea de capacidades y ocupaciones",
+      "url": "https://esco.ec.europa.eu/es",
+      "licencia": "Reutilización libre con atribución",
+      "fecha_texto": "etiquetas usadas el 5 de octubre de 2026"
+    }
+  ]
+}

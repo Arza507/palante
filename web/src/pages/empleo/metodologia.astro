@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import Baranda from '../../components/Baranda.astro';
+import { datosEmpleo } from '../../modulos/empleo/datos';
+import { leerDatos } from '../../lib/datos';
+import { MINIMO_OFERTAS, type MetaEmpleo } from '../../lib/empleo';
+import { fecha, numero } from '../../lib/formato';
+
+const d = datosEmpleo();
+const meta = d?.meta ?? leerDatos<MetaEmpleo>('empleo/meta.json');
+---
+<Base titulo="Metodología del observatorio de empleo" descripcion="De dónde salen las ofertas del observatorio de empleo, cómo extraemos las habilidades, qué sesgos tiene y de qué fecha son.">
+  <div class="contenedor">
+    <p><a href="/empleo">Volver al observatorio de empleo</a></p>
+    <h1>Cómo hacemos el observatorio de empleo</h1>
+    <p class="intro">Explicamos de dónde salen las ofertas, cómo las leemos y qué no dicen.</p>
+
+    <h2>De dónde salen las ofertas</h2>
+    <p>Recogemos a mano una muestra de ofertas publicadas en páginas públicas de empleo. No usamos programas que copien páginas web. Cada oferta queda con su fecha, su fuente, su provincia y su sector.</p>
+    {d ? (
+      <>
+        <p>Esta edición tiene {numero(d.meta.ofertas_con_extraccion)} ofertas publicadas {d.periodo}, de estas fuentes: {d.meta.fuentes_ofertas.join(', ')}. Las procesamos el {fecha(d.meta.fecha_proceso)}.</p>
+        <p>Leímos {numero(d.meta.filas_leidas)} filas.</p>
+        {d.meta.filas_descartadas.length > 0 && (
+          <ul>{d.meta.filas_descartadas.map((x) => <li>Dejamos fuera {numero(x.filas)}: {x.motivo}.</li>)}</ul>
+        )}
+      </>
+    ) : (
+      <p>Todavía no hay una muestra publicada.{meta ? ` Última revisión: ${fecha(meta.fecha_proceso)}.` : ''}</p>
+    )}
+
+    <h2>Cómo extraemos las habilidades</h2>
+    <p>Un modelo de lenguaje de Anthropic ({meta?.modelo_extraccion ?? 'Claude Haiku'}) lee cada oferta y devuelve una lista de habilidades, herramientas, idiomas con su nivel, años de experiencia, nivel educativo, modalidad y salario si el texto lo dice. Le pedimos que no invente nada que no esté en el texto, y revisamos que la respuesta tenga el formato correcto.</p>
+    <p>Antes de enviar el texto quitamos correos y teléfonos. Ni los textos de las ofertas ni los nombres de las empresas se publican.</p>
+    <p>Después unimos nombres que dicen lo mismo: «Excel avanzado» pasa a «Microsoft Excel». {meta?.esco_disponible
+      ? 'También usamos las etiquetas en español de ESCO, la clasificación europea de capacidades y ocupaciones.'
+      : 'Cuando tengamos el archivo de ESCO, la clasificación europea de capacidades y ocupaciones, usaremos también sus etiquetas en español.'}</p>
+
+    <h2>Muestras pequeñas</h2>
+    <p>No publicamos ningún número de un grupo con menos de {MINIMO_OFERTAS} ofertas: ni de un sector, ni de una provincia, ni de un mes. Lo mostramos como «muestra insuficiente». El salario mediano solo aparece cuando al menos {MINIMO_OFERTAS} ofertas del grupo dicen el salario.</p>
+
+    <h2>Sesgos</h2>
+    <ul>
+      <li>La muestra no representa todo el empleo de Panamá. Muchas personas trabajan en la informalidad, y esos trabajos casi nunca se publican.</li>
+      <li>Las ofertas publicadas en internet vienen sobre todo de empresas grandes y de la ciudad de Panamá.</li>
+      <li>Una oferta dice lo que la empresa pide, no a quién contrata ni cuánto paga al final.</li>
+      <li>El modelo de lenguaje puede equivocarse. Revisamos una parte de las extracciones a mano.</li>
+    </ul>
+    <Baranda />
+    <p><a href="/fuentes">Todas las fuentes</a> · <a href="/datos">Descarga los datos</a></p>
+  </div>
+</Base>

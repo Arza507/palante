@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Panel from '../../components/empleo/Panel.astro';
+import Barras from '../../components/empleo/Barras.astro';
+import AvisoMuestra from '../../components/empleo/AvisoMuestra.astro';
+import { datosEmpleo } from '../../modulos/empleo/datos';
+import { MINIMO_OFERTAS, ofertas, separar, suficiente } from '../../lib/empleo';
+import { fecha, numero, porcentaje } from '../../lib/formato';
+import '../../styles/empleo.css';
+
+const d = datosEmpleo();
+const sectores = d ? separar(d.resumen.sectores) : null;
+const titulo = 'Qué piden las empresas en Panamá, edición 1';
+const descripcion = d
+  ? `Informe del observatorio de empleo de Palante: ${numero(d.resumen.total.ofertas)} ofertas publicadas ${d.periodo}, por sector. Para leer o guardar como PDF.`
+  : 'Informe del observatorio de empleo de Palante: qué piden las empresas en Panamá. Próximamente.';
+const total = d?.resumen.total;
+const principal = total?.habilidades[0];
+---
+<Base titulo={titulo} descripcion={descripcion} fechaDatos={d ? d.fin : undefined}>
+  <article class="contenedor informe">
+    <p class="no-imprimir"><a href="/empleo">Volver al observatorio de empleo</a></p>
+    <h1>{titulo}</h1>
+    {!d || !sectores || !total ? (
+      <div class="banda-azulejo"><p>Próximamente. El informe sale cuando tengamos la primera muestra de ofertas.</p></div>
+    ) : (
+      <>
+        <p class="intro">Observatorio de empleo de Palante. Ofertas publicadas {d.periodo}. Datos procesados el {fecha(d.meta.fecha_proceso)}.</p>
+        <p class="no-imprimir solo-js"><button class="boton" type="button" id="imprimir">Guardar como PDF</button></p>
+        <AvisoMuestra d={d} />
+
+        <section class="seccion">
+          <h2>Resumen</h2>
+          <p>
+            Analizamos {ofertas(total.ofertas)}. El {porcentaje((total.pide_ingles ?? 0) / total.ofertas)} pide inglés.
+            {principal && ` La habilidad más pedida es ${principal.nombre.toLowerCase()}, en ${ofertas(principal.n)}.`}
+            {` Hay ${numero(sectores.publicados.length)} sectores con ${MINIMO_OFERTAS} ofertas o más.`}
+          </p>
+          <Panel c={total} nivel={3} />
+        </section>
+
+        {d.sectores.filter((s) => suficiente(s.celda)).map((s) => (
+          <section class="seccion salto">
+            <h2>{s.nombre}</h2>
+            {suficiente(s.celda) && <Panel c={s.celda} nivel={3} />}
+          </section>
+        ))}
+
+        <section class="seccion salto">
+          <h2>Cómo leer este informe</h2>
+          {sectores.insuficientes.length > 0 && (
+            <p>Sin datos por muestra insuficiente (menos de {MINIMO_OFERTAS} ofertas): {sectores.insuficientes.join('; ')}.</p>
+          )}
+          <p>Cada porcentaje es la parte de las ofertas del grupo que menciona esa habilidad o herramienta. Una oferta puede pedir varias.</p>
+          <p>Las habilidades se extraen del texto de cada oferta con un modelo de lenguaje ({d.meta.modelo_extraccion}) y se agrupan con nombres comunes{d.meta.esco_disponible ? ' y con las etiquetas en español de ESCO' : ''}. La metodología completa está en la página de metodología del observatorio.</p>
+          <Barras titulo="Ofertas por mes de publicación" items={separar(d.resumen.meses).publicados.map((m) => ({ nombre: m.nombre, n: m.celda.ofertas }))} base={total.ofertas} />
+        </section>
+      </>
+    )}
+  </article>
+  <script is:inline>document.getElementById('imprimir')?.addEventListener('click',function(){print()})</script>
+</Base>

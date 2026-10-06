@@ -45,10 +45,6 @@ tbody th a { display: inline-flex; align-items: center; min-height: 44px; }
 .boton-cerrar svg { width: 1.25rem; height: 1.25rem; }
 .hoja-dato strong { font-size: 1.75rem; }
 
-.cifras { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin: 1.5rem 0; padding: 0; list-style: none; }
-.cifra { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 1rem; }
-.cifra .valor { font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.1; }
-.cifra .rotulo { margin: .25rem 0 0; color: var(--hierro-suave); }
 
 .barras { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .5rem; }
 .barras li { display: grid; grid-template-columns: 1fr 3.5rem; gap: .25rem .5rem; align-items: center; }

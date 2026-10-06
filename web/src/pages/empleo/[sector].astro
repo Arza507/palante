@@ -1,0 +1,41 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Barras from '../../components/empleo/Barras.astro';
+import Panel from '../../components/empleo/Panel.astro';
+import AvisoMuestra from '../../components/empleo/AvisoMuestra.astro';
+import Compartir from '../../components/Compartir.astro';
+import { datosEmpleo } from '../../modulos/empleo/datos';
+import { MINIMO_OFERTAS, ofertas, separar, suficiente, textoCompartirEmpleo } from '../../lib/empleo';
+import { numero } from '../../lib/formato';
+import '../../styles/empleo.css';
+
+export const getStaticPaths = (() => (datosEmpleo()?.sectores ?? []).map((s) => ({ params: { sector: s.id } }))) satisfies GetStaticPaths;
+
+const d = datosEmpleo()!;
+const s = d.sectores.find((x) => x.id === Astro.params.sector)!;
+const c = s.celda;
+if (!suficiente(c)) throw new Error(`El sector ${s.id} no tiene muestra suficiente`);
+const provincias = separar(s.provincias);
+const meses = separar(s.meses);
+const descripcion = `${s.nombre}: habilidades, herramientas e inglés que piden ${numero(c.ofertas)} ofertas de empleo publicadas en Panamá ${d.periodo}.`;
+---
+<Base titulo={`${s.nombre}: qué piden las empresas`} descripcion={descripcion} fechaDatos={d.fin} fachadas>
+  <div class="contenedor">
+    <p><a href="/empleo">Volver al observatorio de empleo</a></p>
+    <h1>{s.nombre}</h1>
+    <p class="intro">Qué piden las empresas de este sector en sus ofertas de empleo publicadas {d.periodo}.</p>
+    <AvisoMuestra d={d} />
+    <Panel c={c} />
+    <h2>Ofertas por provincia</h2>
+    <Barras titulo="Porcentaje de las ofertas del sector en cada provincia" items={provincias.publicados.map((p) => ({ nombre: p.nombre, n: p.celda.ofertas }))} base={c.ofertas}
+      nota={provincias.insuficientes.length ? `Con menos de ${MINIMO_OFERTAS} ofertas, muestra insuficiente: ${provincias.insuficientes.join(', ')}.` : undefined} />
+    <h2>Ofertas por mes</h2>
+    <Barras titulo="Porcentaje de las ofertas del sector por mes de publicación" items={meses.publicados.map((p) => ({ nombre: p.nombre, n: p.celda.ofertas }))} base={c.ofertas}
+      nota={meses.insuficientes.length ? `Con menos de ${MINIMO_OFERTAS} ofertas, muestra insuficiente: ${meses.insuficientes.join(', ')}.` : undefined} />
+    <p class="no-imprimir">
+      <Compartir texto={textoCompartirEmpleo(s.nombre, c, d.inicio, d.fin)} url={new URL(`/empleo/${s.id}`, Astro.site).href} titulo={`${s.nombre} en Palante`} />
+    </p>
+    <p>Base: {ofertas(c.ofertas)}. <a href="/empleo/metodologia">Cómo lo calculamos</a>.</p>
+  </div>
+</Base>

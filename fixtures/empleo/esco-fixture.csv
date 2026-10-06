@@ -1,0 +1,5 @@
+conceptType,conceptUri,preferredLabel,altLabels
+KnowledgeSkillCompetence,http://data.europa.eu/esco/skill/FIXTURE-1,atender a los clientes,"Atención al cliente
+servicio al cliente"
+KnowledgeSkillCompetence,http://data.europa.eu/esco/skill/FIXTURE-2,SQL,lenguaje SQL
+KnowledgeSkillCompetence,http://data.europa.eu/esco/skill/FIXTURE-3,trabajar en equipo,Trabajo en equipo

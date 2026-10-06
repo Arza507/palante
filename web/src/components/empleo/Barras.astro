@@ -1,0 +1,32 @@
+---
+// Barras horizontales en SVG generadas en el build. Cada barra lleva nombre, número y porcentaje en texto.
+import { numero, porcentaje } from '../../lib/formato';
+import { ofertas } from '../../lib/empleo';
+
+interface Props {
+  titulo: string;
+  items: { nombre: string; n: number }[];
+  /** Base del porcentaje: ofertas del grupo. */
+  base: number;
+  color?: string;
+  nota?: string;
+}
+const { titulo, items, base, color = 'var(--azulejo)', nota } = Astro.props;
+---
+<figure class="grafico">
+  <figcaption><strong>{titulo}</strong> <span class="base">Base: {ofertas(base)}.</span></figcaption>
+  {items.length === 0 ? <p>Ninguna oferta lo menciona.</p> : (
+    <ul class="barras-h">
+      {items.map((i) => (
+        <li>
+          <span class="nombre">{i.nombre}</span>
+          <svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+            <rect x="0" y="1" width={(i.n / base) * 100} height="8" fill={color}></rect>
+          </svg>
+          <span class="num">{porcentaje(i.n / base)} <span class="cuantas">({numero(i.n)})</span></span>
+        </li>
+      ))}
+    </ul>
+  )}
+  {nota && <p class="nota">{nota}</p>}
+</figure>

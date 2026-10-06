@@ -160,6 +160,12 @@ th { font-weight: 600; }
 td.num, th.num { text-align: right; }
 .tabla-scroll { overflow-x: auto; }
 
+/* Cifras destacadas (311 y empleo) */
+.cifras { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin: 1.5rem 0; padding: 0; list-style: none; }
+.cifra { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 1rem; }
+.cifra .valor { font-size: 2rem; font-weight: 700; margin: 0; line-height: 1.1; }
+.cifra .rotulo { margin: .25rem 0 0; color: var(--hierro-suave); }
+
 /* Pie */
 .pie { border-top: 1px solid var(--linea); padding: 1.5rem 0 7rem; color: var(--hierro-suave); font-size: .9375rem; }
 @media (min-width: 48rem) { .pie { padding-bottom: 2rem; } }

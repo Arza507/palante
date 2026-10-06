@@ -60,3 +60,23 @@ Cada decisión que no está en SPEC.md, con una línea de motivo.
 - **Cada corregimiento del mapa es un `<a href>` a su ficha en el HTML**; la isla solo intercepta el clic principal sin teclas modificadoras para abrir la hoja.
 - **Los SVG del mapa pasan de `role="img"` a `role="group"`** y cada enlace lleva `aria-label`: axe no admite enlaces dentro de una imagen y WebKit no toma el nombre del `<title>` del trazo.
 - **Los enlaces del mapa siguen sin foco de teclado** (`tabindex="-1"`): la lista es la vista equivalente y evita más de 30 paradas de tabulador.
+
+## M2, observatorio de empleo
+
+- **Modelo `claude-haiku-4-5`** (1 USD por millón de tokens de entrada y 5 USD de salida): es el Haiku vigente que pide el SPEC.
+- **SDK `anthropic` 1.x con `messages.parse` y el modelo pydantic `Extraccion`**: la respuesta llega validada; la temperatura 0 va en `extra_body` porque el SDK 1.x quitó ese argumento y Haiku 4.5 lo sigue aceptando.
+- **Estimación de costo sin llamar a la API**: 3 caracteres por token (sobrestima en español) más la instrucción y el esquema; da el costo típico (350 tokens de salida) y el máximo (1.024, el tope por llamada). `count_tokens` sería más exacto pero es una llamada a la API.
+- **El tope `MAX_USD_EMPLEO` se comprueba antes de cada llamada con el peor caso** de esa llamada; una llamada fallida cuenta su peor caso como gastado.
+- **Clave inválida, sin permiso o modelo inexistente detienen la corrida**; los demás errores se anotan y se sigue con la siguiente oferta.
+- **Caché por SHA-256 del texto limpio** en `pipeline/data/cache/empleo/` (fuera de git).
+- **Correos y teléfonos se quitan del texto** antes de calcular la huella y de enviarlo: no hacen falta para extraer habilidades.
+- **Duplicado = mismo título y empresa normalizados a menos de 7 días**; sin empresa no se declara duplicado (el título solo es muy común).
+- **Celdas por sector, provincia y mes por separado** (y sector por provincia y sector por mes), no el cruce de los tres: con muestras de cientos de ofertas, el cruce triple casi nunca llega a 10.
+- **Una celda con menos de 10 ofertas no lleva ningún número**, ni siquiera el número de ofertas; el modelo pydantic `Celda` lo impide.
+- **Salario mediano solo con 10 ofertas o más que digan el salario**; la columna del CSV se toma como mensual y del texto solo se usa el salario por mes.
+- **Sin cifra de informalidad** mientras no exista `raw/empleo/inec/informalidad.csv`: el aviso dice "muchas personas trabajan en la informalidad" sin número inventado.
+- **ESCO opcional**: el pipeline usa `raw/empleo/esco/skills_es.csv` si existe; la descarga oficial pide un correo, así que queda para Iker.
+- **Agregados de empleo con licencia CC BY 4.0**, igual que los datos propios de rutas.
+- **Fixtures de la web con 80 ofertas** (20 escritas a mano y 60 sintéticas) para que haya varios sectores publicables en las pruebas.
+- **Estilos `.cifras` pasan a `global.css`**: los usan el 311 y empleo.
+- **Informe con `@page A4`, `break-inside: avoid` en gráficos y `break-after: avoid` en subtítulos**; cada sector empieza en página nueva.

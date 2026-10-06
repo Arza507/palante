@@ -1,9 +1,77 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Barras from '../../components/empleo/Barras.astro';
+import AvisoMuestra from '../../components/empleo/AvisoMuestra.astro';
+import Compartir from '../../components/Compartir.astro';
+import { datosEmpleo } from '../../modulos/empleo/datos';
+import { MINIMO_OFERTAS, ofertas, separar, textoCompartirEmpleo } from '../../lib/empleo';
+import { numero, porcentaje } from '../../lib/formato';
+import '../../styles/empleo.css';
+
+const d = datosEmpleo();
+const total = d?.resumen.total;
+const sectores = d ? separar(d.resumen.sectores) : null;
+const provincias = d ? separar(d.resumen.provincias) : null;
+const descripcion = d
+  ? `Qué habilidades, herramientas e idiomas piden las empresas en Panamá, por sector. Muestra de ${numero(d.resumen.total.ofertas)} ofertas publicadas ${d.periodo}.`
+  : 'Qué piden las empresas en Panamá por sector: habilidades, herramientas, idiomas y salarios. Próximamente.';
+const jsonLd = d && {
+  '@context': 'https://schema.org', '@type': 'Dataset',
+  name: 'Observatorio de empleo de Palante: qué piden las empresas en Panamá',
+  description: descripcion, inLanguage: 'es',
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  temporalCoverage: `${d.meta.fecha_inicio}/${d.meta.fecha_fin}`,
+  spatialCoverage: 'Panamá',
+  distribution: [{ '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: '/data/empleo/resumen.json' }],
+};
 ---
-<Base titulo="Observatorio de empleo" descripcion="Qué piden las empresas en Panamá por sector: habilidades, herramientas, idiomas y salarios. Próximamente.">
+<Base titulo="Observatorio de empleo" descripcion={descripcion} fechaDatos={d ? d.fin : undefined} jsonLd={jsonLd || undefined} fachadas={!!d}>
   <div class="contenedor">
     <h1>Observatorio de empleo</h1>
-    <div class="banda-azulejo"><p>Próximamente. Estamos reuniendo la primera muestra de ofertas.</p></div>
+    {!d || !total || !sectores || !provincias ? (
+      <>
+        <div class="banda-azulejo"><p>Próximamente. Estamos reuniendo la primera muestra de ofertas.</p></div>
+        <p><a href="/empleo/metodologia">Cómo vamos a hacerlo</a></p>
+      </>
+    ) : (
+      <>
+        <p class="intro">Qué piden las empresas en Panamá en sus ofertas de empleo: habilidades, herramientas e inglés, por sector.</p>
+        <AvisoMuestra d={d} />
+        <ul class="cifras">
+          <li class="cifra"><p class="valor num">{numero(total.ofertas)}</p><p class="rotulo">ofertas analizadas</p></li>
+          <li class="cifra"><p class="valor num">{porcentaje((total.pide_ingles ?? 0) / total.ofertas)}</p><p class="rotulo">piden inglés: {numero(total.pide_ingles ?? 0)} de {ofertas(total.ofertas)}</p></li>
+          <li class="cifra"><p class="valor num">{numero(sectores.publicados.length)}</p><p class="rotulo">sectores con {MINIMO_OFERTAS} ofertas o más</p></li>
+        </ul>
+
+        <h2>Por sector</h2>
+        <ul class="sectores">
+          {sectores.publicados.map((s) => (
+            <li class="sector">
+              <h3>{s.nombre}</h3>
+              <p>{ofertas(s.celda.ofertas)}. Piden inglés: {porcentaje((s.celda.pide_ingles ?? 0) / s.celda.ofertas)} ({numero(s.celda.pide_ingles ?? 0)} de {numero(s.celda.ofertas)}).</p>
+              <Barras titulo="Cinco habilidades más pedidas" items={s.celda.habilidades.slice(0, 5)} base={s.celda.ofertas} />
+              <a class="ver" href={`/empleo/${s.id}`}>Ver {s.nombre.toLowerCase()}</a>
+            </li>
+          ))}
+        </ul>
+        {sectores.insuficientes.length > 0 && (
+          <p>Muestra insuficiente, con menos de {MINIMO_OFERTAS} ofertas: {sectores.insuficientes.join('; ')}.</p>
+        )}
+
+        <h2>En todo el país</h2>
+        <Barras titulo="Habilidades más pedidas" items={total.habilidades} base={total.ofertas} />
+        <Barras titulo="Herramientas más pedidas" items={total.herramientas} base={total.ofertas} />
+
+        <h2>Ofertas por provincia</h2>
+        <Barras titulo="Porcentaje de las ofertas en cada provincia" items={provincias.publicados.map((p) => ({ nombre: p.nombre, n: p.celda.ofertas }))} base={total.ofertas}
+          nota={provincias.insuficientes.length ? `Con menos de ${MINIMO_OFERTAS} ofertas, muestra insuficiente: ${provincias.insuficientes.join(', ')}.` : undefined} />
+
+        <p class="no-imprimir">
+          <a class="boton" href="/empleo/informe">Leer el informe</a>{' '}
+          <Compartir texto={textoCompartirEmpleo(null, total, d.inicio, d.fin)} url={new URL('/empleo', Astro.site).href} titulo="Observatorio de empleo en Palante" />
+        </p>
+        <p>Extracción con el modelo {d.meta.modelo_extraccion} de Anthropic. <a href="/empleo/metodologia">Cómo lo calculamos</a> · <a href="/datos">Descarga los datos</a>.</p>
+      </>
+    )}
   </div>
 </Base>

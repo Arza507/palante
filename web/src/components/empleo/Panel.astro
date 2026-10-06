@@ -1,0 +1,27 @@
+---
+// Panel completo de un grupo de ofertas: habilidades, herramientas, inglés, salario y modalidad.
+import Barras from './Barras.astro';
+import { dolares, modalidades, MINIMO_OFERTAS, type CeldaLlena } from '../../lib/empleo';
+import { numero, porcentaje } from '../../lib/formato';
+
+interface Props { c: CeldaLlena; nivel?: 2 | 3; color?: string }
+const { c, nivel = 2, color } = Astro.props;
+const H = nivel === 2 ? 'h2' : 'h3';
+---
+<ul class="cifras">
+  <li class="cifra"><p class="valor num">{numero(c.ofertas)}</p><p class="rotulo">ofertas analizadas</p></li>
+  <li class="cifra"><p class="valor num">{porcentaje((c.pide_ingles ?? 0) / c.ofertas)}</p><p class="rotulo">piden inglés: {numero(c.pide_ingles ?? 0)} de {numero(c.ofertas)} ofertas</p></li>
+  <li class="cifra">
+    {c.salario_mediano !== null ? (
+      <><p class="valor num">{dolares(c.salario_mediano)}</p><p class="rotulo">salario mensual mediano, con {numero(c.ofertas_con_salario ?? 0)} ofertas que lo dicen</p></>
+    ) : (
+      <><p class="valor">Muestra insuficiente</p><p class="rotulo">Solo {numero(c.ofertas_con_salario ?? 0)} ofertas dicen el salario. Damos la mediana con {MINIMO_OFERTAS} o más.</p></>
+    )}
+  </li>
+</ul>
+<H>Habilidades más pedidas</H>
+<Barras titulo="Porcentaje de ofertas que pide cada habilidad" items={c.habilidades} base={c.ofertas} color={color} />
+<H>Herramientas más pedidas</H>
+<Barras titulo="Porcentaje de ofertas que pide cada herramienta" items={c.herramientas} base={c.ofertas} color={color} />
+<H>Modalidad</H>
+<Barras titulo="Porcentaje de ofertas por modalidad de trabajo" items={modalidades(c)} base={c.ofertas} color={color} />

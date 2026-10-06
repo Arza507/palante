@@ -1,0 +1,35 @@
+/* Observatorio de empleo */
+.grafico { margin: 1rem 0 1.5rem; padding: .75rem 1rem; background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; break-inside: avoid; page-break-inside: avoid; }
+.grafico figcaption { margin-bottom: .5rem; }
+.grafico .base, .grafico .nota { color: var(--hierro-suave); font-size: .9375rem; }
+.barras-h { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; }
+.barras-h li { display: grid; grid-template-columns: 1fr 6rem; gap: .15rem .5rem; align-items: center; }
+.barras-h .nombre { grid-column: 1 / -1; }
+.barras-h svg { width: 100%; height: 1rem; display: block; background: var(--cal); border-radius: 2px; }
+.barras-h .num { text-align: right; font-variant-numeric: tabular-nums; }
+.barras-h .cuantas { color: var(--hierro-suave); }
+@media (min-width: 48rem) {
+  .barras-h li { grid-template-columns: minmax(10rem, 16rem) 1fr 6rem; }
+  .barras-h .nombre { grid-column: auto; }
+}
+.sectores { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+.sector { background: var(--superficie); border: 1px solid var(--linea); border-top: 6px solid var(--azulejo); border-radius: 12px; padding: 1rem; break-inside: avoid; }
+.sector h3 { margin-top: 0; }
+.sector .grafico { border: 0; padding: 0; margin: .5rem 0; }
+.sector a.ver { display: inline-flex; align-items: center; min-height: 44px; }
+.aviso-muestra { font-size: 1rem; }
+
+/* Informe para imprimir en A4 */
+@page { size: A4; margin: 16mm 14mm; }
+@media print {
+  .informe { font-size: 11pt; }
+  .informe h1 { font-size: 22pt; }
+  .informe h2, .informe h3 { break-after: avoid; page-break-after: avoid; }
+  .informe .seccion { break-before: auto; }
+  .informe .salto { break-before: page; page-break-before: always; }
+  .grafico, .cifras, .aviso { break-inside: avoid; page-break-inside: avoid; }
+  .grafico { border-color: #999; }
+  .barras-h svg { background: #eee; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .barras-h rect { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .fachadas, .aviso-sin-conexion { display: none !important; }
+}

@@ -76,3 +76,41 @@ presupuestos cumplidos, Playwright con axe en los cinco perfiles sobre los dos b
 #### Pendiente
 
 - Nada bloqueado. La población por corregimiento del INEC sigue pendiente, como en el M1.
+
+## M2, observatorio de empleo
+
+### Hecho
+
+- Pipeline `uv run python -m palante_pipeline empleo [--probar | --extraer]`: valida `ofertas.csv` con pydantic,
+  rechaza filas sin texto, quita duplicados, extrae con `claude-haiku-4-5` (temperatura 0, salida validada),
+  guarda cada respuesta en caché, normaliza con `config/sinonimos_habilidades.csv` y ESCO, y agrega por sector,
+  provincia y mes. Ninguna celda con menos de 10 ofertas lleva números.
+- `--probar` estima el costo sin llamar a la API. Con los textos de prueba: unos 1.090 tokens de entrada por
+  oferta, **unos 2,84 USD por cada 1.000 ofertas** (máximo 6,21 USD si cada respuesta llegara al tope).
+  Ofertas reales más largas costarán algo más; `--probar` lo calcula con tus filas.
+- `--extraer` exige `ANTHROPIC_API_KEY` y `MAX_USD_EMPLEO` en `.env` y se detiene antes de pasarse del tope.
+  **No se llamó a la API**: no hay clave.
+- Plantilla `pipeline/data/raw/empleo/ofertas-plantilla.csv`, guía `docs/como-recoger-ofertas.md`,
+  `config/sectores.csv` y `config/provincias.csv`.
+- Páginas `/empleo`, `/empleo/[sector]`, `/empleo/informe` (A4, probado: 10 páginas sin gráficos cortados)
+  y `/empleo/metodologia`. Sin datos reales dicen «Próximamente». Aviso fijo con tamaño y fechas de la muestra.
+- Pruebas: 20 ofertas de prueba con su extracción esperada (`fixtures/empleo/`), estimación, caché, tope,
+  plantilla vacía, celdas menores de 10 y una prueba que falla si aparece un scraper o un portal privado.
+
+### Verificación
+
+ruff y pytest (41), `npm run lint`, Vitest (31), build y build con datos de prueba con presupuestos cumplidos,
+Playwright con axe en los cinco perfiles sobre los dos builds (164 y 179 pasan; las omitidas dependen de si hay
+datos) y Lighthouse CI en los dos builds (también `/empleo/tecnologia` y `/empleo/informe` con datos de prueba).
+
+### Pendiente (depende de Iker)
+
+- **Clave de API de Anthropic** en `.env`, con límite de gasto en la consola. Luego: `--probar`, revisar el costo
+  y `--extraer`.
+- **Ofertas reales** en `pipeline/data/raw/empleo/ofertas.csv`, según `docs/como-recoger-ofertas.md`.
+- **ESCO**: la descarga oficial pide un correo (https://esco.ec.europa.eu/es/use-esco/download). Instrucciones en
+  `pipeline/data/raw/empleo/esco/LEEME.md`. La página de licencia de ESCO que citaba `/fuentes` ya no existe
+  (404); ahora enlaza la Decisión 2011/833/UE. Conviene confirmar los términos al descargar.
+- **Encuesta de Mercado Laboral del INEC**: inec.gob.pa no respondió desde esta red y el portal de datos
+  abiertos no tiene esas tablas. Sin ese dato el aviso no da la cifra de informalidad («casi la mitad» del SPEC
+  no se escribe sin fuente). Formato para añadirla en `pipeline/data/raw/empleo/inec/LEEME.md`.

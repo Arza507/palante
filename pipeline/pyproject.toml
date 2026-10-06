@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-empleo = ["anthropic>=0.40"]
+empleo = ["anthropic>=1.11"]
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.7"]
